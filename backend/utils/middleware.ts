@@ -8,7 +8,7 @@ const requestLogger = (req: Request, res: Response, next: NextFunction) => {
 	logger.info('Method:', req.method);
 	logger.info('Path:', req.path);
 	logger.info('Body:', req.body);
-	logger.info('Time:', new Date());
+	logger.info('Time:', Date());
 	logger.info('----:');
 	next();
 };

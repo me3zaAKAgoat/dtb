@@ -1,4 +1,5 @@
-const userRouter = require('express').Router();
+import express from 'express';
+const userRouter = express.Router();
 import User from '../models/user';
 import bcrypt from 'bcrypt';
 import Validator from 'joi';
@@ -8,7 +9,8 @@ import multer from 'multer';
 import sendEmail from '../utils/mail';
 import { verificationMailTemplate } from '../utils/mailTemplates';
 import { v4 as uuidv4 } from 'uuid';
-const cloudinary = require('cloudinary').v2;
+import cloudinary_ from 'cloudinary';
+const cloudinary = cloudinary_.v2;
 import middleware from '../utils/middleware';
 import fs from 'fs';
 import passwordComplexity from 'joi-password-complexity';
@@ -200,6 +202,9 @@ userRouter.put(
 			/** delete previous avatar */
 			if (user.avatar) {
 				const publicId = user.avatar.split('/').pop()?.split('.')[0];
+				if (!publicId) {
+					return res.status(500).json({ error: 'Internal server error' });
+				}
 				await cloudinary.uploader.destroy(publicId);
 			}
 
