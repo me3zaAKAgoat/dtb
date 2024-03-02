@@ -21,6 +21,7 @@ const taskSchema = new mongoose.Schema({
 	cycle: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Cycle',
+		required: true,
 	},
 });
 

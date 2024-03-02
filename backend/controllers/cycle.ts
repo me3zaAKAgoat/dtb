@@ -1,19 +1,71 @@
-// const cycleRouter = require('express').Router();
-// import Validator from 'joi';
-// import config from '../utils/config';
+import express from 'express';
+const cycleRouter = express.Router();
+import Cycle from '../models/cycle';
+import User from '../models/user';
+import { Request, Response } from 'express';
+import { cycleSchema } from '../utils/validators';
 
-// const cycleSchema = Validator.object({
-// 	startDate: Validator.date().required(),
-// 	endDate: Validator.date().optional(),
-// 	userId: Validator.string().required(),
-// });
+/**
+ * Route for posting a new cycle
+ * Route for posting a deleting a cycle
+ * Route for getting a cycle
+ * Route for updating a cycle
+ * Route for getting all cycles for a user
+ */
 
-// /**
-//  * Route for posting a new cycle
-//  * Route for posting a deleting a cycle
-//  * Route for getting a cycle
-//  * Route for updating a cycle
-//  * Route for getting all cycles for a user
-//  */
+cycleRouter.post('/', async (req: Request, res: Response) => {
+	const { error } = cycleSchema.validate(req.body);
+	if (error) {
+		return res.status(400).json({ error: error.details[0].message });
+	}
+	try {
+		const user = await User.findById(req.body.userId);
+		if (!user) {
+			return res.status(404).json({ error: 'User not found' });
+		}
+		const cycle = new Cycle({
+			startDate: req.body.startDate,
+			endDate: req.body.endDate,
+			user: user._id,
+		});
+		await cycle.save();
+		return res.status(201).json();
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
 
-// export default cycleRouter;
+cycleRouter.delete('/:id', async (req: Request, res: Response) => {
+	try {
+		const cycle = await Cycle.findByIdAndDelete(req.params.id);
+		if (!cycle) {
+			return res.status(404).json({ error: 'Cycle not found' });
+		}
+		return res.status(204).json();
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
+cycleRouter.get('/:id', async (req: Request, res: Response) => {
+	try {
+		const cycle = await Cycle.findById(req.params.id);
+		if (!cycle) {
+			return res.status(404).json({ error: 'Cycle not found' });
+		}
+		return res.status(200).json(cycle);
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
+cycleRouter.get('/', async (req: Request, res: Response) => {
+	try {
+		const cycles = await Cycle.find({});
+		return res.status(200).json(cycles);
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
+export default cycleRouter;

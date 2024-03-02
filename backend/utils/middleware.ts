@@ -67,9 +67,28 @@ const unknownEndpoint = (req: Request, res: Response) => {
 	res.status(404).send({ error: 'unknown endpoint' });
 };
 
+const userExtractor = (req: Request, res: Response, next: NextFunction) => {
+	const token = req.token;
+	if (!token) {
+		return res.status(401).json({ error: 'token missing' });
+	}
+	try {
+		const decodedToken = jwt.verify(token, config.SECRET!);
+		if (!decodedToken || typeof decodedToken === 'string') {
+			return res.status(401).json({ error: 'invalid token' });
+		}
+		req.userId = decodedToken.id;
+	} catch (err) {
+		return res.status(401).json({ error: 'invalid token' });
+	}
+
+	next();
+};
+
 export default {
 	requestLogger,
 	errorHandler,
 	tokenExtractor,
 	unknownEndpoint,
+	userExtractor,
 };
