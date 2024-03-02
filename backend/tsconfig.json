@@ -1,15 +1,17 @@
 {
 	"compilerOptions": {
+		"typeRoots": ["./node_modules/@types", "./typings"],
 		"target": "es6",
 		"module": "commonjs",
 		"strict": true,
 		"esModuleInterop": true,
+		"moduleResolution": "node",
 		"outDir": "./dist",
 		"baseUrl": "./",
 		"paths": {
 			"*": ["node_modules/*", "src/types/*"]
 		}
 	},
-	"include": ["src/**/*.ts"],
+	"include": ["**/*.ts"],
 	"exclude": ["node_modules"]
 }

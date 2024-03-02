@@ -4,12 +4,13 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "tsc && node dist/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "tsc && nodemon dist/index.js"
 	},
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@types/node": "^20.11.24",
 		"bcrypt": "^5.1.1",
 		"cloudinary": "^2.0.1",
 		"cors": "^2.8.5",
@@ -23,10 +24,20 @@
 		"multer": "^1.4.5-lts.1",
 		"nodemailer": "^6.9.10",
 		"socket.io": "^4.7.4",
-		"typescript": "^5.3.3",
 		"uuid": "^9.0.1"
 	},
 	"devDependencies": {
-		"nodemon": "^3.0.3"
+		"@types/bcrypt": "^5.0.2",
+		"@types/jsonwebtoken": "^9.0.6",
+		"@types/multer": "^1.4.11",
+		"@types/node": "^20.11.24",
+		"@types/nodemailer": "^6.4.14",
+		"@types/uuid": "^9.0.8",
+		"@typescript-eslint/eslint-plugin": "^7.1.0",
+		"@typescript-eslint/parser": "^7.1.0",
+		"eslint": "^8.57.0",
+		"eslint-plugin-node": "^11.1.0",
+		"nodemon": "^3.0.3",
+		"typescript": "^5.3.3"
 	}
 }

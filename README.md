@@ -20,6 +20,8 @@
   - last name
   - email
   - passwordhash
+  - verified
+  - verificationToken
   - [ Cycles ]
 
 - Cycle
