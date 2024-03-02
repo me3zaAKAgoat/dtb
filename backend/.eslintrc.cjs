@@ -16,8 +16,8 @@ module.exports = {
 	},
 	rules: {
 		'node/no-unsupported-features/es-syntax': 'off',
-		'node/no-missing-import' : 'off',
-		'@typescript-eslint/no-explicit-any' : 'off',
+		'node/no-missing-import': 'off',
+		'@typescript-eslint/no-explicit-any': 'off',
 	},
 	ignorePatterns: ['dist', 'node_modules'],
 };
