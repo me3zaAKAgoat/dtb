@@ -1,4 +1,3 @@
-import './App.css';
 import { useAuth, AuthContext } from './utils/useAuth';
 import { Route, Routes } from 'react-router-dom';
 
