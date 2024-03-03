@@ -14,3 +14,23 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+.login-page > div {
+	box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.12);
+}
+
+.register-page > div {
+	box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.12);
+}
+
+.main-input {
+	@apply bg-primary rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-gray-600 drop-shadow-2xl;
+}
+
+.main-button {
+	@apply btn px-7 text-base font-bold rounded-[2px] bg-primary-content text-primary hover:bg-primary hover:text-primary-content;
+}
+
+.base-page {
+	@apply bg-primary text-primary-content flex flex-col items-center justify-center h-screen;
+}

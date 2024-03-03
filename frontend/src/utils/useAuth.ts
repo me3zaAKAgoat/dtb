@@ -6,6 +6,7 @@ interface User {
 	userInfo: {
 		[key: string]: string;
 	};
+	expiryDate: string | null;
 }
 
 interface AuthContextType {
@@ -15,9 +16,9 @@ interface AuthContextType {
 		userInfo: {
 			[key: string]: string;
 		},
+		expiryDate: string,
 	) => void;
 	logout: () => void;
-	isAuthenticated: () => boolean;
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null);
@@ -32,10 +33,12 @@ export const useAuth = (): AuthContextType => {
 			userInfo: {
 				[key: string]: string;
 			},
+			expiryDate: string,
 		) => {
 			window.localStorage.setItem('token', token);
 			window.localStorage.setItem('userInfo', JSON.stringify(userInfo));
-			setUser({ token, userInfo });
+			window.localStorage.setItem('expiryDate', expiryDate);
+			setUser({ token, userInfo, expiryDate });
 		},
 		[],
 	);
@@ -48,19 +51,24 @@ export const useAuth = (): AuthContextType => {
 		navigate('/login');
 	}, [navigate]);
 
-	const isAuthenticated = useCallback(() => {
-		const token = window.localStorage.getItem('token');
-		const userInfo = JSON.parse(
-			window.localStorage.getItem('userInfo') || '{}',
-		);
-		return !!token && !!userInfo;
-	}, []);
-
 	useEffect(() => {
-		if (!isAuthenticated()) {
-			logout();
-		}
-	}, [user, isAuthenticated, logout]);
+		const authMount = () => {
+			const token = window.localStorage.getItem('token');
+			const userInfo = JSON.parse(
+				window.localStorage.getItem('userInfo') || '{}',
+			);
+			const expiryDate = window.localStorage.getItem('expiryDate');
+			if (
+				!!token &&
+				!!userInfo &&
+				!!expiryDate &&
+				new Date(expiryDate) > new Date()
+			)
+				setUser({ token, userInfo, expiryDate });
+			else logout();
+		};
+		authMount();
+	}, [logout]);
 
-	return { user, login, logout, isAuthenticated };
+	return { user, login, logout };
 };
