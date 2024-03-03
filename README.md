@@ -52,6 +52,8 @@
 - [ ] design modular modal logic
 - [ ] design custom alert system
 - [ ] design base button
+- [ ] design base input
+- [ ] design base text area
 - [ ] design modular flickering of divs on validation error.
 - [ ] find extremely modular way of doing debounce
 - [ ] design good cycle management system (deletion, update, mounting for view demounting etc)
