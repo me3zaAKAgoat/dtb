@@ -20,7 +20,7 @@
   - last name
   - email
   - passwordhash
-  - verified
+  - isVerified
   - verificationToken
   - [ Cycles ]
 
@@ -51,6 +51,7 @@
 
 - [ ] design modular modal logic
 - [ ] design custom alert system
+- [ ] design base button
 - [ ] design modular flickering of divs on validation error.
 - [ ] find extremely modular way of doing debounce
 - [ ] design good cycle management system (deletion, update, mounting for view demounting etc)
@@ -58,3 +59,4 @@
 - [ ] figure out an accent color (probably orange)
 - [ ] set a small horizontal bar that differentiates tasks based on priority (they should be sorted).
 - [ ] rich markdown text editor for notes component that behaves like discord text form parsing.
+- [ ] configure shadcn and use it for all complex components
