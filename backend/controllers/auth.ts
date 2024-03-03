@@ -31,7 +31,7 @@ authRouter.post('/signup', async (req: Request, res: Response) => {
 			email: body.email,
 			passwordHash: passwordHash,
 			isVerified: false,
-			verficiationToken: uuidv4(),
+			verificationToken: uuidv4(),
 		});
 
 		try {
@@ -61,18 +61,18 @@ authRouter.post('/signup', async (req: Request, res: Response) => {
 /** should this be a get or a post request? */
 authRouter.get('/verify/:token', async (req: Request, res: Response) => {
 	const token = req.params.token;
-	const user = await User.findOne({ verficiationToken: token });
+	const user = await User.findOne({ verificationToken: token });
 	if (!user) {
 		return res.status(400).json({ error: 'Invalid token' });
 	}
 	if (user.isVerified) {
-		return res.status(400).json({ error: 'Account already isVerified' });
+		return res.status(400).json({ error: 'Account is already verified' });
 	}
 	user.isVerified = true;
 	try {
 		await user.save();
 		res.setHeader('Content-Type', 'text/html');
-		return res.status(200).send('<h1>Account is verified</h1>');
+		return res.status(200).send('<h1>Account is now verified</h1>');
 	} catch (error: any) {
 		return res.status(400).json({ error: error.message });
 	}
