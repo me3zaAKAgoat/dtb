@@ -74,8 +74,8 @@ const Register = () => {
 
 	return (
 		<div className="base-page register-page">
-			<div className="bg-secondary flex flex-col justify-end items-center w-auto h-auto rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl">
-				<Link className="m-6 hover:underline" to="/login">
+			<div className="bg-secondary flex flex-col justify-end items-center w-auto h-auto rounded-[7px] border border-solid border-tertiary overflow-hidden drop-shadow-2xl">
+				<Link className="m-6 hover:underline font-semibold" to="/login">
 					Already have an account? Log in here.
 				</Link>
 				<form
@@ -135,7 +135,7 @@ const Register = () => {
 					</button>
 				</form>
 				<div
-					className={`mt-6 flex flex-col items-center justify-center h-6 text-textColor bg-red-600 w-full font-bold text-sm ${
+					className={`mt-6 flex flex-col items-center justify-center h-6 text-textColor bg-error w-full font-bold text-sm ${
 						error === null ? 'invisible' : ''
 					}`}
 				>
@@ -144,8 +144,24 @@ const Register = () => {
 
 				{/* Open the modal using document.getElementById('ID').showModal() method */}
 				<dialog id="my_modal_2" className="modal bg-[rgba(0,0,0,0.6)]">
-					<div className="modal-box bg-primary border rounded-[6px]">
-						<p className="font-semibold text-lg py-4">
+					<div className="modal-box p-4 bg-primary border rounded-[6px] flex flex-col">
+						<button className="btn btn-circle btn-outline self-end min-h-6 h-6 w-6">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								className="h-4 w-4"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth="2"
+									d="M6 18L18 6M6 6l12 12"
+								/>
+							</svg>
+						</button>
+						<p className="font-semibold text-lg px-5 pb-7 pt-4">
 							Thank you for signing up! Please check your email to verify your
 							account.
 						</p>

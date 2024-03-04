@@ -46,9 +46,12 @@ function Login({}) {
 	};
 
 	return (
-		<div className="login-page base-page">
+		<div className="login-page base-page ">
 			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-96 rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl">
-				<Link className="m-8 mt-10 hover:underline" to="/register">
+				<Link
+					className="m-8 mt-10 hover:underline  font-semibold"
+					to="/register"
+				>
 					Don't have an account? Sign Up here.
 				</Link>
 				<form
@@ -76,7 +79,7 @@ function Login({}) {
 					</button>
 				</form>
 				<div
-					className={`flex flex-col items-center justify-center h-6 text-textColor bg-red-600 w-full font-bold text-sm ${
+					className={`flex flex-col items-center justify-center h-6 text-primary-content bg-error w-full font-bold text-sm ${
 						error === null ? 'invisible' : ''
 					}`}
 				>
