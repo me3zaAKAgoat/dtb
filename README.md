@@ -50,10 +50,12 @@
 ## Tasks
 
 - [ ] design modular modal logic
+	- [ ] there should be a modal context provider at the highest order component that selectively loads different forms that all adhere to the same styling but mount different forms and information.
 - [ ] design custom alert system
 - [ ] design base button
 - [ ] design base input
 - [ ] design base text area
+- [ ] design context menu system
 - [ ] design modular flickering of divs on validation error.
 - [ ] find extremely modular way of doing debounce
 - [ ] design good cycle management system (deletion, update, mounting for view demounting etc)
