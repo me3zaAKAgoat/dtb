@@ -48,7 +48,7 @@ export const useAuth = (): AuthContextType => {
 		window.localStorage.removeItem('userInfo');
 		window.localStorage.removeItem('expiryDate');
 		setUser(null);
-		navigate('/login');
+		if (window.location.pathname !== '/register') navigate('/login');
 	}, [navigate]);
 
 	useEffect(() => {
