@@ -1,26 +1,6 @@
 import { useState, useEffect, useCallback, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-interface User {
-	token: string | null;
-	userInfo: {
-		[key: string]: string;
-	};
-	expiryDate: string | null;
-}
-
-interface AuthContextType {
-	user: User | null;
-	login: (
-		token: string,
-		userInfo: {
-			[key: string]: string;
-		},
-		expiryDate: string,
-	) => void;
-	logout: () => void;
-}
-
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export const useAuth = (): AuthContextType => {
