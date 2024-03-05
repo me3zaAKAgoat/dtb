@@ -4,8 +4,8 @@ import { AlertContext } from './providers/Alert';
 import { Route, Routes } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
-// import Home from './pages/Home';
-// import Settings from './pages/Settings';
+import Home from './pages/Home';
+import PageNotFound from './pages/PageNotFound';
 import './index.css';
 
 function App() {
@@ -28,16 +28,9 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					{user && (
 						<>
-							{/* <Route path="/" element={<Home />} /> */}
-							{/* <Route path="/settings" element={<Settings />} /> */}
-							<Route
-								path="*"
-								element={
-									<div className="base-page">
-										<h1 className="font-bold">404</h1>
-									</div>
-								}
-							/>
+							<Route path="/" element={<Home />} />
+							<Route path="/home" element={<Home />} />
+							<Route path="*" element={<PageNotFound />} />
 						</>
 					)}
 				</Routes>

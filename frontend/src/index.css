@@ -17,14 +17,16 @@
 
 .login-page > div {
 	box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.12);
+	@apply flex flex-col items-center justify-center;
 }
 
 .register-page > div {
 	box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.12);
+	@apply flex flex-col items-center justify-center;
 }
 
 .main-input {
-	@apply bg-primary rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-gray-600 drop-shadow-2xl;
+	@apply bg-primary placeholder-gray-600 rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-gray-600 drop-shadow-2xl;
 }
 
 .main-button {
@@ -32,5 +34,60 @@
 }
 
 .base-page {
-	@apply bg-primary text-primary-content flex flex-col items-center justify-center h-screen;
+	@apply bg-primary text-primary-content h-screen w-screen;
+}
+
+.custom-navbar {
+	ul {
+		li {
+			svg {
+				transition: 70ms ease-in-out 20ms;
+				transition-property: filter, height, width, transform;
+			}
+			svg:hover {
+				filter: brightness(120%);
+				transform: translateY(-2%) translateX(2%);
+				height: 43px;
+				width: 43px;
+			}
+		}
+	}
+	div {
+		a {
+			img {
+				filter: brightness(80%);
+			}
+		}
+	}
+	.avatar {
+		div {
+			border: 1px solid theme('colors.primary-content');
+			transition-delay: 25ms;
+			transition-duration: 30ms;
+			transition-timing-function: ease-in-out;
+			transition-property: outline;
+		}
+		div:hover,
+		.active-profile-button {
+			outline-offset: 2px;
+			outline: theme('colors.primary-content') solid 1.5px;
+		}
+	}
+}
+
+.board {
+	.board-sides-title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 30px;
+		width: 80px;
+		padding: 5px 15px;
+		font-size: 1.1rem;
+		text-align: center;
+		margin: 2px 0px 10px;
+		background-color: theme('colors.secondary');
+		border: 1px solid theme('colors.tertiary');
+		border-radius: 7px;
+	}
 }

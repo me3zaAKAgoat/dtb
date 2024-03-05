@@ -32,8 +32,12 @@ const ProfileButton = ({
 				}}
 			>
 				<div className="avatar w-10">
-					<div className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-1">
-						<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+					<div
+						className={
+							menuOpen ? `rounded-full active-profile-button` : `rounded-full`
+						}
+					>
+						<img src={user.userInfo.avatar} alt="avatar" />
 					</div>
 				</div>
 			</button>
@@ -49,27 +53,13 @@ const DropdownContainer = ({
 	menuOpen: boolean;
 	logout: () => void;
 }) => {
-	const [transitionProperties, setTransitionProperties] = useState({});
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		if (menuOpen) {
-			setTimeout(() => {
-				setTransitionProperties({ opacity: 1, visibility: 'visible' });
-			}, 1);
-		} else {
-			setTransitionProperties({});
-		}
-	}, [menuOpen]);
 
 	if (menuOpen) {
 		return (
-			<div
-				className="bg-secondary border-[1px] border-tertiary absolute bottom-2 left-16 ml-1 w-28 h-32 flex flex-col justify-center items-center"
-				style={transitionProperties}
-			>
+			<div className="bg-secondary border-[1px] border-tertiary absolute bottom-2 left-16 ml-1 w-36 h-40 flex flex-col justify-center items-center">
 				<button
-					className="mb-2"
+					className="mb-2 hover:filter hover:brightness-125 transition-all font-semibold"
 					onClick={() => {
 						navigate('/settings');
 					}}
@@ -78,7 +68,7 @@ const DropdownContainer = ({
 				</button>
 				<div className="w-[70%] mx-0.5 mt-1.5 mb-1.5 h-[1px] bg-tertiary"></div>
 				<button
-					className="mt-2"
+					className="mt-2 hover:filter hover:brightness-125 transition-all font-semibold"
 					onClick={() => {
 						logout();
 					}}
@@ -96,7 +86,7 @@ const Navbar = ({}) => {
 	const { user, logout } = useContext(AuthContext)!;
 
 	return (
-		<nav className="h-screen w-16 self-start flex flex-col justify-between items-center border-r-[1px] border-r-tertiary">
+		<nav className="custom-navbar h-screen w-16 self-start flex flex-col justify-between items-center border-r-[1px] border-r-tertiary">
 			<div className="flex flex-col items-center">
 				<Link to="." className="">
 					<img src="/dtb.svg" alt="logo" className="p-[10px]" />
@@ -104,8 +94,8 @@ const Navbar = ({}) => {
 				<div className="w-[70%] mx-0.5 mt-1.5 mb-1.5 h-[2px] bg-tertiary flex-grow"></div>
 			</div>
 			<div className="h-full w-full flex flex-col justify-between items-center">
-				<ul className="">
-					<li className="">
+				<ul className="w-full flex flex-col items-center">
+					<li className="h-24">
 						<Link className="m-2" to="/home">
 							<svg
 								className="w-[40px] h-[40px] text-gray-800 dark:text-primary-content"
@@ -124,7 +114,7 @@ const Navbar = ({}) => {
 							</svg>
 						</Link>
 					</li>
-					<li className="">
+					<li className="h-24">
 						<Link className="m-2" to="/dashboard">
 							<svg
 								className="w-[40px] h-[40px] text-gray-800 dark:text-primary-content"
