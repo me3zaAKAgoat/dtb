@@ -13,7 +13,7 @@ import { cycleSchema } from '../utils/validators';
  * Route for getting all cycles for a user
  */
 
-cycleRouter.post('/', async (req: Request, res: Response) => {
+cycleRouter.post('/new', async (req: Request, res: Response) => {
 	const { error } = cycleSchema.validate(req.body);
 	if (error) {
 		return res.status(400).json({ error: error.details[0].message });
@@ -24,12 +24,24 @@ cycleRouter.post('/', async (req: Request, res: Response) => {
 			return res.status(404).json({ error: 'User not found' });
 		}
 		const cycle = new Cycle({
-			startDate: req.body.startDate,
-			endDate: req.body.endDate,
+			startDate: new Date(),
+			endDate: new Date(req.body.endDate),
 			user: user._id,
 		});
 		await cycle.save();
 		return res.status(201).json();
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
+cycleRouter.get('/current', async (req: Request, res: Response) => {
+	try {
+		const cycle = await Cycle.findOne({ archived: false });
+		if (!cycle) {
+			return res.status(404).json({ error: 'Cycle not found' });
+		}
+		return res.status(200).json(cycle);
 	} catch (error: any) {
 		return res.status(500).json({ error: error.message });
 	}

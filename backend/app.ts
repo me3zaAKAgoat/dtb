@@ -18,13 +18,13 @@ app.use(middleware.requestLogger);
 
 app.use('/api/auth', authRouter);
 app.use(
-	'/api/users',
+	'/api/user',
 	middleware.tokenExtractor,
 	middleware.userExtractor,
 	userRouter,
 );
 app.use(
-	'/api/cycles',
+	'/api/cycle',
 	middleware.tokenExtractor,
 	middleware.userExtractor,
 	cycleRouter,

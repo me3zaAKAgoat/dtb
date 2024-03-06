@@ -7,6 +7,7 @@ const cycleSchema = new mongoose.Schema({
 	},
 	endDate: {
 		type: Date,
+		required: true,
 	},
 	user: {
 		type: mongoose.Schema.Types.ObjectId,
@@ -21,6 +22,10 @@ const cycleSchema = new mongoose.Schema({
 	archived: {
 		type: Boolean,
 		default: false,
+	},
+	notes: {
+		type: String,
+		default: '',
 	},
 });
 

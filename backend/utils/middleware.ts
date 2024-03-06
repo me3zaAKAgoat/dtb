@@ -1,5 +1,5 @@
 import logger from './logger';
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import config from './config';
 
 import { Request, Response, NextFunction } from 'express';
@@ -52,9 +52,6 @@ const tokenExtractor = (req: Request, res: Response, next: NextFunction) => {
 		const decodedToken = jwt.verify(token, config.SECRET!);
 		if (!decodedToken || typeof decodedToken === 'string') {
 			return res.status(401).json({ error: 'invalid token' });
-		}
-		if ((decodedToken as JwtPayload).exp! < Date.now() / 1000) {
-			return res.status(401).json({ error: 'token expired' });
 		}
 	} catch (err) {
 		return res.status(401).json({ error: 'invalid token' });
