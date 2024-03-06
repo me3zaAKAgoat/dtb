@@ -28,6 +28,6 @@ interface User {
 
 interface AuthContextType {
 	user: User | null;
-	login: (User) => void;
+	login: (user: User) => void;
 	logout: () => void;
 }

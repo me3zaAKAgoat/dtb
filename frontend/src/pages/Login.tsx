@@ -24,18 +24,18 @@ function Login({}) {
 			setLoading(true);
 			const res = await authApi.login(email, password);
 
-			login(
-				res.token,
-				{
+			login({
+				token: res.token,
+				userInfo: {
 					id: res.id,
+					avatar: res.avatar,
 					username: res.username,
 					firstName: res.firstName,
 					lastName: res.lastName,
 					email: res.email,
-					avatar: res.avatar,
 				},
-				res.expiryDate,
-			);
+				expiryDate: res.expiryDate,
+			});
 
 			setLoading(false);
 			navigate('/');
@@ -46,7 +46,7 @@ function Login({}) {
 	};
 
 	return (
-		<div className="login-page base-page ">
+		<div className="login-page base-page flex flex-col items-center justify-center">
 			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-96 rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl">
 				<Link
 					className="m-8 mt-10 hover:underline  font-semibold"
