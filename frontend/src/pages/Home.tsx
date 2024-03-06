@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 
 function Home() {
 	return (
-		<div className="base-page flex items-center justify-stretch">
+		<div className="base-page flex justify-start">
 			<Navbar />
 			<Board cycleId={null} />
 		</div>

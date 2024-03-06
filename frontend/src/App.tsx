@@ -1,41 +1,39 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useAuth, AuthContext } from './utils/useAuth';
 import { AlertContext } from './providers/Alert';
+import { ModalContext } from './providers/Modal';
 import { Route, Routes } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
 import './index.css';
+import Dashboard from './pages/Dashboard';
 
 function App() {
 	const { user, login, logout } = useAuth();
 	const [alert, setAlert] = useState<Alert | null>(null);
-
-	useEffect(() => {
-		const alertTimeout = setTimeout(() => {
-			setAlert(null);
-		}, 3000);
-
-		return () => clearTimeout(alertTimeout);
-	}, [alert]);
+	const [modal, setModal] = useState<Modal>('off');
 
 	return (
-		<AlertContext.Provider value={{ alert, setAlert }}>
-			<AuthContext.Provider value={{ user, login, logout }}>
-				<Routes>
-					<Route path="/register" element={<Register />} />
-					<Route path="/login" element={<Login />} />
-					{user && (
-						<>
-							<Route path="/" element={<Home />} />
-							<Route path="/home" element={<Home />} />
-							<Route path="*" element={<PageNotFound />} />
-						</>
-					)}
-				</Routes>
-			</AuthContext.Provider>
-		</AlertContext.Provider>
+		<AuthContext.Provider value={{ user, login, logout }}>
+			<ModalContext.Provider value={{ modal, setModal }}>
+				<AlertContext.Provider value={{ alert, setAlert }}>
+					<Routes>
+						<Route path="/register" element={<Register />} />
+						<Route path="/login" element={<Login />} />
+						{user && (
+							<>
+								<Route path="/" element={<Home />} />
+								<Route path="/home" element={<Home />} />
+								<Route path="/dashboard" element={<Dashboard />} />
+								<Route path="*" element={<PageNotFound />} />
+							</>
+						)}
+					</Routes>
+				</AlertContext.Provider>
+			</ModalContext.Provider>
+		</AuthContext.Provider>
 	);
 }
 

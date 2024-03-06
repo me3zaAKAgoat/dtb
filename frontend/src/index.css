@@ -30,7 +30,7 @@
 }
 
 .main-button {
-	@apply btn px-7 text-base font-bold rounded-[2px] bg-primary-content text-primary hover:bg-primary hover:text-primary-content;
+	@apply btn text-base font-bold rounded-[10px] bg-primary-content text-primary hover:bg-primary hover:text-primary-content;
 }
 
 .base-page {
@@ -90,4 +90,114 @@
 		border: 1px solid theme('colors.tertiary');
 		border-radius: 7px;
 	}
+}
+
+.task-card {
+	transition:
+		height 200ms ease-in-out 50ms,
+		visibility 200ms ease-in-out 50ms;
+}
+
+.task-card-open {
+	height: 120px;
+	visibility: visible;
+}
+
+.task-card-closed {
+	height: 0px;
+	visibility: hidden;
+}
+
+.completion-circle {
+	.outer {
+		height: 100%;
+		aspect-ratio: 1 / 1;
+		padding: 0;
+		margin: 0;
+		border-radius: 50%;
+		border: none;
+		overflow: hidden;
+		background-color: theme(colors.tertiary);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		/* important part */
+		display: grid;
+		place-items: center;
+		grid-template-areas: 'inner-div';
+	}
+
+	.inner {
+		height: 71%;
+		width: 71%;
+		border-radius: 50%;
+		border: none;
+		background: theme(colors.secondary);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-family: 'SF PRO DISPLAY';
+		font-weight: bold;
+		font-size: 70%;
+		word-wrap: break-word;
+		/* important part */
+		grid-area: inner-div;
+		color: theme(colors.primary-content);
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+		/* important part */
+		grid-area: inner-div;
+	}
+
+	circle {
+		fill: none;
+		stroke-linecap: round;
+		stroke: theme(colors.primary-content);
+		stroke-width: 12%;
+		transition: stroke-dashoffset 1s 0ms ease-in-out;
+	}
+}
+
+.task-slider {
+	-webkit-appearance: none;
+	height: 5px;
+	background: theme(colors.primary-content);
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+	border-radius: 9999px; /* This value ensures the progress bar has round edges */
+}
+
+.task-slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 13px;
+	height: 13px;
+	background: theme(colors.primary);
+	cursor: pointer;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.task-slider::-moz-range-thumb {
+	width: 13px;
+	height: 13px;
+	background: theme(colors.primary);
+	cursor: pointer;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.task-slider::-moz-range-progress {
+	background-color: theme(colors.primary);
+}
+
+.task-slider::-webkit-slider-runnable-track {
+	background-color: theme(colors.primary);
 }

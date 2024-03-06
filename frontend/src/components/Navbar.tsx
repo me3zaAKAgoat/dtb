@@ -86,7 +86,7 @@ const Navbar = ({}) => {
 	const { user, logout } = useContext(AuthContext)!;
 
 	return (
-		<nav className="custom-navbar h-screen w-16 self-start flex flex-col justify-between items-center border-r-[1px] border-r-tertiary">
+		<nav className="flex-grow-0 flex-shrink-0 custom-navbar h-screen w-16 self-start flex flex-col justify-between items-center border-r-[1px] border-r-tertiary">
 			<div className="flex flex-col items-center">
 				<Link to="." className="">
 					<img src="/dtb.svg" alt="logo" className="p-[10px]" />
@@ -106,9 +106,9 @@ const Navbar = ({}) => {
 							>
 								<path
 									stroke="currentColor"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1.7"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth="1.7"
 									d="m4 12 8-8 8 8M6 10.5V19c0 .6.4 1 1 1h3v-3c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v3h3c.6 0 1-.4 1-1v-8.5"
 								/>
 							</svg>
@@ -125,9 +125,9 @@ const Navbar = ({}) => {
 							>
 								<path
 									stroke="currentColor"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1.7"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth="1.7"
 									d="M4 4v15c0 .6.4 1 1 1h15M8 16l2.5-5.5 3 3L17.3 7 20 9.7"
 								/>
 							</svg>

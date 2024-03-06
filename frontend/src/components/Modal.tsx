@@ -9,7 +9,7 @@ function ModalContent({ type }: { type: Modal }) {
 /**
  * the type should be a union of string that represents the type of modal to be displayed
  */
-function Modal({ type }: { type: Modal }) {
+function ModalPortal({ type }: { type: Modal }) {
 	if (type === 'off') {
 		return <></>;
 	} else {
@@ -26,4 +26,4 @@ function Modal({ type }: { type: Modal }) {
 	}
 }
 
-export default Modal;
+export default ModalPortal;

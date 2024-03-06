@@ -28,12 +28,6 @@ interface User {
 
 interface AuthContextType {
 	user: User | null;
-	login: (
-		token: string,
-		userInfo: {
-			[key: string]: string;
-		},
-		expiryDate: string,
-	) => void;
+	login: (User) => void;
 	logout: () => void;
 }
