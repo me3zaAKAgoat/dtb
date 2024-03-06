@@ -7,21 +7,12 @@ export const useAuth = (): AuthContextType => {
 	const [user, setUser] = useState<User | null>(null);
 	const navigate = useNavigate();
 
-	const login = useCallback(
-		(
-			token: string,
-			userInfo: {
-				[key: string]: string;
-			},
-			expiryDate: string,
-		) => {
-			window.localStorage.setItem('token', token);
-			window.localStorage.setItem('userInfo', JSON.stringify(userInfo));
-			window.localStorage.setItem('expiryDate', expiryDate);
-			setUser({ token, userInfo, expiryDate });
-		},
-		[],
-	);
+	const login = useCallback(({ token, userInfo, expiryDate }: User) => {
+		window.localStorage.setItem('token', token!);
+		window.localStorage.setItem('userInfo', JSON.stringify(userInfo));
+		window.localStorage.setItem('expiryDate', expiryDate!);
+		setUser({ token, userInfo, expiryDate });
+	}, []);
 
 	const logout = useCallback(() => {
 		window.localStorage.removeItem('token');
