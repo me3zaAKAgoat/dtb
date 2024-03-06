@@ -169,6 +169,7 @@
 	background: theme(colors.primary-content);
 	outline: none;
 	opacity: 0.7;
+	cursor: pointer;
 	-webkit-transition: 0.2s;
 	transition: opacity 0.2s;
 	border-radius: 9999px; /* This value ensures the progress bar has round edges */
