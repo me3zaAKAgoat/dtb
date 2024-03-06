@@ -53,7 +53,10 @@ function Board({ cycleId }) {
 
 	return (
 		<div className="board h-full w-full flex flex-col justify-normal items-stretch">
-			<div className="w-full h-[14%] flex justify-center items-center">
+			<div className="w-full h-[14%] flex justify-center items-center relative">
+				<button className="btn bg-secondary absolute left-[5%] aspect-square w-[120px] border border-tertiary">
+					+ Add a task
+				</button>
 				<HUD tasks={tasks} />
 			</div>
 			<div className="w-full h-[86%] flex justify-normal">

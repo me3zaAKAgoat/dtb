@@ -73,7 +73,7 @@ const Register = () => {
 	}, [modal]);
 
 	return (
-		<div className="base-page register-page">
+		<div className="base-page register-page flex flex-col items-center justify-center">
 			<div className="bg-secondary flex flex-col justify-end items-center w-auto h-auto rounded-[7px] border border-solid border-tertiary overflow-hidden drop-shadow-2xl">
 				<Link className="m-6 hover:underline font-semibold" to="/login">
 					Already have an account? Log in here.
@@ -145,7 +145,13 @@ const Register = () => {
 				{/* Open the modal using document.getElementById('ID').showModal() method */}
 				<dialog id="my_modal_2" className="modal bg-[rgba(0,0,0,0.6)]">
 					<div className="modal-box p-4 bg-primary border rounded-[6px] flex flex-col">
-						<button className="btn btn-circle btn-outline self-end min-h-6 h-6 w-6">
+						<button
+							className="btn btn-circle btn-outline self-end min-h-6 h-6 w-6"
+							onClick={() => {
+								setModal(false);
+								navigate('/login');
+							}}
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								className="h-4 w-4"

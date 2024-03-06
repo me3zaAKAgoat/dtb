@@ -68,4 +68,18 @@ cycleRouter.get('/', async (req: Request, res: Response) => {
 	}
 });
 
+cycleRouter.put('/archive/:id', async (req: Request, res: Response) => {
+	try {
+		const cycle = await Cycle.findById(req.params.id);
+		if (!cycle) {
+			return res.status(404).json({ error: 'Cycle not found' });
+		}
+		cycle.archived = true;
+		await cycle.save();
+		return res.status(200).json(cycle);
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
 export default cycleRouter;

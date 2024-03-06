@@ -17,20 +17,18 @@
 
 .login-page > div {
 	box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.12);
-	@apply flex flex-col items-center justify-center;
 }
 
 .register-page > div {
 	box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.12);
-	@apply flex flex-col items-center justify-center;
 }
 
 .main-input {
-	@apply bg-primary placeholder-gray-600 rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-gray-600 drop-shadow-2xl;
+	@apply bg-primary placeholder-tertiary rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-tertiary drop-shadow-2xl;
 }
 
 .main-button {
-	@apply btn text-base font-bold rounded-[10px] bg-primary-content text-primary hover:bg-primary hover:text-primary-content;
+	@apply btn text-base font-bold rounded-[5px] bg-primary-content text-primary hover:bg-primary hover:text-primary-content;
 }
 
 .base-page {
@@ -165,7 +163,7 @@
 
 .task-slider {
 	-webkit-appearance: none;
-	height: 5px;
+	height: 10px;
 	background: theme(colors.primary-content);
 	outline: none;
 	opacity: 0.7;
@@ -196,6 +194,7 @@
 }
 
 .task-slider::-moz-range-progress {
+	height: 8px;
 	background-color: theme(colors.primary);
 }
 

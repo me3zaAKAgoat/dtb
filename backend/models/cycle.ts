@@ -18,6 +18,10 @@ const cycleSchema = new mongoose.Schema({
 			ref: 'Task',
 		},
 	],
+	archived: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 cycleSchema.set('toJSON', {

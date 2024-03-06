@@ -23,10 +23,10 @@ function HUD({ tasks }: { tasks: Task[] }) {
 					<div className="inner">{calcTotal(tasks)}%</div>
 				</div>
 			</div>
-			<button className="btn w-20 text-base font-bold rounded-[10px] border-tertiary bg-primary-content text-primary hover:bg-primary hover:text-primary-content">
+			<button className="btn w-20 text-base rounded-[10px] border-tertiary bg-primary-content text-primary hover:bg-primary hover:text-primary-content">
 				Conclude
 			</button>
-			<button className="btn w-20 text-base font-bold rounded-[10px] border-tertiary bg-error text-primary hover:bg-primary hover:text-primary-content ">
+			<button className="btn w-20 text-base rounded-[10px] border-tertiary bg-error text-primary hover:bg-primary hover:text-primary-content ">
 				Delete
 			</button>
 		</div>

@@ -23,6 +23,9 @@ taskRouter.post('/:id', async (req: Request, res: Response) => {
 
 		if (!cycle) return res.status(404).json({ error: 'Cycle not found' });
 
+		if (cycle.archived)
+			return res.status(400).json({ error: 'Cycle is archived' });
+
 		const task = new Task({
 			title: req.body.title,
 			description: req.body.description,
@@ -50,6 +53,9 @@ taskRouter.delete('/:id', async (req: Request, res: Response) => {
 		const cycle = await Cycle.findById(task.cycle);
 
 		if (!cycle) return res.status(404).json({ error: 'Cycle not found' });
+
+		if (cycle.archived)
+			return res.status(400).json({ error: 'Cycle is archived' });
 
 		await cycle.updateOne({ $pull: { tasks: task.id } });
 
@@ -85,6 +91,13 @@ taskRouter.put('/:id', async (req: Request, res: Response) => {
 		const task = await Task.findById(req.params.id);
 
 		if (!task) return res.status(404).json({ error: 'Task not found' });
+
+		const cycle = await Cycle.findById(task.cycle);
+
+		if (!cycle) return res.status(404).json({ error: 'Cycle not found' });
+
+		if (cycle.archived)
+			return res.status(400).json({ error: 'Cycle is archived' });
 
 		const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {
 			new: true,
