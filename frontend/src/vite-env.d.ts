@@ -1,7 +1,7 @@
 // / <reference types="vite/client" />
 
 // replace string with all the types of modals that exist in the modals directory
-type Modal = 'off' | string;
+type Modal = 'off' | 'CycleStartForm' | 'TaskCreationForm';
 
 interface Task {
 	id: string;
@@ -11,7 +11,7 @@ interface Task {
 	priority: number;
 }
 
-interface Alert {
+interface Toast {
 	type: 'error' | 'success' | 'info';
 	message: string;
 }

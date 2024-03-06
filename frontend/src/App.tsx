@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth, AuthContext } from './utils/useAuth';
-import { AlertContext } from './providers/Alert';
+import { ToastContext } from './providers/Toast';
 import { ModalContext } from './providers/Modal';
 import { Route, Routes } from 'react-router-dom';
 import Register from './pages/Register';
@@ -9,16 +9,18 @@ import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
 import './index.css';
 import Dashboard from './pages/Dashboard';
+import ModalPortal from './components/Modal';
+import ToastPortal from './components/Toast';
 
 function App() {
 	const { user, login, logout } = useAuth();
-	const [alert, setAlert] = useState<Alert | null>(null);
+	const [toast, setToast] = useState<Toast | null>(null);
 	const [modal, setModal] = useState<Modal>('off');
 
 	return (
 		<AuthContext.Provider value={{ user, login, logout }}>
 			<ModalContext.Provider value={{ modal, setModal }}>
-				<AlertContext.Provider value={{ alert, setAlert }}>
+				<ToastContext.Provider value={{ toast, setToast }}>
 					<Routes>
 						<Route path="/register" element={<Register />} />
 						<Route path="/login" element={<Login />} />
@@ -31,7 +33,9 @@ function App() {
 							</>
 						)}
 					</Routes>
-				</AlertContext.Provider>
+					<ToastPortal toast={toast} setToast={setToast} />
+					<ModalPortal modal={modal} setModal={setModal} />
+				</ToastContext.Provider>
 			</ModalContext.Provider>
 		</AuthContext.Provider>
 	);
