@@ -79,8 +79,12 @@ cluegi
 
 ### Yapping
 
-- a homepage should be rendered when first entering the app that renders the latest unarchived cycle, if not it should prompt you to create a new cycle, open an old one or move to dashboard tab
+- there should be a state for toats/alerts/modals at HOC
 - should use radix library for context menu and dialogs and alerts most likely
+  - task card https://www.radix-ui.com/primitives/docs/components/accordion
+  - task context menu https://www.radix-ui.com/primitives/docs/components/context-menu
+  - info toast https://www.radix-ui.com/primitives/docs/components/toast
+- a homepage should be rendered when first entering the app that renders the latest unarchived cycle, if not it should prompt you to create a new cycle, open an old one or move to dashboard tab
 - modal system should be :
   - a component called modal renders all the logic of animation click outside ot exit
   - on top of this component we conditionally render different preset of modals that do different api calls, these modals may need additional props passed to them!
