@@ -103,6 +103,7 @@ authRouter.post('/login', async (req: Request, res: Response) => {
 		};
 
 		const tokenExpirationParam = config.TOKEN_EXPIRATION; //expiration of a user session
+		console.log('tokenExpirationParam', tokenExpirationParam);
 		const token = jwt.sign(tokenPayload, config.SECRET!, {
 			expiresIn: tokenExpirationParam,
 		});
@@ -114,7 +115,7 @@ authRouter.post('/login', async (req: Request, res: Response) => {
 			lastName: user.lastName,
 			email: user.email,
 			avatar: user.avatar,
-			expiryDate: tokenExpirationParam,
+			expiryDate: new Date(Date.now() + Number(tokenExpirationParam) * 1000),
 		});
 	} catch (err) {
 		console.error(err);
