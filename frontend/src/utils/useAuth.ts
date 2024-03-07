@@ -34,9 +34,9 @@ export const useAuth = (): AuthContextType => {
 				!!userInfo &&
 				!!expiryDate &&
 				new Date(expiryDate) > new Date()
-			)
+			) {
 				setUser({ token, userInfo, expiryDate });
-			else logout();
+			} else logout();
 		};
 		authMount();
 	}, [logout]);

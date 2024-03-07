@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import User from '../models/user';
 import config from '../utils/config';
 import { userSchema } from '../utils/validators';
+import ms from 'ms';
 
 authRouter.post('/signup', async (req: Request, res: Response) => {
 	const body = req.body;
@@ -103,7 +104,6 @@ authRouter.post('/login', async (req: Request, res: Response) => {
 		};
 
 		const tokenExpirationParam = config.TOKEN_EXPIRATION; //expiration of a user session
-		console.log('tokenExpirationParam', tokenExpirationParam);
 		const token = jwt.sign(tokenPayload, config.SECRET!, {
 			expiresIn: tokenExpirationParam,
 		});
@@ -115,7 +115,7 @@ authRouter.post('/login', async (req: Request, res: Response) => {
 			lastName: user.lastName,
 			email: user.email,
 			avatar: user.avatar,
-			expiryDate: new Date(Date.now() + Number(tokenExpirationParam) * 1000),
+			expiryDate: new Date(Date.now() + ms(tokenExpirationParam!)),
 		});
 	} catch (err) {
 		console.error(err);

@@ -40,8 +40,8 @@ function Login({}) {
 			setLoading(false);
 			navigate('/');
 		} catch (err: any) {
-			setError(err.response.data.error);
 			setLoading(false);
+			setError(err.response.data.error);
 		}
 	};
 

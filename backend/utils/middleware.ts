@@ -1,7 +1,6 @@
 import logger from './logger';
 import jwt from 'jsonwebtoken';
 import config from './config';
-
 import { Request, Response, NextFunction } from 'express';
 
 const requestLogger = (req: Request, res: Response, next: NextFunction) => {
@@ -49,11 +48,12 @@ const tokenExtractor = (req: Request, res: Response, next: NextFunction) => {
 		if (!secret) {
 			return res.status(500).json({ error: 'server error' });
 		}
-		const decodedToken = jwt.verify(token, config.SECRET!);
+		const decodedToken = jwt.verify(token, secret);
 		if (!decodedToken || typeof decodedToken === 'string') {
 			return res.status(401).json({ error: 'invalid token' });
 		}
 	} catch (err) {
+		console.log(err);
 		return res.status(401).json({ error: 'invalid token' });
 	}
 
