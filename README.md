@@ -70,3 +70,8 @@ cluegi
 - show completion of each task as a number!!!!!
 - everything looks clickable in task card because theres no indicator to whtas clickable and whats not!!
 - priority isnt visible in the ui of the task !!!
+- add task is not intuitively accessible
+- add some sort of explanation or something to show what the app is about in the home no board window
+- add tooltip for all navbar items
+- pre tag does not break at all if there are no new lines !!!
+- home page should not immediately load last unarchived role, add possiblity to load archived roles even if theres unarchived one !!!! 
