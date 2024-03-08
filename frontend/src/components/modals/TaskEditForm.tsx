@@ -80,7 +80,6 @@ function TaskEditForm({
 						className="transition-all focus:border-primary-content bg-secondary my-2 border border-tertiary rounded-[4px] textarea textarea-primary"
 						value={description}
 						onChange={(e) => setDescription(e.target.value)}
-						required
 					/>
 					<label htmlFor="priority" className="font-semibold">
 						Priority
