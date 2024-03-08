@@ -15,7 +15,7 @@ import ToastPortal from './components/Toast';
 function App() {
 	const { user, login, logout } = useAuth();
 	const [toast, setToast] = useState<Toast | null>(null);
-	const [modal, setModal] = useState<Modal>('off');
+	const [modal, setModal] = useState<Modal>({ type: 'off' });
 
 	return (
 		<AuthContext.Provider value={{ user, login, logout }}>

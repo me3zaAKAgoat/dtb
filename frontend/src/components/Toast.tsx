@@ -16,13 +16,31 @@ function ToastPortal({
 	}, [toast, setToast]);
 
 	if (!toast) return <></>;
-	return (
-		<div className="toast toast-end">
-			<div className={`alert ${'alert-' + toast.type}`}>
-				<span>{toast.message}.</span>
+	if (toast.type === 'success') {
+		return (
+			<div className="toast toast-end">
+				<div className="rounded-[4px] border border-primary-content alert alert-success">
+					<span>{toast.message}.</span>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	} else if (toast.type === 'error') {
+		return (
+			<div className="toast toast-end">
+				<div className="rounded-[4px] border border-primary-content alert alert-error">
+					<span>{toast.message}.</span>
+				</div>
+			</div>
+		);
+	} else {
+		return (
+			<div className="toast toast-end">
+				<div className="rounded-[4px] border border-primary-content alert alert-warning">
+					<span>{toast.message}.</span>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default ToastPortal;

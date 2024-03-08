@@ -1,13 +1,22 @@
+const priorityWeights = {
+	'very low': 1,
+	low: 2,
+	medium: 3,
+	high: 4,
+	'very high': 5,
+};
+
 export const calcTotal = (tasks: Task[]) => {
 	if (tasks.length === 0) return 0;
 
 	const coeffTotal = tasks.reduce(
-		(accumulator, task) => accumulator + task.priority,
+		(accumulator, task) => accumulator + priorityWeights[task.priority],
 		0,
 	);
 	return Math.trunc(
 		tasks.reduce(
-			(accumulator, task) => accumulator + task.completion * task.priority,
+			(accumulator, task) =>
+				accumulator + task.completion * priorityWeights[task.priority],
 			0,
 		) / coeffTotal,
 	);
@@ -25,7 +34,8 @@ export const strcmp = (s1: string, s2: string) => {
 
 export const sortedTasks = (tasks: Task[]) => {
 	return tasks.sort((a, b) => {
-		const byPriority = b.priority - a.priority;
+		const byPriority =
+			priorityWeights[b.priority] - priorityWeights[a.priority];
 		const byTitle = strcmp(a.title, b.title);
 		return byPriority || byTitle;
 	});

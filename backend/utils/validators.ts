@@ -18,17 +18,13 @@ const userSchema = Validator.object({
 });
 
 const cycleSchema = Validator.object({
-	startDate: Validator.date().required(),
 	endDate: Validator.date().optional(),
-	userId: Validator.string().required(),
 });
 
 const taskSchema = Validator.object({
 	title: Validator.string().required(),
 	description: Validator.string().optional(),
-	completion: Validator.number().required(),
-	priority: Validator.number().required(),
-	cycleId: Validator.string().required(),
+	priority: Validator.string().required(),
 });
 
 const passwordSchema = Validator.object({

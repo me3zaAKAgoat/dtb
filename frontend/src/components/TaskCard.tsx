@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { updateTask } from '../services/task';
+import { AuthContext } from '../utils/useAuth';
+import { useDebounce } from '../utils/useDebounce';
 
 function TaskCard({
 	id,
@@ -10,8 +13,21 @@ function TaskCard({
 	setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }) {
 	const [open, setOpen] = useState(false);
-
+	const { user } = useContext(AuthContext)!;
 	const task = tasks.find((task) => task.id === id);
+	const completion = useDebounce(task?.completion!, 500);
+
+	useEffect(() => {
+		if (task) {
+			updateTask(user?.token!, id, {
+				title: task.title,
+				description: task.description,
+				completion: task.completion,
+				priority: task.priority,
+			});
+		}
+	}, [completion]);
+
 	return (
 		<div className="bg-secondary mb-6 w-full border border-tertiary rounded overflow-hidden flex flex-col">
 			<button className="h-[60px] w-full" onClick={() => setOpen(!open)}>

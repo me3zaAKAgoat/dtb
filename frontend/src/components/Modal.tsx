@@ -1,13 +1,22 @@
 import React, { useEffect } from 'react';
 import CycleStartForm from './modals/CycleStartForm';
+import TaskCreationForm from './modals/TaskCreationForm';
 
 /**
  * This is the modal component that is used to display different types of modals that exist in modals directory
  */
 function ModalContent({ modal }: { modal: Modal }) {
-	if (modal === 'CycleStartForm') {
+	if (modal.type === 'CycleStartForm') {
 		return <CycleStartForm />;
-	} else return <></>;
+	} else if (modal.type === 'TaskCreationForm') {
+		return (
+			<TaskCreationForm
+				cycleId={modal.extraData.cycleId}
+				tasks={modal.extraData.tasks}
+				setTasks={modal.extraData.setTasks}
+			/>
+		);
+	}
 }
 
 /**
@@ -21,8 +30,9 @@ function ModalPortal({
 	setModal: React.Dispatch<React.SetStateAction<Modal>>;
 }) {
 	useEffect(() => {
-		if (modal !== 'off')
+		if (modal.type !== 'off')
 			(document.getElementById('my_modal_2') as HTMLDialogElement).showModal();
+		else (document.getElementById('my_modal_2') as HTMLDialogElement).close();
 	}, [modal]);
 
 	return (
@@ -33,7 +43,7 @@ function ModalPortal({
 			<form method="dialog" className="modal-backdrop">
 				<button
 					onClick={() => {
-						setModal('off');
+						setModal({ type: 'off' });
 					}}
 				>
 					close

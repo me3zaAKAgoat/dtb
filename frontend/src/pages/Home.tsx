@@ -30,7 +30,7 @@ function NoBoard() {
 					<button
 						className="hover:underline ml-2 font-semibold"
 						onClick={() => {
-							setModal('CycleStartForm');
+							setModal({ type: 'CycleStartForm' });
 						}}
 					>
 						Create a new cycle
@@ -81,8 +81,9 @@ function NoBoard() {
 }
 
 function Home() {
-	const [cycle, setCycle] = useState(null);
+	const [cycleId, setCycleId] = useState<string | null>(null);
 	const { user } = useContext(AuthContext)!;
+	const [isLoading, setIsLoading] = useState(true);
 
 	/**
 	 * do a fetch for the current cycle (meaning last cycle that if its not archived)
@@ -93,18 +94,26 @@ function Home() {
 		const fetchCycle = async () => {
 			try {
 				const res = await getCurrentCycle(user?.token!);
-				console.log(res);
-			} catch (err) {
-				console.error(err);
+				setCycleId(res.id);
+			} catch (err: any) {
+				console.error(err.response.data.error);
 			}
+			setIsLoading(false);
 		};
 		fetchCycle();
 	}, []);
 	return (
 		<div className="base-page flex justify-start">
 			<Navbar />
-			<NoBoard />
-			{/* <Board cycleId={null} /> */}
+			{isLoading ? (
+				<div className="h-full w-full flex justify-center items-center">
+					<span className="loading loading-spinner loading-lg"></span>
+				</div>
+			) : cycleId ? (
+				<Board cycleId={cycleId} setCycleId={setCycleId} />
+			) : (
+				<NoBoard />
+			)}
 		</div>
 	);
 }

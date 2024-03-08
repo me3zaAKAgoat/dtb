@@ -1,14 +1,23 @@
 // / <reference types="vite/client" />
 
 // replace string with all the types of modals that exist in the modals directory
-type Modal = 'off' | 'CycleStartForm' | 'TaskCreationForm';
+interface Modal {
+	type: 'off' | 'CycleStartForm' | 'TaskCreationForm';
+	extraData?: {
+		cycleId?: string;
+		tasks?: Task[];
+		setTasks?: React.Dispatch<React.SetStateAction<Task[]>>;
+	};
+}
+
+type priority = 'very high' | 'high' | 'medium' | 'low' | 'very low';
 
 interface Task {
 	id: string;
 	title: string;
 	description: string;
 	completion: number;
-	priority: number;
+	priority: priority;
 }
 
 interface Toast {

@@ -31,7 +31,7 @@ taskRouter.post('/:id', async (req: Request, res: Response) => {
 			description: req.body.description,
 			completion: 0,
 			priority: req.body.priority,
-			cycle: cycle.id,
+			cycle: cycle._id,
 		});
 
 		const savedTask = await task.save();
@@ -82,11 +82,6 @@ taskRouter.get('/:id', async (req: Request, res: Response) => {
 });
 
 taskRouter.put('/:id', async (req: Request, res: Response) => {
-	const { error } = taskSchema.validate(req.body);
-	if (error) {
-		return res.status(400).json({ error: error.details[0].message });
-	}
-
 	try {
 		const task = await Task.findById(req.params.id);
 
@@ -99,11 +94,28 @@ taskRouter.put('/:id', async (req: Request, res: Response) => {
 		if (cycle.archived)
 			return res.status(400).json({ error: 'Cycle is archived' });
 
-		const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {
-			new: true,
+		const updatedTask = await Task.findByIdAndUpdate(req.params.id, {
+			title: req.body.title,
+			description: req.body.description,
+			completion: req.body.completion,
+			priority: req.body.priority,
 		});
 
 		return res.status(200).json(updatedTask);
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
+taskRouter.get('/cycle/:id', async (req: Request, res: Response) => {
+	try {
+		const cycle = await Cycle.findById(req.params.id);
+
+		if (!cycle) return res.status(404).json({ error: 'Cycle not found' });
+
+		const tasks = await Task.find({ cycle: cycle.id });
+
+		return res.status(200).json(tasks);
 	} catch (error: any) {
 		return res.status(500).json({ error: error.message });
 	}

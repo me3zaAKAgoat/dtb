@@ -1,5 +1,7 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useContext } from 'react';
+import { AuthContext } from '../utils/useAuth';
 import { useDebounce } from '../utils/useDebounce';
+import { updateCycleNotes } from '../services/cycle';
 
 const NotesContainer = ({
 	cycleId,
@@ -7,13 +9,16 @@ const NotesContainer = ({
 	setNotes,
 }: {
 	cycleId: string;
-	notes: string;
-	setNotes: React.Dispatch<React.SetStateAction<string>>;
+	notes: string | null;
+	setNotes: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
-	const debouncedNotes = useDebounce(notes, 2000);
+	const debouncedNotes = useDebounce(notes!, 500);
+	const { user } = useContext(AuthContext)!;
 
 	useEffect(() => {
-		// Api Call to save notes
+		if (debouncedNotes) {
+			updateCycleNotes(user?.token!, cycleId, debouncedNotes as string);
+		}
 	}, [debouncedNotes]);
 
 	const handleNotesChange = useCallback(
@@ -28,7 +33,7 @@ const NotesContainer = ({
 		<textarea
 			className="mt-2 w-[80%] h-[85%] bg-secondary border border-tertiary rounded p-4 text-primary-content font-semibold resize-none focus:outline-none focus:ring-4 focus:ring-tertiary transition-all"
 			spellCheck="false"
-			value={notes}
+			value={notes || ''}
 			onChange={handleNotesChange}
 		></textarea>
 	);

@@ -4,6 +4,7 @@ import Cycle from '../models/cycle';
 import User from '../models/user';
 import { Request, Response } from 'express';
 import { cycleSchema } from '../utils/validators';
+import Task from '../models/task';
 
 /**
  * Route for posting a new cycle
@@ -19,7 +20,7 @@ cycleRouter.post('/new', async (req: Request, res: Response) => {
 		return res.status(400).json({ error: error.details[0].message });
 	}
 	try {
-		const user = await User.findById(req.body.userId);
+		const user = await User.findById(req.userId);
 		if (!user) {
 			return res.status(404).json({ error: 'User not found' });
 		}
@@ -29,6 +30,7 @@ cycleRouter.post('/new', async (req: Request, res: Response) => {
 			user: user._id,
 		});
 		await cycle.save();
+		user.cycles = user.cycles.concat(cycle._id);
 		return res.status(201).json();
 	} catch (error: any) {
 		return res.status(500).json({ error: error.message });
@@ -37,11 +39,14 @@ cycleRouter.post('/new', async (req: Request, res: Response) => {
 
 cycleRouter.get('/current', async (req: Request, res: Response) => {
 	try {
-		const cycle = await Cycle.findOne({ archived: false });
+		const cycle = await Cycle.findOne({
+			user: req.userId,
+			archived: false,
+		});
 		if (!cycle) {
 			return res.status(404).json({ error: 'Cycle not found' });
 		}
-		return res.status(200).json(cycle);
+		return res.status(200).json({ id: cycle.id });
 	} catch (error: any) {
 		return res.status(500).json({ error: error.message });
 	}
@@ -49,10 +54,12 @@ cycleRouter.get('/current', async (req: Request, res: Response) => {
 
 cycleRouter.delete('/:id', async (req: Request, res: Response) => {
 	try {
-		const cycle = await Cycle.findByIdAndDelete(req.params.id);
+		const cycle = await Cycle.findById(req.params.id);
 		if (!cycle) {
 			return res.status(404).json({ error: 'Cycle not found' });
 		}
+		await Task.deleteMany({ cycle: cycle.id });
+		await cycle.deleteOne();
 		return res.status(204).json();
 	} catch (error: any) {
 		return res.status(500).json({ error: error.message });
@@ -89,6 +96,32 @@ cycleRouter.put('/archive/:id', async (req: Request, res: Response) => {
 		cycle.archived = true;
 		await cycle.save();
 		return res.status(200).json(cycle);
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
+cycleRouter.get('/notes/:id', async (req: Request, res: Response) => {
+	try {
+		const cycle = await Cycle.findById(req.params.id);
+		if (!cycle) {
+			return res.status(404).json({ error: 'Cycle not found' });
+		}
+		return res.status(200).json(cycle.notes);
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
+cycleRouter.put('/notes/:id', async (req: Request, res: Response) => {
+	try {
+		const cycle = await Cycle.findById(req.params.id);
+		if (!cycle) {
+			return res.status(404).json({ error: 'Cycle not found' });
+		}
+		cycle.notes = req.body.notes;
+		await cycle.save();
+		return res.status(200).json(cycle.notes);
 	} catch (error: any) {
 		return res.status(500).json({ error: error.message });
 	}

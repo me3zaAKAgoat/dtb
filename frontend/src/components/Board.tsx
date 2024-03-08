@@ -1,63 +1,53 @@
-import { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TaskList from './TaskList';
 import CycleNotes from './CycleNotes';
 import HUD from './HUD';
 import { sortedTasks } from '../utils/taskUtil';
+import { getCycleTasks } from '../services/task';
+import { AuthContext } from '../utils/useAuth';
+import { ModalContext } from '../providers/Modal';
+import { getCycleNotes } from '../services/cycle';
 
-function Board({ cycleId }) {
-	const [tasks, setTasks] = useState<Task[]>([
-		{
-			id: '4',
-			title: 'Task 4',
-			description: 'Description of Task 4',
-			completion: 90,
-			priority: 1,
-		},
-		{
-			id: '5',
-			title: 'Task 5',
-			description: 'Description of Task 5',
-			completion: 10,
-			priority: 2,
-		},
-		{
-			id: '6',
-			title: 'Task 6',
-			description: 'Description of Task 6',
-			completion: 50,
-			priority: 3,
-		},
-		{
-			id: '7',
-			title: 'Task 7',
-			description: 'Description of Task 7',
-			completion: 70,
-			priority: 1,
-		},
-		{
-			id: '8',
-			title: 'Task 8',
-			description: 'Description of Task 8',
-			completion: 30,
-			priority: 2,
-		},
-	]);
-	const [notes, setNotes] = useState<string>('');
+function Board({
+	cycleId,
+	setCycleId,
+}: {
+	cycleId: string;
+	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
+}) {
+	const { user } = useContext(AuthContext)!;
+	const [tasks, setTasks] = useState<Task[]>([]);
+	const [notes, setNotes] = useState<string | null>(null);
+	const { setModal } = useContext(ModalContext);
+
+	// useEffect(() => {
+	// 	sortedTasks(tasks);
+	// }, [tasks]);
 
 	useEffect(() => {
-		sortedTasks(tasks);
-	}, [tasks]);
-	// fetch all cycle related stuff here in useEffect here
-
-	// depnding on tasks and notes, we can make api calls to save them
+		getCycleTasks(user?.token!, cycleId).then((data) => {
+			setTasks(data);
+		});
+		getCycleNotes(user?.token!, cycleId).then((data) => {
+			setNotes(data);
+		});
+	}, [cycleId]);
 
 	return (
 		<div className="board h-full w-full flex flex-col justify-normal items-stretch">
 			<div className="w-full h-[14%] flex justify-center items-center relative">
-				<button className="btn bg-secondary absolute left-[5%] aspect-square w-[120px] border border-tertiary">
+				<button
+					className="btn bg-secondary absolute left-[5%] aspect-square w-[120px] border border-tertiary"
+					onClick={() =>
+						setModal({
+							type: 'TaskCreationForm',
+							extraData: { cycleId, tasks, setTasks },
+						})
+					}
+				>
 					+ Add a task
 				</button>
-				<HUD tasks={tasks} />
+				<HUD tasks={tasks} cycleId={cycleId} setCycleId={setCycleId} />
 			</div>
 			<div className="w-full h-[86%] flex justify-normal">
 				<div className="w-1/2 flex flex-col items-center font-semibold">

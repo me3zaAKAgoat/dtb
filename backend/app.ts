@@ -5,6 +5,7 @@ import 'express-async-errors';
 import userRouter from './controllers/user';
 import cycleRouter from './controllers/cycle';
 import authRouter from './controllers/auth';
+import taskRouter from './controllers/task';
 // import taskRouter from './controllers/task';
 
 const app = express();
@@ -28,6 +29,12 @@ app.use(
 	middleware.tokenExtractor,
 	middleware.userExtractor,
 	cycleRouter,
+);
+app.use(
+	'/api/task',
+	middleware.tokenExtractor,
+	middleware.userExtractor,
+	taskRouter,
 );
 
 // app.get('*', (req, res) => {
