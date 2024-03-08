@@ -105,7 +105,7 @@ function Home() {
 		const fetchCycle = async () => {
 			try {
 				const res = await getCurrentCycle(user?.token!);
-				if (!res.id) {
+				if (res.id) {
 					setCycleId(res.id);
 				}
 			} catch (err: any) {}

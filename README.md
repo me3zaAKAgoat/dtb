@@ -65,3 +65,8 @@ cluegi
   - task context menu https://www.radix-ui.com/primitives/docs/components/context-menu
 - task list should view the tasks, and sort them
 - add feature to make checkboxes in description of tasks
+- indcator for end of debounce and successful api request
+- description looks like it could be edited (looks like text area)!!!
+- show completion of each task as a number!!!!!
+- everything looks clickable in task card because theres no indicator to whtas clickable and whats not!!
+- priority isnt visible in the ui of the task !!!
