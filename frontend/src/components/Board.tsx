@@ -30,7 +30,7 @@ function Board({
 		});
 		getCycleNotes(user?.token!, cycleId).then((data) => {
 			setNotes(data);
-		});
+		})
 	}, [cycleId]);
 
 	return (

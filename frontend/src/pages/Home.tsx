@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import { getCurrentCycle } from '../services/cycle';
 import { ModalContext } from '../providers/Modal';
 import { AuthContext } from '../utils/useAuth';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function NoBoard({
 	setCycleId,
@@ -11,6 +12,7 @@ function NoBoard({
 	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
 	const { modal, setModal } = useContext(ModalContext);
+	const navigate = useNavigate();
 
 	return (
 		<div className="board h-full w-full flex flex-col justify-center items-center">
@@ -34,8 +36,7 @@ function NoBoard({
 					<button
 						className="hover:underline ml-2 font-semibold"
 						onClick={() => {
-							setModal({ type: 'CycleStartForm' , 
-							extraData: { setCycleId }});
+							setModal({ type: 'CycleStartForm', extraData: { setCycleId } });
 						}}
 					>
 						Create a new cycle
@@ -76,7 +77,12 @@ function NoBoard({
 							d="M4 4v15c0 .6.4 1 1 1h15M8 16l2.5-5.5 3 3L17.3 7 20 9.7"
 						/>
 					</svg>
-					<button className="hover:underline ml-2 font-semibold">
+					<button
+						className="hover:underline ml-2 font-semibold"
+						onClick={() => {
+							navigate('/dashboard');
+						}}
+					>
 						Go to dashboard
 					</button>
 				</div>
@@ -99,10 +105,10 @@ function Home() {
 		const fetchCycle = async () => {
 			try {
 				const res = await getCurrentCycle(user?.token!);
-				setCycleId(res.id);
-			} catch (err: any) {
-				console.error(err.response.data.error);
-			}
+				if (!res.id) {
+					setCycleId(res.id);
+				}
+			} catch (err: any) {}
 			setIsLoading(false);
 		};
 		fetchCycle();

@@ -59,7 +59,7 @@ function CycleStartForm({
 						<div>
 							<h1 className="font-semibold">The cycle will start on:</h1>
 							<h2 className="text-gray-500">
-								{new Date().toLocaleDateString()}
+								{new Date().toLocaleDateString()} (Today)
 							</h2>
 						</div>
 						<label className="font-semibold" htmlFor="cycleEndDate">

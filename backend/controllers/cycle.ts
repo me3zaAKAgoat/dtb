@@ -49,7 +49,7 @@ cycleRouter.get('/current', async (req: Request, res: Response) => {
 			archived: false,
 		});
 		if (!cycle) {
-			return res.status(404).json({ error: 'Cycle not found' });
+			return res.status(200).json({ id: null });
 		}
 		return res.status(200).json({ id: cycle.id });
 	} catch (error: any) {
