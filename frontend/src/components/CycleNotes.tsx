@@ -16,7 +16,7 @@ const NotesContainer = ({
 	const { user } = useContext(AuthContext)!;
 
 	useEffect(() => {
-		if (debouncedNotes) {
+		if (debouncedNotes !== null) {
 			updateCycleNotes(user?.token!, cycleId, debouncedNotes as string);
 		}
 	}, [debouncedNotes]);
@@ -31,11 +31,13 @@ const NotesContainer = ({
 
 	return (
 		<textarea
-			className="mt-2 w-[80%] h-[85%] bg-secondary border border-tertiary rounded p-4 text-primary-content font-semibold resize-none focus:outline-none focus:ring-4 focus:ring-tertiary transition-all"
+			className="placeholder-tertiary  mt-2 w-[80%] h-[85%] bg-secondary border border-tertiary rounded p-4 text-primary-content font-semibold resize-none focus:outline-none focus:ring-4 focus:ring-tertiary transition-all"
 			spellCheck="false"
 			value={notes || ''}
+			placeholder='Add important things you wish to not forget during this cycle'
 			onChange={handleNotesChange}
-		></textarea>
+		>
+		</textarea>
 	);
 };
 

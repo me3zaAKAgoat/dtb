@@ -2,9 +2,10 @@
 
 // replace string with all the types of modals that exist in the modals directory
 interface Modal {
-	type: 'off' | 'CycleStartForm' | 'TaskCreationForm';
+	type: 'off' | 'CycleStartForm' | 'TaskCreationForm' | 'TaskEditForm';
 	extraData?: {
 		cycleId?: string;
+		taskId?: string;
 		tasks?: Task[];
 		setTasks?: React.Dispatch<React.SetStateAction<Task[]>>;
 	};

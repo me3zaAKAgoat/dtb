@@ -91,3 +91,7 @@ cluegi
 - tasks should be at board level
 - task list should view the tasks, and sort them
 - modal state should be at highest order component and should be pe passed to children via context provider
+- add placeholder for when there are no tasks
+- add feature to make checkboxes in description of tasks
+- add guards server guards for when end date is newer than start date
+- add indication to week start date in start cycle form

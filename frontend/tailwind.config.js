@@ -31,6 +31,9 @@ export default {
 
 				'tertiary-content': '#b4b4b4',
 			},
+			border: {
+				radius: '4px',
+			}
 		},
 	},
 	daisyui: {

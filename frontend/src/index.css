@@ -14,6 +14,7 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	
 }
 
 .login-page > div {
@@ -33,7 +34,7 @@
 }
 
 .base-page {
-	@apply bg-primary text-primary-content h-screen w-screen;
+	@apply bg-primary text-primary-content h-screen w-screen overflow-hidden;
 }
 
 .custom-navbar {
@@ -98,7 +99,7 @@
 }
 
 .task-card-open {
-	height: 120px;
+	height: 150px;
 	visibility: visible;
 }
 
@@ -137,7 +138,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		font-family: 'SF PRO DISPLAY';
 		font-weight: bold;
 		font-size: 70%;
 		word-wrap: break-word;
@@ -196,7 +196,7 @@
 
 .task-slider::-moz-range-progress {
 	height: 8px;
-	background-color: theme(colors.primary);
+	background-color: theme(colors.accent);
 }
 
 .task-slider::-webkit-slider-runnable-track {

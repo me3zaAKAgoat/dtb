@@ -23,7 +23,7 @@ function TaskCreationForm({
 	const { user } = useContext(AuthContext)!;
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
-	const [priority, setPriority] = useState('very low');
+	const [priority, setPriority] = useState('medium');
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -57,7 +57,7 @@ function TaskCreationForm({
 					className="flex flex-col items-stretch w-96"
 					onSubmit={handleSubmit}
 				>
-					<h1 className="flex items-center justify-center font-semibold text-xl w-full">
+					<h1 className="mb-5 mt-2 flex items-center justify-center font-semibold text-xl w-full">
 						Create a new task:
 					</h1>
 					<div className="flex flex-col">
@@ -68,7 +68,7 @@ function TaskCreationForm({
 							type="text"
 							name="title"
 							id="title"
-							className="bg-secondary my-2 border border-tertiary rounded-[4px] input input-primary"
+							className="transition-all focus:border-primary-content bg-secondary my-2 border border-tertiary rounded-[4px] input input-primary"
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
 							required
@@ -80,7 +80,7 @@ function TaskCreationForm({
 						<textarea
 							name="description"
 							id="description"
-							className="bg-secondary my-2 border border-tertiary rounded-[4px] textarea textarea-primary"
+							className="transition-all focus:border-primary-content bg-secondary my-2 border border-tertiary rounded-[4px] textarea textarea-primary"
 							value={description}
 							onChange={(e) => setDescription(e.target.value)}
 							required
@@ -92,7 +92,7 @@ function TaskCreationForm({
 						<select
 							name="priority"
 							id="priority"
-							className="bg-secondary my-2 border border-tertiary rounded-[4px] select select-primary"
+							className="transition-all focus:border-primary-content bg-secondary my-2 border border-tertiary rounded-[4px] select select-primary"
 							value={priority}
 							onChange={(e) => setPriority(e.target.value)}
 							required

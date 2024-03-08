@@ -18,7 +18,6 @@ export const createTask = async (
 		title: string;
 		description: string;
 		priority: string;
-		completion: number;
 	},
 ) => {
 	const response = await api.post(`/${cycleId}`, task, {
@@ -46,3 +45,13 @@ export const updateTask = async (
 	});
 	return response.data;
 };
+
+
+export const deleteTask = async (token: string, taskId: string) => {
+	const response = await api.delete(`/${taskId}`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+	return response.data;
+}

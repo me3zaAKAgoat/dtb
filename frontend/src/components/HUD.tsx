@@ -23,7 +23,7 @@ function HUD({
 		}
 	};
 	return (
-		<div className="w-[400px] bg-secondary h-[80%] border border-tertiary rounded p-2 px-4 flex items-center justify-between">
+		<div className="w-[400px] z-10 bg-secondary h-[70%] border border-tertiary rounded p-2 px-4 flex items-center justify-between">
 			<h1 className="flex justify-center items-center font-bold">
 				Completion:
 			</h1>
@@ -44,14 +44,30 @@ function HUD({
 					<div className="inner">{calcTotal(tasks)}%</div>
 				</div>
 			</div>
-			<button className="btn w-20 text-base rounded-[10px] border-tertiary bg-primary-content text-primary hover:bg-primary hover:text-primary-content">
-				Conclude
+			<button className="transition-all hover:brightness-125 border border-primary-content rounded ml-2 bg-accent h-8 w-8 flex items-center justify-center">
+				<svg
+					className="fill-primary-content"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 16 16"
+					width="16"
+					height="16"
+				>
+					<path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path>
+				</svg>
 			</button>
 			<button
 				onClick={handleDelete}
-				className="btn w-20 text-base rounded-[10px] border-tertiary bg-error text-primary hover:bg-primary hover:text-primary-content "
+				className="transition-all hover:brightness-125 border border-primary-content rounded ml-2 bg-error h-8 w-8 flex items-center justify-center"
 			>
-				Delete
+				<svg
+					className="fill-primary-content"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 12 12"
+					width="12"
+					height="12"
+				>
+					<path d="M2.22 2.22a.749.749 0 0 1 1.06 0L6 4.939 8.72 2.22a.749.749 0 1 1 1.06 1.06L7.061 6 9.78 8.72a.749.749 0 1 1-1.06 1.06L6 7.061 3.28 9.78a.749.749 0 1 1-1.06-1.06L4.939 6 2.22 3.28a.749.749 0 0 1 0-1.06Z"></path>
+				</svg>
 			</button>
 		</div>
 	);
