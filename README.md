@@ -73,5 +73,7 @@ cluegi
 - add task is not intuitively accessible
 - add some sort of explanation or something to show what the app is about in the home no board window
 - add tooltip for all navbar items
-- pre tag does not break at all if there are no new lines !!!
-- home page should not immediately load last unarchived role, add possiblity to load archived roles even if theres unarchived one !!!! 
+  - home page should not immediately load last unarchived role, add possiblity to load archived roles even if theres unarchived one !!!!
+- task creation should not require description in backend !!!
+- title should not look like tasks!!
+- maybe indicate priority visually by setting border color

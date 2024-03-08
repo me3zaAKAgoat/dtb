@@ -9,10 +9,7 @@ const userSchema = Validator.object({
 	password: passwordComplexity({
 		min: 8,
 		max: 25,
-		lowerCase: 1,
-		upperCase: 1,
 		numeric: 1,
-		symbol: 1,
 		requirementCount: 4,
 	}),
 });
@@ -23,7 +20,6 @@ const cycleSchema = Validator.object({
 
 const taskSchema = Validator.object({
 	title: Validator.string().required(),
-	description: Validator.string().optional(),
 	priority: Validator.string().required(),
 });
 

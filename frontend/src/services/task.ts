@@ -46,7 +46,6 @@ export const updateTask = async (
 	return response.data;
 };
 
-
 export const deleteTask = async (token: string, taskId: string) => {
 	const response = await api.delete(`/${taskId}`, {
 		headers: {
@@ -54,4 +53,4 @@ export const deleteTask = async (token: string, taskId: string) => {
 		},
 	});
 	return response.data;
-}
+};

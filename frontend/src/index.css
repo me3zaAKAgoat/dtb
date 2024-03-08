@@ -14,7 +14,6 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	
 }
 
 .login-page > div {
@@ -86,9 +85,9 @@
 		font-size: 1.1rem;
 		text-align: center;
 		margin: 2px 0px 10px;
-		background-color: theme('colors.secondary');
+		background-color: theme('colors.tertiary');
 		border: 1px solid theme('colors.tertiary');
-		border-radius: 7px;
+		border-radius: 4px;
 	}
 }
 
@@ -201,4 +200,8 @@
 
 .task-slider::-webkit-slider-runnable-track {
 	background-color: theme(colors.primary);
+}
+
+.preserve-lines {
+	white-space: pre-line;
 }

@@ -6,6 +6,14 @@ import { deleteTask } from '../services/task';
 import { ToastContext } from '../providers/Toast';
 import { ModalContext } from '../providers/Modal';
 
+const priorityColor = {
+	'very low': 'border-l-red-700',
+	low: 'border-l-red-300',
+	medium: 'border-l-slate-300',
+	high: 'border-l-green-300',
+	'very high': 'border-l-green-700',
+};
+
 function TaskCard({
 	id,
 	tasks,
@@ -34,7 +42,9 @@ function TaskCard({
 	}, [completion]);
 
 	const handleDelete = async () => {
-		const confirm = window.confirm('Are you sure you want to delete this task?');
+		const confirm = window.confirm(
+			'Are you sure you want to delete this task?',
+		);
 		if (!confirm) return;
 		await deleteTask(user?.token!, id);
 		const newTasks = tasks.filter((task) => task.id !== id);
@@ -57,13 +67,14 @@ function TaskCard({
 	};
 
 	return (
-		<div className="bg-secondary mb-6 w-full border border-tertiary rounded overflow-hidden flex flex-col">
+		<div
+			className={`transition-all hover:shadow-lg hover:shadow-tertiary bg-secondary mb-6 w-full border border-tertiary rounded overflow-hidden flex flex-col border-l-4 ${
+				priorityColor[task?.priority!]
+			}`}
+		>
 			<button className="h-[60px] w-full" onClick={() => setOpen(!open)}>
 				<div className="flex justify-start px-5 items-center h-[80%]">
 					<div className="flex items-center">
-						<label htmlFor="title" className="text-sm h-full font-normal mr-1">
-							Title:
-						</label>
 						<h1 className="h-full">{task?.title}</h1>
 					</div>
 					<div className="h-full flex justify-end ml-auto items-center">
@@ -113,9 +124,9 @@ function TaskCard({
 					<label htmlFor="description" className="text-sm font-normal">
 						Description:
 					</label>
-					<pre className="text-xs font-medium bg-primary my-2 border border-tertiary w-full h-[70%] rounded p-2 overflow-auto">
+					<p className="preserve-lines text-xs font-medium my-2 border border-tertiary w-full h-[70%] rounded-[2px] p-2 overflow-auto">
 						{task?.description}
-					</pre>
+					</p>
 					<label htmlFor="completion" className="text-sm font-normal mb-2">
 						Completion:
 					</label>

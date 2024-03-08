@@ -12,8 +12,8 @@ function TaskList({
 			{tasks.length === 0 && (
 				<h1 className="mt-4 font-semibold text-tertiary text-center">
 					There are currently no tasks for this cycle.
-					</h1>
-					)}
+				</h1>
+			)}
 			{tasks.map((task) => (
 				<TaskCard
 					key={task.id}

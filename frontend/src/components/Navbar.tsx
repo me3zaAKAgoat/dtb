@@ -97,42 +97,52 @@ const Navbar = ({}) => {
 			<div className="h-full w-full flex flex-col justify-between items-center">
 				<ul className="w-full flex flex-col items-center">
 					<li className="h-24">
-						<Link className="m-2" to="/home">
-							<svg
-								className="w-[40px] h-[40px] text-gray-800 dark:text-primary-content"
-								aria-hidden="true"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke="currentColor"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth="1.7"
-									d="m4 12 8-8 8 8M6 10.5V19c0 .6.4 1 1 1h3v-3c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v3h3c.6 0 1-.4 1-1v-8.5"
-								/>
-							</svg>
-						</Link>
+						<div
+							className="tooltip hover:tooltip-open tooltip-right"
+							data-tip="home"
+						>
+							<Link className="m-2" to="/home">
+								<svg
+									className="w-[40px] h-[40px] text-gray-800 dark:text-primary-content"
+									aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke="currentColor"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="1.7"
+										d="m4 12 8-8 8 8M6 10.5V19c0 .6.4 1 1 1h3v-3c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v3h3c.6 0 1-.4 1-1v-8.5"
+									/>
+								</svg>
+							</Link>
+						</div>
 					</li>
 					<li className="h-24">
-						<Link className="m-2" to="/dashboard">
-							<svg
-								className="w-[40px] h-[40px] text-gray-800 dark:text-primary-content"
-								aria-hidden="true"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke="currentColor"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth="1.7"
-									d="M4 4v15c0 .6.4 1 1 1h15M8 16l2.5-5.5 3 3L17.3 7 20 9.7"
-								/>
-							</svg>
-						</Link>
+						<div
+							className="tooltip hover:tooltip-open tooltip-right"
+							data-tip="dashboard"
+						>
+							<Link className="m-2" to="/dashboard">
+								<svg
+									className="w-[40px] h-[40px] text-gray-800 dark:text-primary-content"
+									aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke="currentColor"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="1.7"
+										d="M4 4v15c0 .6.4 1 1 1h15M8 16l2.5-5.5 3 3L17.3 7 20 9.7"
+									/>
+								</svg>
+							</Link>
+						</div>
 					</li>
 				</ul>
 				<ProfileButton user={user!} logout={logout} />
