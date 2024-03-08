@@ -94,12 +94,16 @@ taskRouter.put('/:id', async (req: Request, res: Response) => {
 		if (cycle.archived)
 			return res.status(400).json({ error: 'Cycle is archived' });
 
-		const updatedTask = await Task.findByIdAndUpdate(req.params.id, {
-			title: req.body.title,
-			description: req.body.description,
-			completion: req.body.completion,
-			priority: req.body.priority,
-		});
+		const updatedTask = await Task.findByIdAndUpdate(
+			req.params.id,
+			{
+				title: req.body.title,
+				description: req.body.description,
+				completion: req.body.completion,
+				priority: req.body.priority,
+			},
+			{ new: true },
+		);
 
 		return res.status(200).json(updatedTask);
 	} catch (error: any) {

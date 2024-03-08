@@ -22,9 +22,9 @@ function TaskEditForm({
 	const { setModal } = useContext(ModalContext);
 	const { user } = useContext(AuthContext)!;
 	const task = tasks.find((task) => task.id === taskId);
-	const [title, setTitle] = useState(task!.title);
-	const [description, setDescription] = useState(task!.description);
-	const [priority, setPriority] = useState('medium');
+	const [title, setTitle] = useState(task?.title!);
+	const [description, setDescription] = useState(task?.description!);
+	const [priority, setPriority] = useState(task?.priority!);
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();

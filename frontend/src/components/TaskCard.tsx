@@ -59,7 +59,7 @@ function TaskCard({
 			<button className="h-[60px] w-full" onClick={() => setOpen(!open)}>
 				<div className="flex justify-start px-5 items-center h-[80%]">
 					<div className="flex items-center">
-						<label htmlFor="title" className="h-full text-sm font-normal mr-1">
+						<label htmlFor="title" className="text-sm h-full font-normal mr-1">
 							Title:
 						</label>
 						<h1 className="h-full">{task?.title}</h1>
@@ -111,9 +111,9 @@ function TaskCard({
 					<label htmlFor="description" className="text-sm font-normal">
 						Description:
 					</label>
-					<p className="bg-primary my-2 border border-tertiary w-full h-[70%] rounded p-2">
+					<pre className="text-xs font-medium bg-primary my-2 border border-tertiary w-full h-[70%] rounded p-2 overflow-auto">
 						{task?.description}
-					</p>
+					</pre>
 					<label htmlFor="completion" className="text-sm font-normal mb-2">
 						Completion:
 					</label>

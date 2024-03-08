@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import CycleStartForm from './modals/CycleStartForm';
 import TaskCreationForm from './modals/TaskCreationForm';
 import TaskEditForm from './modals/TaskEditForm';
+import SettingsModal from './modals/Settings';
 
 /**
  * This is the modal component that is used to display different types of modals that exist in modals directory
@@ -25,6 +26,8 @@ function ModalContent({ modal }: { modal: Modal }) {
 				setTasks={modal.extraData!.setTasks!}
 			/>
 		);
+	} else if (modal.type === 'Settings') {
+		return <SettingsModal />;
 	}
 }
 

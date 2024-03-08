@@ -2,7 +2,7 @@
 
 // replace string with all the types of modals that exist in the modals directory
 interface Modal {
-	type: 'off' | 'CycleStartForm' | 'TaskCreationForm' | 'TaskEditForm';
+	type: 'off' | 'CycleStartForm' | 'TaskCreationForm' | 'TaskEditForm' | 'Settings';
 	extraData?: {
 		cycleId?: string;
 		taskId?: string;

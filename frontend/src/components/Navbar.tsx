@@ -1,6 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../utils/useAuth';
-import { useNavigate, Link } from 'react-router-dom';
+import { ModalContext } from '../providers/Modal';
 
 const ProfileButton = ({
 	user,
@@ -53,7 +54,7 @@ const DropdownContainer = ({
 	menuOpen: boolean;
 	logout: () => void;
 }) => {
-	const navigate = useNavigate();
+	const { setModal } = useContext(ModalContext);
 
 	if (menuOpen) {
 		return (
@@ -61,7 +62,7 @@ const DropdownContainer = ({
 				<button
 					className="mb-2 hover:filter hover:brightness-125 transition-all font-semibold"
 					onClick={() => {
-						navigate('/settings');
+						setModal({ type: 'Settings' });
 					}}
 				>
 					Settings
