@@ -5,7 +5,11 @@ import { getCurrentCycle } from '../services/cycle';
 import { ModalContext } from '../providers/Modal';
 import { AuthContext } from '../utils/useAuth';
 
-function NoBoard() {
+function NoBoard({
+	setCycleId,
+}: {
+	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
+}) {
 	const { modal, setModal } = useContext(ModalContext);
 
 	return (
@@ -30,7 +34,8 @@ function NoBoard() {
 					<button
 						className="hover:underline ml-2 font-semibold"
 						onClick={() => {
-							setModal({ type: 'CycleStartForm' });
+							setModal({ type: 'CycleStartForm' , 
+							extraData: { setCycleId }});
 						}}
 					>
 						Create a new cycle
@@ -112,7 +117,7 @@ function Home() {
 			) : cycleId ? (
 				<Board cycleId={cycleId} setCycleId={setCycleId} />
 			) : (
-				<NoBoard />
+				<NoBoard setCycleId={setCycleId} />
 			)}
 		</div>
 	);

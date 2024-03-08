@@ -9,7 +9,7 @@ import SettingsModal from './modals/Settings';
  */
 function ModalContent({ modal }: { modal: Modal }) {
 	if (modal.type === 'CycleStartForm') {
-		return <CycleStartForm />;
+		return <CycleStartForm setCycleId={modal.extraData!.setCycleId!} />;
 	} else if (modal.type === 'TaskCreationForm') {
 		return (
 			<TaskCreationForm

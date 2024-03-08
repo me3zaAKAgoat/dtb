@@ -34,6 +34,8 @@ function TaskCard({
 	}, [completion]);
 
 	const handleDelete = async () => {
+		const confirm = window.confirm('Are you sure you want to delete this task?');
+		if (!confirm) return;
 		await deleteTask(user?.token!, id);
 		const newTasks = tasks.filter((task) => task.id !== id);
 		setTasks(newTasks);

@@ -95,3 +95,4 @@ cluegi
 - add feature to make checkboxes in description of tasks
 - add guards server guards for when end date is newer than start date
 - add indication to week start date in start cycle form
+- remove necessity for description in task forms

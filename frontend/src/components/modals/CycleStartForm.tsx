@@ -1,18 +1,24 @@
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { startCycle } from '../../services/cycle';
 import { ToastContext } from '../../providers/Toast';
 import moment from 'moment';
 import { AuthContext } from '../../utils/useAuth';
+import { ModalContext } from '../../providers/Modal';
 
 /**
  * Cycle start form component
  * Fields: cycle end date
  * Future fields: cycle recurring tasks
  */
-function CycleStartForm() {
+function CycleStartForm({
+	setCycleId,
+}: {
+	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
+}) {
 	const [cycleEndDate, setCycleEndDate] = useState<string>('');
-	const { toast, setToast } = useContext(ToastContext);
+	const { setToast } = useContext(ToastContext);
 	const { user } = useContext(AuthContext)!;
+	const { setModal } = useContext(ModalContext);
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -25,9 +31,14 @@ function CycleStartForm() {
 				});
 				return;
 			}
-			await startCycle(user?.token!, cycleEndDate);
-			window.location.reload();
+			const newCycle = await startCycle(user?.token!, cycleEndDate);
+			setCycleId(newCycle.id);
+			setModal({ type: 'off' });
 		} catch (err) {
+			setToast({
+				message: err.response.data.error,
+				type: 'error',
+			});
 			console.error(err);
 		}
 	};
@@ -45,8 +56,14 @@ function CycleStartForm() {
 						<h1 className="text-2xl font-semibold">Create a new cycle</h1>
 					</div>
 					<div className="flex flex-col space-y-2 mt-5">
+						<div>
+							<h1 className="font-semibold">The cycle will start on:</h1>
+							<h2 className="text-gray-500">
+								{new Date().toLocaleDateString()}
+							</h2>
+						</div>
 						<label className="font-semibold" htmlFor="cycleEndDate">
-							Cycle end date:
+							The cycle will end on:
 						</label>
 						<input
 							type="date"

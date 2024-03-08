@@ -29,9 +29,14 @@ cycleRouter.post('/new', async (req: Request, res: Response) => {
 			endDate: new Date(req.body.endDate),
 			user: user._id,
 		});
+		if (cycle.endDate <= cycle.startDate) {
+			return res.status(400).json({ error: 'End date is before start date' });
+		}
 		await cycle.save();
 		user.cycles = user.cycles.concat(cycle._id);
-		return res.status(201).json();
+		return res.status(201).json({
+			id: cycle.id,
+		});
 	} catch (error: any) {
 		return res.status(500).json({ error: error.message });
 	}

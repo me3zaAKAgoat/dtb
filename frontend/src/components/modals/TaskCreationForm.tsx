@@ -18,7 +18,7 @@ function TaskCreationForm({
 	tasks: Task[];
 	setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }) {
-	const { toast, setToast } = useContext(ToastContext);
+	const { setToast } = useContext(ToastContext);
 	const { setModal } = useContext(ModalContext);
 	const { user } = useContext(AuthContext)!;
 	const [title, setTitle] = useState('');
@@ -58,7 +58,7 @@ function TaskCreationForm({
 					onSubmit={handleSubmit}
 				>
 					<h1 className="mb-5 mt-2 flex items-center justify-center font-semibold text-xl w-full">
-						Create a new task:
+						Create a new Task
 					</h1>
 					<div className="flex flex-col">
 						<label htmlFor="title" className="font-semibold">
