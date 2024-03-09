@@ -40,6 +40,7 @@ taskRouter.post('/:id', async (req: Request, res: Response) => {
 
 		return res.status(201).json(savedTask);
 	} catch (error: any) {
+		console.log(error);
 		return res.status(500).json({ error: error.message });
 	}
 });
@@ -82,6 +83,11 @@ taskRouter.get('/:id', async (req: Request, res: Response) => {
 });
 
 taskRouter.put('/:id', async (req: Request, res: Response) => {
+	const { error } = taskSchema.validate(req.body);
+	if (error) {
+		return res.status(400).json({ error: error.details[0].message });
+	}
+
 	try {
 		const task = await Task.findById(req.params.id);
 

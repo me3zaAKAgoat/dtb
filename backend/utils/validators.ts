@@ -19,8 +19,9 @@ const cycleSchema = Validator.object({
 });
 
 const taskSchema = Validator.object({
-	title: Validator.string().required(),
-	priority: Validator.string().required(),
+	title: Validator.string(),
+	description: Validator.string().allow(''),
+	priority: Validator.valid('very low', 'low', 'medium', 'high', 'very high'),
 });
 
 const passwordSchema = Validator.object({

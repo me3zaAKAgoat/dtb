@@ -57,7 +57,7 @@ function TaskCreationForm({
 					className="flex flex-col items-stretch w-96"
 					onSubmit={handleSubmit}
 				>
-					<h1 className="mb-5 mt-2 flex items-center justify-center font-semibold text-xl w-full">
+					<h1 className="bg-accent mb-5 mt-2 flex items-center justify-center font-semibold text-xl w-full">
 						Create a new Task
 					</h1>
 					<div className="flex flex-col">

@@ -36,24 +36,13 @@ function Board({
 	return (
 		<div className="board h-full w-full flex flex-col justify-normal items-stretch">
 			<div className="w-full h-[112px] flex-shrink-0 flex justify-center items-center relative">
-				<button
-					className="btn rounded-[5px] bg-secondary absolute left-[5%] aspect-square w-[120px] border border-tertiary"
-					onClick={() =>
-						setModal({
-							type: 'TaskCreationForm',
-							extraData: { cycleId, tasks, setTasks },
-						})
-					}
-				>
-					+ Add a task
-				</button>
 				<HUD tasks={tasks} cycleId={cycleId} setCycleId={setCycleId} />
 			</div>
 			<div className="w-full h-[calc(100%-112px)] flex justify-normal">
 				<div className="w-1/2 h-full flex flex-col items-center font-semibold">
 					<h1 className="board-sides-title">Tasks</h1>
 					<div className="w-full h-full overflow-auto">
-						<TaskList tasks={tasks} setTasks={setTasks} />
+						<TaskList cycleId={cycleId} tasks={tasks} setTasks={setTasks} />
 					</div>
 				</div>
 				<div className="h-full flex flex-col justify-center items-center">

@@ -4,12 +4,6 @@
 
 - MERN MVC
 
-## Services provided:
-
-- Good note-taking system/mind mapping system.
-- Quantifiable weekly performance tracking.
-- Statistics dashboard that has weeks stamped with a note about overall emotional/mental state during that period.
-
 ## The database schemas:
 
 - User
@@ -69,6 +63,5 @@ cluegi
 - show completion of each task as a number!!!!!
 - everything looks clickable in task card because theres no indicator to whtas clickable and whats not!!
 - priority isnt visible in the ui of the task !!!
-- add task is not intuitively accessible
 - add some sort of explanation or something to show what the app is about in the home no board window
 - home page should not immediately load last unarchived role, add possiblity to load archived roles even if theres unarchived one !!!!
