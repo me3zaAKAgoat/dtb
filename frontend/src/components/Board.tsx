@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import TaskList from './TaskList';
 import CycleNotes from './CycleNotes';
 import HUD from './HUD';
-import { sortedTasks } from '../utils/taskUtil';
+import { useSortingTasksState } from '../utils/taskUtil';
 import { getCycleTasks } from '../services/task';
 import { AuthContext } from '../utils/useAuth';
 import { ModalContext } from '../providers/Modal';
@@ -16,13 +16,9 @@ function Board({
 	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
 	const { user } = useContext(AuthContext)!;
-	const [tasks, setTasks] = useState<Task[]>([]);
+	const [tasks, setTasks] = useSortingTasksState<Task[]>([]);
 	const [notes, setNotes] = useState<string | null>(null);
 	const { setModal } = useContext(ModalContext);
-
-	// useEffect(() => {
-	// 	sortedTasks(tasks);
-	// }, [tasks]);
 
 	useEffect(() => {
 		getCycleTasks(user?.token!, cycleId).then((data) => {

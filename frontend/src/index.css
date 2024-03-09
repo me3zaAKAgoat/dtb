@@ -45,9 +45,9 @@
 			}
 			svg:hover {
 				filter: brightness(120%);
-				transform: translateY(-2%) translateX(2%);
-				height: 43px;
-				width: 43px;
+				transform: translateY(-4%) translateX(-4%);
+				height: 115%;
+				width: 115%;
 			}
 		}
 	}

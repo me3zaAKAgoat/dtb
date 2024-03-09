@@ -96,52 +96,62 @@ const Navbar = ({}) => {
 			</div>
 			<div className="h-full w-full flex flex-col justify-between items-center">
 				<ul className="w-full flex flex-col items-center">
-					<li className="h-24">
+					<li className="h-20">
 						<div
 							className="tooltip hover:tooltip-open tooltip-right"
 							data-tip="home"
 						>
 							<Link className="m-2" to="/home">
 								<svg
-									className="w-[40px] h-[40px] text-gray-800 dark:text-primary-content"
-									aria-hidden="true"
+									className="fill-primary-content"
 									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
+									viewBox="0 0 16 16"
+									width="26"
+									height="26"
 								>
-									<path
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="1.7"
-										d="m4 12 8-8 8 8M6 10.5V19c0 .6.4 1 1 1h3v-3c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v3h3c.6 0 1-.4 1-1v-8.5"
-									/>
+									<path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
 								</svg>
 							</Link>
 						</div>
 					</li>
-					<li className="h-24">
+					<li className="h-20">
 						<div
 							className="tooltip hover:tooltip-open tooltip-right"
 							data-tip="dashboard"
 						>
 							<Link className="m-2" to="/dashboard">
 								<svg
-									className="w-[40px] h-[40px] text-gray-800 dark:text-primary-content"
-									aria-hidden="true"
+									className="fill-primary-content"
 									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
+									viewBox="0 0 16 16"
+									width="26"
+									height="26"
 								>
-									<path
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="1.7"
-										d="M4 4v15c0 .6.4 1 1 1h15M8 16l2.5-5.5 3 3L17.3 7 20 9.7"
-									/>
+									<path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path>
 								</svg>
 							</Link>
+						</div>
+					</li>
+					<li className="h-20">
+						<div
+							className="tooltip hover:tooltip-open tooltip-right"
+							data-tip="about"
+						>
+							<a
+								className="m-2"
+								href="https://github.com/me3zaAKAgoat/dtb"
+								target="_blank"
+							>
+								<svg
+									className="fill-primary-content"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 16 16"
+									width="26"
+									height="26"
+								>
+									<path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+								</svg>
+							</a>
 						</div>
 					</li>
 				</ul>

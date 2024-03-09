@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const priorityWeights = {
 	'very low': 1,
 	low: 2,
@@ -40,3 +42,18 @@ export const sortedTasks = (tasks: Task[]) => {
 		return byPriority || byTitle;
 	});
 };
+
+export function useSortingTasksState<T>(
+	initialState: T,
+): [T, React.Dispatch<React.SetStateAction<T>>] {
+	const [state, setState] = useState<T>(initialState);
+
+	const customSetState: React.Dispatch<React.SetStateAction<T>> = (
+		newState: React.SetStateAction<T>,
+	) => {
+		sortedTasks(newState as Task[]);
+		setState(newState);
+	};
+
+	return [state, customSetState];
+}

@@ -22,6 +22,7 @@ const taskSchema = Validator.object({
 	title: Validator.string(),
 	description: Validator.string().allow(''),
 	priority: Validator.valid('very low', 'low', 'medium', 'high', 'very high'),
+	completion: Validator.number().min(0).max(100).optional(),
 });
 
 const passwordSchema = Validator.object({

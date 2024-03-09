@@ -58,7 +58,7 @@ function TaskEditForm({
 					className="flex flex-col items-stretch w-96"
 					onSubmit={handleSubmit}
 				>
-					<h1 className="mb-5 mt-2 flex items-center justify-center font-semibold text-xl w-full">
+					<h1 className="bg-tertiary mb-5 mt-2 flex items-center justify-center font-semibold text-xl w-full">
 						Edit Task
 					</h1>
 					<label htmlFor="title" className="font-semibold">
