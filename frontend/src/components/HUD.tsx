@@ -2,6 +2,7 @@ import { calcTotal } from '../utils/taskUtil';
 import { deleteCycle } from '../services/cycle';
 import { useContext } from 'react';
 import { AuthContext } from '../utils/useAuth';
+import { ToastContext } from '../providers/Toast';
 
 function HUD({
 	tasks,
@@ -13,6 +14,7 @@ function HUD({
 	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
 	const { user } = useContext(AuthContext)!;
+	const { setToast } = useContext(ToastContext);
 
 	const handleDelete = async () => {
 		try {
@@ -22,6 +24,10 @@ function HUD({
 			if (!confirm) return;
 			await deleteCycle(user?.token!, cycleId);
 			setCycleId(null);
+			setToast({
+				message: 'Cycle deleted',
+				type: 'success',
+			});
 		} catch (error) {
 			console.log(error);
 		}

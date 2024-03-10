@@ -66,3 +66,9 @@ cluegi
 - add some sort of explanation or something to show what the app is about in the home no board window
 - home page should not immediately load last unarchived role, add possiblity to load archived roles even if theres unarchived one !!!!
 - make an about modal that has licensing and note from creator (me :))
+
+https://www.npmjs.com/package/react-avatar-editor
+
+## UX
+
+- implement github/google OAUTH to make it easier for users to opt in to the app

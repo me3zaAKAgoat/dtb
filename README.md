@@ -5,3 +5,7 @@
 - Good note-taking system/mind mapping system.
 - Quantifiable weekly performance tracking.
 - Statistics dashboard that has weeks stamped with a note about overall emotional/mental state during that period.
+
+<div align="center">
+	<img src="./assets/image.png" alt="dtb">
+</div>
