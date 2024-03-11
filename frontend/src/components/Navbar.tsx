@@ -42,16 +42,22 @@ const ProfileButton = ({
 					</div>
 				</div>
 			</button>
-			<DropdownContainer menuOpen={menuOpen} logout={logout} />
+			<DropdownContainer
+				menuOpen={menuOpen}
+				setMenuOpen={setMenuOpen}
+				logout={logout}
+			/>
 		</div>
 	);
 };
 
 const DropdownContainer = ({
 	menuOpen,
+	setMenuOpen,
 	logout,
 }: {
 	menuOpen: boolean;
+	setMenuOpen: (value: boolean) => void;
 	logout: () => void;
 }) => {
 	const { setModal } = useContext(ModalContext);
@@ -63,6 +69,7 @@ const DropdownContainer = ({
 					className="mb-2 hover:filter hover:brightness-125 transition-all font-semibold"
 					onClick={() => {
 						setModal({ type: 'Settings' });
+						setMenuOpen(false);
 					}}
 				>
 					Settings
