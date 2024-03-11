@@ -58,3 +58,21 @@ export const updateCycleNotes = async (
 	);
 	return response.data;
 };
+
+export const concludeCycle = async (
+	token: string,
+	cycleId: string,
+	endNote: string,
+	emotionalState: string,
+) => {
+	const response = await api.put(
+		`/conclude/${cycleId}`,
+		{ endNote, emotionalState },
+		{
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		},
+	);
+	return response.data;
+}

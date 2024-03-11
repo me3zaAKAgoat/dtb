@@ -16,6 +16,10 @@ const userSchema = Validator.object({
 
 const cycleSchema = Validator.object({
 	endDate: Validator.date().optional(),
+	archived: Validator.boolean().optional(),
+	notes: Validator.string().allow(''),
+	endNote: Validator.string().allow(''),
+	emotionalState: Validator.string().valid('happy', 'neutral', 'sad').optional(),
 });
 
 const taskSchema = Validator.object({

@@ -66,6 +66,10 @@ cluegi
 - add some sort of explanation or something to show what the app is about in the home no board window
 - home page should not immediately load last unarchived role, add possiblity to load archived roles even if theres unarchived one !!!!
 - make an about modal that has licensing and note from creator (me :))
+- the conclusion modal should offer:
+	- ability to rate the emotional state during the cycle
+	- ability to attach a written note
+- make a settings page
 
 https://www.npmjs.com/package/react-avatar-editor
 

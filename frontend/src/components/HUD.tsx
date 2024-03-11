@@ -3,6 +3,7 @@ import { deleteCycle } from '../services/cycle';
 import { useContext } from 'react';
 import { AuthContext } from '../utils/useAuth';
 import { ToastContext } from '../providers/Toast';
+import { ModalContext } from '../providers/Modal';
 
 function HUD({
 	tasks,
@@ -15,6 +16,7 @@ function HUD({
 }) {
 	const { user } = useContext(AuthContext)!;
 	const { setToast } = useContext(ToastContext);
+	const { setModal } = useContext(ModalContext);
 
 	const handleDelete = async () => {
 		try {
@@ -57,7 +59,18 @@ function HUD({
 				</div>
 			</div>
 			<div className="flex">
-				<button className="transition-all hover:brightness-125 border border-primary-content rounded ml-2 bg-accent h-8 w-8 flex items-center justify-center">
+				<button
+					onClick={() => {
+						setModal({
+							type: 'CycleEndForm',
+							extraData: {
+								cycleId,
+								setCycleId,
+							},
+						});
+					}}
+					className="transition-all hover:brightness-125 border border-primary-content rounded ml-2 bg-accent h-8 w-8 flex items-center justify-center"
+				>
 					<svg
 						className="fill-primary-content"
 						xmlns="http://www.w3.org/2000/svg"

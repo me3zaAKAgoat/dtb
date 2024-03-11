@@ -27,6 +27,14 @@ const cycleSchema = new mongoose.Schema({
 		type: String,
 		default: '',
 	},
+	endNote: {
+		type: String,
+		default: '',
+	},
+	emotionalState: {
+		type: String,
+		default: '',
+	},
 });
 
 cycleSchema.set('toJSON', {

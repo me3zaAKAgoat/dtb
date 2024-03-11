@@ -92,12 +92,19 @@ cycleRouter.get('/', async (req: Request, res: Response) => {
 	}
 });
 
-cycleRouter.put('/archive/:id', async (req: Request, res: Response) => {
+cycleRouter.put('/conclude/:id', async (req: Request, res: Response) => {
+	console.log(req.body.emotionalState);
+	const { error } = cycleSchema.validate(req.body);
+	if (error) {
+		return res.status(400).json({ error: error.details[0].message });
+	}
 	try {
 		const cycle = await Cycle.findById(req.params.id);
 		if (!cycle) {
 			return res.status(404).json({ error: 'Cycle not found' });
 		}
+		cycle.emotionalState = req.body.emotionalState;
+		cycle.endNote = req.body.endNote;
 		cycle.archived = true;
 		await cycle.save();
 		return res.status(200).json(cycle);

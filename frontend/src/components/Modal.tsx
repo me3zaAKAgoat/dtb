@@ -3,6 +3,7 @@ import CycleStartForm from './modals/CycleStartForm';
 import TaskCreationForm from './modals/TaskCreationForm';
 import TaskEditForm from './modals/TaskEditForm';
 import SettingsModal from './modals/Settings';
+import CycleEndFOrm from './modals/CycleEndForm';
 
 /**
  * This is the modal component that is used to display different types of modals that exist in modals directory
@@ -10,6 +11,8 @@ import SettingsModal from './modals/Settings';
 function ModalContent({ modal }: { modal: Modal }) {
 	if (modal.type === 'CycleStartForm') {
 		return <CycleStartForm setCycleId={modal.extraData!.setCycleId!} />;
+	} else if (modal.type === 'CycleEndForm') {
+		return <CycleEndFOrm cycleId={modal.extraData?.cycleId!} setCycleId={modal.extraData!.setCycleId!} />;
 	} else if (modal.type === 'TaskCreationForm') {
 		return (
 			<TaskCreationForm

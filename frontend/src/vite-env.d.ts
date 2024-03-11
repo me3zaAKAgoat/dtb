@@ -7,6 +7,7 @@ interface Modal {
 		| 'CycleStartForm'
 		| 'TaskCreationForm'
 		| 'TaskEditForm'
+		| 'CycleEndForm'
 		| 'Settings';
 	extraData?: {
 		cycleId?: string;
