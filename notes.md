@@ -52,6 +52,7 @@ cluegi
 - [ ] set a small horizontal bar that differentiates tasks based on priority (they should be sorted).
 - [ ] rich markdown text editor for notes component that behaves like discord text form parsing.
 - [ ] configure shadcn and use it for all complex components
+- [ ] add congratulations visualizers and dopamine pushes
 
 ### Yapping
 
