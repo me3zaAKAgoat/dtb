@@ -40,7 +40,7 @@ const deleteFiles = (files: any[]) => {
 
 /** this is not done yet !!! */
 userRouter.put(
-	'/avatar',
+	'/information/avatar',
 	middleware.tokenExtractor,
 	upload.single('avatar'),
 	async (req: Request, res: Response) => {
@@ -88,12 +88,40 @@ userRouter.put(
 			return res.status(200).json({ avatar: user.avatar });
 		} catch (error: any) {
 			console.error(error);
+			deleteFiles([req.file]);
 			return res.status(500).json({ error: 'Internal server error' });
 		}
 	},
 );
 
 /** two routers one for updating first name and last name and one for updating password */
+
+userRouter.put('/information/username', async (req: Request, res: Response) => {
+	const token = req.token;
+	const decodedToken = jwt.verify(token!, config.SECRET!);
+	if (!token || typeof decodedToken === 'string' || !decodedToken.id) {
+		return res.status(401).json({ error: 'token missing or invalid' });
+	}
+	const usernameSchema = Validator.object({
+		username: Validator.string().required(),
+	});
+	try {
+		await usernameSchema.validateAsync(req.body);
+	} catch (error: any) {
+		return res.status(400).json({ error: error.details[0].message });
+	}
+	try {
+		const user = await User.findById(decodedToken.id);
+		if (!user) return res.status(404).json({ error: 'User not found' });
+
+		user.username = req.body.username;
+		await user.save();
+		return res.status(200).json({ message: 'Username updated' });
+	} catch (error: any) {
+		console.error(error);
+		return res.status(500).json({ error: 'Internal server error' });
+	}
+});
 
 userRouter.put(
 	'/information/fistname-lastname',
@@ -142,7 +170,9 @@ userRouter.put(
 		const body = req.body;
 
 		try {
-			await passwordSchema.validateAsync(body);
+			await passwordSchema.validateAsync({
+				password: body.newPassword,
+			});
 		} catch (error: any) {
 			return res.status(400).json({ error: error.details[0].message });
 		}
@@ -152,7 +182,7 @@ userRouter.put(
 			if (!user) return res.status(404).json({ error: 'User not found' });
 
 			const passwordCheck = await bcrypt.compare(
-				req.body.OldPassword,
+				req.body.oldPassword,
 				user.passwordHash,
 			);
 
@@ -160,7 +190,7 @@ userRouter.put(
 				return res.status(401).json({ error: 'Bad Old Password' });
 			}
 
-			const passwordHash = await bcrypt.hash(body.password, 10);
+			const passwordHash = await bcrypt.hash(body.newPassword, 10);
 			user.passwordHash = passwordHash;
 			await user.save();
 			return res.status(200).json({ message: 'Password updated' });

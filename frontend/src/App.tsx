@@ -13,12 +13,12 @@ import ModalPortal from './components/Modal';
 import ToastPortal from './components/Toast';
 
 function App() {
-	const { user, login, logout } = useAuth();
+	const { user, setUser, login, logout } = useAuth();
 	const [toast, setToast] = useState<Toast | null>(null);
 	const [modal, setModal] = useState<Modal>({ type: 'off' });
 
 	return (
-		<AuthContext.Provider value={{ user, login, logout }}>
+		<AuthContext.Provider value={{ user, setUser, login, logout }}>
 			<ModalContext.Provider value={{ modal, setModal }}>
 				<ToastContext.Provider value={{ toast, setToast }}>
 					<Routes>

@@ -45,6 +45,7 @@ interface User {
 
 interface AuthContextType {
 	user: User | null;
+	setUser: React.Dispatch<React.SetStateAction<User | null>>;
 	login: (user: User) => void;
 	logout: () => void;
 }

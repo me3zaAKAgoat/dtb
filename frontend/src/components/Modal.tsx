@@ -46,13 +46,13 @@ function ModalPortal({
 }) {
 	useEffect(() => {
 		if (modal.type !== 'off')
-			(document.getElementById('my_modal_2') as HTMLDialogElement).showModal();
+			(document.getElementById('my_modal_2') as HTMLDialogElement).show();
 		else (document.getElementById('my_modal_2') as HTMLDialogElement).close();
 	}, [modal]);
 
 	return (
 		<dialog id="my_modal_2" className="modal bg-[rgba(0,0,0,0.6)]">
-			<div className="modal-box p-4 bg-primary border rounded-[6px] border-tertiary">
+			<div className="max-w-fit modal-box p-4 bg-primary border rounded-[6px] border-tertiary">
 				<ModalContent modal={modal} />
 			</div>
 			<form method="dialog" className="modal-backdrop">

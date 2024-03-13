@@ -41,5 +41,5 @@ export const useAuth = (): AuthContextType => {
 		authMount();
 	}, [logout]);
 
-	return { user, login, logout };
+	return { user, setUser, login, logout };
 };
