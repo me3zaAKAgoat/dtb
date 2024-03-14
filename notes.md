@@ -74,6 +74,8 @@ cluegi
 	- ability to rate the emotional state during the cycle
 	- ability to attach a written note
 - make a settings page
+- use ICONS MORE !!!
+- improve settings layout
 
 https://www.npmjs.com/package/react-avatar-editor
 

@@ -6,16 +6,15 @@ import userRouter from './controllers/user';
 import cycleRouter from './controllers/cycle';
 import authRouter from './controllers/auth';
 import taskRouter from './controllers/task';
-// import taskRouter from './controllers/task';
+import path from 'path';
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use(middleware.requestLogger);
 
-/* use routes */
-
-// app.use(express.static("build"));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/auth', authRouter);
 app.use(
@@ -37,9 +36,11 @@ app.use(
 	taskRouter,
 );
 
-// app.get('*', (req, res) => {
-// 	res.sendFile(path.join(__dirname, 'build/index.html'));
-// });
+console.log('dirname', __dirname);
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'build/index.html'));
+});
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
