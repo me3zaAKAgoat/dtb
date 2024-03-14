@@ -4,14 +4,14 @@ import Navbar from '../components/Navbar';
 import { getCurrentCycle } from '../services/cycle';
 import { ModalContext } from '../providers/Modal';
 import { AuthContext } from '../utils/useAuth';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function NoBoard({
 	setCycleId,
 }: {
 	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
-	const { modal, setModal } = useContext(ModalContext);
+	const {  setModal } = useContext(ModalContext);
 	const navigate = useNavigate();
 
 	return (

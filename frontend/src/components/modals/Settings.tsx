@@ -7,13 +7,13 @@ import { updateAvatar } from '../../services/user';
 
 function Avatar() {
 	const { user, setUser } = useContext(AuthContext)!;
-	const [image, setImage] = useState<File>(user?.userInfo.avatar);
-	const editor = useRef<AvatarEditor>();
+	const [image, setImage] = useState<File | string>(user?.userInfo.avatar!);
+	const editor = useRef<AvatarEditor>(null);
 	const { setToast } = useContext(ToastContext);
 	const [zoom, setZoom] = useState(1);
 
-	const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const handleSave = async () => {
+		
 		if (editor.current && image) {
 			const canvas = editor.current.getImageScaledToCanvas();
 			const file = new File([canvas.toDataURL()], 'avatar.png', {
@@ -30,7 +30,7 @@ function Avatar() {
 					'userInfo',
 					JSON.stringify({ ...user!.userInfo, avatar: res.avatar }),
 				);
-			} catch (err) {
+			} catch (err:any) {
 				console.log(err);
 				setToast({ message: err.response.data.error, type: 'error' });
 			}
@@ -62,9 +62,10 @@ function Avatar() {
 			<input
 				type="file"
 				accept="image/*"
-				onChange={(e) => setImage(e.target.files?.[0])}
+				onChange={(e) => setImage(e.target.files?.[0]!)}
 			/>
 			<button
+				type="submit"
 				className="w-36 h-10 transition-all focus:border-primary-content my-2 border border-tertiary bg-accent hover:bg-primary px-4 rounded-[4px] text-primary-content"
 				onClick={handleSave}
 			>
@@ -82,7 +83,8 @@ function SettingsModal() {
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 
-	const handlePasswordSubmit = async (e) => {
+	const handlePasswordSubmit = async (e: React.FormEvent<HTMLFormElement> 
+		) => {
 		e.preventDefault();
 
 		if (password === '' || oldPassword === '' || confirmPassword === '') {
@@ -95,7 +97,7 @@ function SettingsModal() {
 		}
 		try {
 			await updatePassword(user!.token!, oldPassword, password);
-		} catch (err) {
+		} catch (err: any) {
 			setToast({ message: err.response.data.error, type: 'error' });
 		}
 	};

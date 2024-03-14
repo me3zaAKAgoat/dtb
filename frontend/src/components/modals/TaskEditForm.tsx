@@ -18,7 +18,7 @@ function TaskEditForm({
 	tasks: Task[];
 	setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }) {
-	const { toast, setToast } = useContext(ToastContext);
+	const { setToast } = useContext(ToastContext);
 	const { setModal } = useContext(ModalContext);
 	const { user } = useContext(AuthContext)!;
 	const task = tasks.find((task) => task.id === taskId);
@@ -87,7 +87,7 @@ function TaskEditForm({
 					<select
 						className="transition-all focus:border-primary-content bg-secondary my-2 border border-tertiary rounded-[4px] select select-primary"
 						value={priority}
-						onChange={(e) => setPriority(e.target.value)}
+						onChange={(e) => setPriority(e.target.value as priority)}
 						required
 					>
 						<option value="very low">Very Low</option>

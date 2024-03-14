@@ -4,6 +4,8 @@ export const ModalContext = createContext<{
 	modal: Modal;
 	setModal: (modal: Modal) => void;
 }>({
-	modal: 'off',
+	modal: {
+		type: 'off',
+	},
 	setModal: () => {},
 });

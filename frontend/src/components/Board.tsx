@@ -5,7 +5,6 @@ import HUD from './HUD';
 import { useSortingTasksState } from '../utils/taskUtil';
 import { getCycleTasks } from '../services/task';
 import { AuthContext } from '../utils/useAuth';
-import { ModalContext } from '../providers/Modal';
 import { getCycleNotes } from '../services/cycle';
 
 function Board({
@@ -18,7 +17,6 @@ function Board({
 	const { user } = useContext(AuthContext)!;
 	const [tasks, setTasks] = useSortingTasksState<Task[]>([]);
 	const [notes, setNotes] = useState<string | null>(null);
-	const { setModal } = useContext(ModalContext);
 
 	useEffect(() => {
 		getCycleTasks(user?.token!, cycleId).then((data) => {

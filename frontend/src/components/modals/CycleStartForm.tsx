@@ -34,7 +34,7 @@ function CycleStartForm({
 			const newCycle = await startCycle(user?.token!, cycleEndDate);
 			setCycleId(newCycle.id);
 			setModal({ type: 'off' });
-		} catch (err) {
+		} catch (err:any) {
 			setToast({
 				message: err.response.data.error,
 				type: 'error',

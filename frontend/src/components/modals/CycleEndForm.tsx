@@ -11,7 +11,7 @@ function CycleEndFOrm({
 	cycleId: string;
 	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
-	const [emotionalState, setEmotionalState] = useState(null);
+	const [emotionalState, setEmotionalState] = useState<string>('');
 	const [endNote, setEndNote] = useState('');
 	const { setToast } = useContext(ToastContext);
 	const { user } = useContext(AuthContext)!;
@@ -20,7 +20,7 @@ function CycleEndFOrm({
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		if (!emotionalState) {
+		if (emotionalState === '') {
 			setToast({
 				type: 'error',
 				message: 'Setting an emotional state is required',
