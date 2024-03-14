@@ -162,26 +162,7 @@
 }
 
 .task-slider {
-	-webkit-appearance: none;
-	height: 10px;
-	background: theme(colors.primary-content);
-	outline: none;
-	opacity: 0.7;
-	cursor: pointer;
-	-webkit-transition: 0.2s;
-	transition: opacity 0.2s;
-	border-radius: 9999px; /* This value ensures the progress bar has round edges */
-}
-
-.task-slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 13px;
-	height: 13px;
-	background: theme(colors.primary);
-	cursor: pointer;
-	border-radius: 50%;
-	z-index: 2;
+    accent-color: theme(colors.accent);
 }
 
 .task-slider::-moz-range-thumb {
@@ -196,10 +177,6 @@
 .task-slider::-moz-range-progress {
 	height: 8px;
 	background-color: theme(colors.accent);
-}
-
-.task-slider::-webkit-slider-runnable-track {
-	background-color: theme(colors.primary);
 }
 
 .preserve-lines {
