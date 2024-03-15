@@ -1,6 +1,6 @@
 import createApiInstance from './interceptors';
 
-const api = createApiInstance('http://localhost:3003/api/task');
+const api = createApiInstance('/api/task');
 
 export const getCycleTasks = async (token: string, cycleId: string) => {
 	const response = await api.get(`/cycle/${cycleId}`, {

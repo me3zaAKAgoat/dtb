@@ -1,6 +1,6 @@
 import createApiInstance from './interceptors';
 
-const api = createApiInstance('http://localhost:3003/api/cycle');
+const api = createApiInstance('/api/cycle');
 
 export const startCycle = async (token: string, cycleEndDate: string) => {
 	const response = await api.post(

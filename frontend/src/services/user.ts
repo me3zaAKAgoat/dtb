@@ -1,6 +1,6 @@
 import createApiInstance from './interceptors';
 
-const api = createApiInstance('http://localhost:3003/api/user');
+const api = createApiInstance('/api/user');
 
 export const updateFirstLastName = async (
 	token: string,
