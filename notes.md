@@ -76,6 +76,8 @@ cluegi
 - make a settings page
 - use ICONS MORE !!!
 - improve settings layout
+- fix insane number of api calls 
+- figure out a good way to do logging
 
 https://www.npmjs.com/package/react-avatar-editor
 
