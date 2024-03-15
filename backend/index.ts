@@ -1,8 +1,9 @@
 import app from './app';
-import http from 'http';
+import https from 'https';
 import config from './utils/config';
 import logger from './utils/logger';
 import mongoose from 'mongoose';
+import fs from 'fs';
 
 logger.info('Connecting to db');
 
@@ -15,7 +16,12 @@ mongoose
 	.then(() => {
 		logger.info('Connected to db');
 
-		const server = http.createServer(app);
+		const options = {
+			key: fs.readFileSync('key.pem'),
+			cert: fs.readFileSync('cert.pem'),
+		};
+
+		const server = https.createServer(options, app);
 
 		if (!config.PORT) {
 			logger.error('PORT is not defined');
