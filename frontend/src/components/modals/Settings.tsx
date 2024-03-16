@@ -13,7 +13,6 @@ function Avatar() {
 	const [zoom, setZoom] = useState(1);
 
 	const handleSave = async () => {
-		
 		if (editor.current && image) {
 			const canvas = editor.current.getImageScaledToCanvas();
 			const file = new File([canvas.toDataURL()], 'avatar.png', {
@@ -30,7 +29,7 @@ function Avatar() {
 					'userInfo',
 					JSON.stringify({ ...user!.userInfo, avatar: res.avatar }),
 				);
-			} catch (err:any) {
+			} catch (err: any) {
 				console.log(err);
 				setToast({ message: err.response.data.error, type: 'error' });
 			}
@@ -83,8 +82,7 @@ function SettingsModal() {
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 
-	const handlePasswordSubmit = async (e: React.FormEvent<HTMLFormElement> 
-		) => {
+	const handlePasswordSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (password === '' || oldPassword === '' || confirmPassword === '') {
@@ -180,7 +178,10 @@ function SettingsModal() {
 						</form>
 					</div>
 					<div>
-						<form className="w-full flex flex-col items-stretch">
+						<form
+							onSubmit={(e) => e.preventDefault()}
+							className="w-full flex flex-col items-stretch"
+						>
 							<label htmlFor="avatar" className="font-semibold">
 								Avatar:
 							</label>
