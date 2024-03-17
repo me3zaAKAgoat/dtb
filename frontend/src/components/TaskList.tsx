@@ -28,7 +28,7 @@ function TaskList({
 				/>
 			))}
 			<button
-				className="btn rounded-[5px] bg-secondary w-[120px] border border-tertiary"
+				className="mb-6 btn rounded-[5px] bg-secondary w-[120px] border border-tertiary"
 				onClick={() =>
 					setModal({
 						type: 'TaskCreationForm',

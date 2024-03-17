@@ -65,7 +65,7 @@ function Avatar() {
 			/>
 			<button
 				type="submit"
-				className="w-36 h-10 transition-all focus:border-primary-content my-2 border border-tertiary bg-accent hover:bg-primary px-4 rounded-[4px] text-primary-content"
+				className="w-36 font-semibold h-10 transition-all focus:border-primary-content my-2 border border-tertiary bg-accent hover:bg-primary px-4 rounded-[4px] text-primary-content"
 				onClick={handleSave}
 			>
 				Save changes
@@ -108,7 +108,7 @@ function SettingsModal() {
 				</h1>
 			</div>
 			<div className="mt-2">
-				<div className="flex gap-8">
+				<div className="flex gap-16">
 					<div>
 						<form className="w-full flex flex-col items-stretch">
 							<label htmlFor="username" className="font-semibold">
@@ -127,7 +127,7 @@ function SettingsModal() {
 								/>
 								<button
 									type="submit"
-									className="w-36 h-10 transition-all focus:border-primary-content my-2 border border-tertiary bg-accent hover:bg-primary px-4 rounded-[4px] text-primary-content"
+									className="w-36 font-semibold h-10 transition-all focus:border-primary-content my-2 border border-tertiary bg-accent hover:bg-primary px-4 rounded-[4px] text-primary-content"
 								>
 									Save changes
 								</button>
@@ -170,7 +170,7 @@ function SettingsModal() {
 								/>
 								<button
 									type="submit"
-									className="w-36 h-10 transition-all focus:border-primary-content my-2 border border-tertiary bg-accent hover:bg-primary px-4 rounded-[4px] text-primary-content"
+									className="w-36 font-semibold h-10 transition-all focus:border-primary-content my-2 border border-tertiary bg-accent hover:bg-primary px-4 rounded-[4px] text-primary-content"
 								>
 									Save changes
 								</button>
