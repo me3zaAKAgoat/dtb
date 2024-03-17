@@ -79,9 +79,7 @@ cluegi
 - create a workflow for CI/CD
 - fix envs for contirbutors
 - make wesbite inaccesisble from phone
-- switch colors for task priority
 - unify the css for buttons
-- imporve completion input editing and visualize the numbers
 
 ## UX
 

@@ -76,3 +76,12 @@ export const concludeCycle = async (
 	);
 	return response.data;
 }
+
+export const getCycleEndDate = async (token: string, cycleId: string) => {
+	const response = await api.get(`/endDate/${cycleId}`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+	return response.data;
+}
