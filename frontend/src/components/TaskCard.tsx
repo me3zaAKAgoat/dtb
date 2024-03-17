@@ -7,11 +7,11 @@ import { ToastContext } from '../providers/Toast';
 import { ModalContext } from '../providers/Modal';
 
 const priorityColor = {
-	'very low': 'border-l-red-700',
-	low: 'border-l-red-300',
+	'very low': 'border-l-green-700',
+	low: 'border-l-green-300',
 	medium: 'border-l-slate-300',
-	high: 'border-l-green-300',
-	'very high': 'border-l-green-700',
+	high: 'border-l-red-300',
+	'very high': 'border-l-red-700',
 };
 
 function TaskCard({

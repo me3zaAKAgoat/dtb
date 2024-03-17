@@ -53,7 +53,7 @@ cluegi
 - rich markdown text editor for notes component that behaves like discord text form parsing.
 - configure shadcn and use it for all complex components
 - add congratulations visualizers and dopamine pushes
-- make a custom confirm function that when called triggered a state somehow and returns either true or false 
+- make a custom confirm function that when called triggered a state somehow and returns either true or false
 - add first name and last name change in settings
 - add ability to edit cycle start or end
 - add cycle time left
@@ -74,13 +74,14 @@ cluegi
 - make a settings page
 - use ICONS MORE for better ux !!!
 - improve settings layout
-- fix insane number of api calls 
+- fix insane number of api calls
 - figure out a good way to do logging
 - create a workflow for CI/CD
 - fix envs for contirbutors
 - make wesbite inaccesisble from phone
-
-https://www.npmjs.com/package/react-avatar-editor
+- switch colors for task priority
+- unify the css for buttons
+- imporve completion input editing and visualize the numbers
 
 ## UX
 
