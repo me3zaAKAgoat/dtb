@@ -101,7 +101,7 @@ function SettingsModal() {
 	};
 
 	return (
-		<div className="text-primary-content flex flex-col justify-between pb-2">
+		<div className="text-primary-content flex flex-col justify-between pb-2 px-12">
 			<div className="flex items-center justify-center">
 				<h1 className="mb-5 mt-2 flex items-center justify-center font-semibold text-xl w-full">
 					Settings
@@ -144,7 +144,7 @@ function SettingsModal() {
 								<input
 									value={oldPassword}
 									onChange={(e) => setOldPassword(e.target.value)}
-									placeholder="Old password"
+									placeholder="old password"
 									type="password"
 									name="oldPassword"
 									id="oldPassword"
