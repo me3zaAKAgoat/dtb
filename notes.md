@@ -55,7 +55,9 @@ cluegi
 - add congratulations visualizers and dopamine pushes
 - make a custom confirm function that when called triggered a state somehow and returns either true or false 
 - add first name and last name change in settings
-- manage username in auth better especially in local storage
+- add ability to edit cycle start or end
+- add cycle time left
+- styling of completion on firefox does not have a border radius!!
 
 ### Yapping
 
@@ -75,6 +77,8 @@ cluegi
 - fix insane number of api calls 
 - figure out a good way to do logging
 - create a workflow for CI/CD
+- fix envs for contirbutors
+- make wesbite inaccesisble from phone
 
 https://www.npmjs.com/package/react-avatar-editor
 
