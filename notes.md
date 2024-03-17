@@ -77,8 +77,7 @@ cluegi
 - create a workflow for CI/CD
 - switch colors for task priority
 - unify the css for buttons
-
-  https://www.npmjs.com/package/react-avatar-editor
+- imporve completion input editing and visualize the numbers
 
 ## UX
 

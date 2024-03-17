@@ -92,9 +92,7 @@
 }
 
 .task-card {
-	transition:
-		height 200ms ease-in-out 50ms,
-		visibility 200ms ease-in-out 50ms;
+	transition: height 200ms ease-in-out 50ms, visibility 200ms ease-in-out 50ms;
 }
 
 .task-card-open {
@@ -162,12 +160,25 @@
 }
 
 .task-slider {
-    accent-color: theme(colors.accent);
+	accent-color: theme(colors.accent);
+	border-radius: 50px;
+}
+
+@-moz-document url-prefix() {
+	.task-slider {
+		overflow: hidden;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	.task-slider::-webkit-progress-bar {
+		overflow: visible;
+	}
 }
 
 .task-slider::-moz-range-thumb {
-	width: 13px;
-	height: 13px;
+	width: 11px;
+	height: 11px;
 	background: theme(colors.primary);
 	cursor: pointer;
 	border-radius: 50%;
@@ -175,7 +186,7 @@
 }
 
 .task-slider::-moz-range-progress {
-	height: 8px;
+	height: 100%;
 	background-color: theme(colors.accent);
 }
 
