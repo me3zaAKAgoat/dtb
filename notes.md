@@ -75,6 +75,7 @@ cluegi
 - fix insane number of api calls 
 - figure out a good way to do logging
 - create a workflow for CI/CD
+- switch colors for task priority
 
 https://www.npmjs.com/package/react-avatar-editor
 
