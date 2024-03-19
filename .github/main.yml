@@ -1,0 +1,21 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy
+        env:
+          SSH_PASS: ${{ secrets.DROPLET_PASS }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          SSL_CERT: ${{ secrets.CERT }}
+          SSL_KEY: ${{ secrets.PRIV }}
+          ENV: ${{ secrets.ENV }}
+        run: |
+          <<< "${SSH_PASS}" ssh ${REMOTE_USER}@${REMOTE_HOST} 'cd dtb && git pull --ff-only origin main && ./build.sh'
