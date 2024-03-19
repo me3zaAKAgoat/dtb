@@ -5,7 +5,7 @@ import HUD from './HUD';
 import { useSortingTasksState } from '../utils/taskUtil';
 import { getCycleTasks } from '../services/task';
 import { AuthContext } from '../utils/useAuth';
-import { getCycleNotes } from '../services/cycle';
+import { getCycleEndDate, getCycleNotes } from '../services/cycle';
 
 function Board({
 	cycleId,
@@ -17,6 +17,7 @@ function Board({
 	const { user } = useContext(AuthContext)!;
 	const [tasks, setTasks] = useSortingTasksState<Task[]>([]);
 	const [notes, setNotes] = useState<string | null>(null);
+	const [endDate, setEndDate] = useState<string | null>(null);
 
 	useEffect(() => {
 		getCycleTasks(user?.token!, cycleId).then((data) => {
@@ -25,12 +26,15 @@ function Board({
 		getCycleNotes(user?.token!, cycleId).then((data) => {
 			setNotes(data);
 		});
+		getCycleEndDate(user?.token!, cycleId).then((data) => {
+			setEndDate(data);
+		});
 	}, [cycleId]);
 
 	return (
 		<div className="board h-full w-full flex flex-col justify-normal items-stretch">
 			<div className="w-full h-[112px] flex-shrink-0 flex justify-center items-center relative">
-				<HUD tasks={tasks} cycleId={cycleId} setCycleId={setCycleId} />
+				<HUD tasks={tasks} cycleId={cycleId} endDate={endDate} setCycleId={setCycleId} />
 			</div>
 			<div className="w-full h-[calc(100%-112px)] flex justify-normal">
 				<div className="w-1/2 h-full flex flex-col items-center font-semibold">

@@ -139,4 +139,16 @@ cycleRouter.put('/notes/:id', async (req: Request, res: Response) => {
 	}
 });
 
+cycleRouter.get('/endDate/:id', async (req: Request, res: Response) => {
+	try {
+		const cycle = await Cycle.findById(req.params.id);
+		if (!cycle) {
+			return res.status(404).json({ error: 'Cycle not found' });
+		}
+		return res.status(200).json(cycle.endDate);
+	} catch (error: any) {
+		return res.status(500).json({ error: error.message });
+	}
+});
+
 export default cycleRouter;

@@ -130,23 +130,45 @@ function TaskCard({
 					<label htmlFor="completion" className="text-sm font-normal mb-2">
 						Completion:
 					</label>
-					<input
-						className="task-slider mb-2 w-full"
-						type="range"
-						min={0}
-						max={100}
-						step={10}
-						value={task?.completion}
-						onChange={(event) => {
-							const newTasks = tasks.map((task) => {
-								if (task.id === id) {
-									task.completion = parseInt(event.target.value);
-								}
-								return task;
-							});
-							setTasks(newTasks);
-						}}
-					/>
+					<div className="flex justify-between w-full mb-2 gap-6">
+						<input
+							className="w-[90%] task-slider"
+							type="range"
+							min={0}
+							max={100}
+							value={task?.completion}
+							onChange={(event) => {
+								const newTasks = tasks.map((task) => {
+									if (task.id === id) {
+										task.completion = parseInt(event.target.value);
+									}
+									return task;
+								});
+								setTasks(newTasks);
+							}}
+						/>
+						<input
+							type="number"
+							min={0}
+							max={100}
+							className="w-[10%] text-xs text-center bg-secondary border border-tertiary rounded-[2px] text-primary-content"
+							value={`${task?.completion}`}
+							onChange={(event) => {
+								const n = parseInt(event.target.value);
+								if (Number.isNaN(n)) event.target.value = '0';
+								if (n < 0) event.target.value = '0';
+								else if (n > 100) event.target.value = '100';
+
+								const newTasks = tasks.map((task) => {
+									if (task.id === id) {
+										task.completion = parseInt(event.target.value);
+									}
+									return task;
+								});
+								setTasks(newTasks);
+							}}
+						/>
+					</div>
 				</div>
 			</div>
 			<div className="h-[2px] w-full flex flex-col justify-start items-start">

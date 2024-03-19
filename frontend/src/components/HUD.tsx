@@ -8,10 +8,12 @@ import { ModalContext } from '../providers/Modal';
 function HUD({
 	tasks,
 	cycleId,
+	endDate,
 	setCycleId,
 }: {
 	tasks: Task[];
 	cycleId: string;
+	endDate: string | null;
 	setCycleId: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
 	const { user } = useContext(AuthContext)!;
@@ -34,8 +36,11 @@ function HUD({
 			console.log(error);
 		}
 	};
+
+	console.log(endDate);
+
 	return (
-		<div className="w-[400px] z-10 bg-secondary h-[70%] border border-tertiary rounded p-2 px-4 flex items-center justify-between">
+		<div className="w-[500px] z-10 bg-secondary h-[70%] border border-tertiary rounded p-2 px-4 flex items-center justify-between">
 			<div className="flex">
 				<h1 className="flex justify-center items-center font-bold mr-2">
 					Completion:
@@ -57,6 +62,21 @@ function HUD({
 						<div className="inner">{calcTotal(tasks)}%</div>
 					</div>
 				</div>
+			</div>
+			<div className="flex">
+				<h1 className="flex justify-center items-center font-bold mr-2">
+					Time left:
+				</h1>
+				<h1 className="flex justify-center items-center font-bold">
+					{endDate
+						? ` ${Math.floor(
+								(new Date(endDate) - new Date()) / (1000 * 60 * 60 * 24),
+						  )} Days ${Math.floor(
+								((new Date(endDate) - new Date()) % (1000 * 60 * 60 * 24)) /
+									(1000 * 60 * 60),
+						  )} Hours`
+						: ' - Days - Hours'}
+				</h1>
 			</div>
 			<div className="flex">
 				<button
