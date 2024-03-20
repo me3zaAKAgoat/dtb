@@ -1,0 +1,26 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Install sshpass
+        run: apt-get update && apt-get install -y sshpass
+      - name: Deploy
+        env:
+          SSH_PASS: ${{ secrets.DROPLET_PASS }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+
+        run: |
+          mkdir -p ~/.ssh
+          touch ~/.ssh/known_hosts
+          ssh-keyscan ${REMOTE_HOST} >> ~/.ssh/known_hosts
+          yes $'yes\n' | sshpass -p "${SSH_PASS}" ssh -o "StrictHostKeyChecking=no" ${REMOTE_USER}@${REMOTE_HOST} "rm -rf dtb && git clone https://github.com/me3zaAKAgoat/dtb && cd dtb && source build.sh"

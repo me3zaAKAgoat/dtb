@@ -132,7 +132,7 @@ function TaskCard({
 					</label>
 					<div className="flex justify-between w-full mb-2 gap-6">
 						<input
-							className="w-[90%] task-slider"
+							className="w-full task-slider"
 							type="range"
 							min={0}
 							max={100}
@@ -151,7 +151,7 @@ function TaskCard({
 							type="number"
 							min={0}
 							max={100}
-							className="w-[10%] text-xs text-center bg-secondary border border-tertiary rounded-[2px] text-primary-content"
+							className="w-12 text-xs text-center bg-secondary border border-tertiary rounded-[2px] text-primary-content"
 							value={`${task?.completion}`}
 							onChange={(event) => {
 								const n = parseInt(event.target.value);

@@ -162,6 +162,7 @@
 .task-slider {
 	accent-color: theme(colors.accent);
 	border-radius: 50px;
+	background-color: theme(colors.tertiary);
 }
 
 @-moz-document url-prefix() {
