@@ -21,11 +21,11 @@ export default {
 
 				info: '#67e8f9',
 
-				success: '#00ff00',
+				success: '#307530',
 
 				warning: '#fde047',
 
-				error: '#a31515',
+				error: '#b82323',
 
 				tertiary: '#404040',
 
@@ -56,11 +56,11 @@ export default {
 
 					info: '#67e8f9',
 
-					success: '#00ff00',
+					success: '#307530',
 
 					warning: '#fde047',
 
-					error: '#a31515',
+					error: '#b82323',
 				},
 			},
 		],
