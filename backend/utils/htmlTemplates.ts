@@ -4,7 +4,7 @@ const verificationMailTemplate = (name: string, token: string) => {
 	<html>
 	  <body>
 		<h1>Hi ${name},</h1>
-		<p>Click <a href="http://www.dtboard.tech/api/auth/verify/${token}">here</a> to verify your account</p>
+		<p>Click <a href="https://www.dtboard.tech/api/auth/verify/${token}">here</a> to verify your account</p>
 	  </body>
 	</html>
   `;
