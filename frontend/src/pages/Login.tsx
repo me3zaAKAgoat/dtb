@@ -74,7 +74,7 @@ function Login({}) {
 						/>
 					</div>
 					<button className="main-button mb-4" type="submit" disabled={loading}>
-						{loading ? 'Loading...' : 'Login'}
+						{loading ? 'Loading...' : 'Log In'}
 					</button>
 				</form>
 				<div
