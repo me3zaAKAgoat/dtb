@@ -16,11 +16,12 @@ DTB is particularly valuable for students who need to keep track of various aspe
 
 ## How to Run the Project
 
-1. Clone the repository and cd into it
-2. open two terminals:
+1. Clone The Repository
+2. cd Into The Repository
+2. Open Two Terminals:
 	- cd frontend && npm i && npm run dev
 	- cd backend && npm i && npm run dev
-3. in env
+3. In Env Specify:
 	- PORT = 3003
 	- MONGODB_URI = 
 	- SECRET =
