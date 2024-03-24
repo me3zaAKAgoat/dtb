@@ -6,9 +6,6 @@ import { useNavigate, Link } from 'react-router-dom';
 const Register = () => {
 	const { user } = useContext(AuthContext)!;
 	const [username, setUsername] = useState('');
-	const [firstName, setFirstName] = useState('');
-	const [lastName, setLastName] = useState('');
-	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [error, setError] = useState<string | null>(null);
@@ -16,20 +13,8 @@ const Register = () => {
 	const [modal, setModal] = useState(false);
 	const navigate = useNavigate();
 
-	const handleFirstNameChange = (e: React.FormEvent<HTMLInputElement>) => {
-		setFirstName((e.target as HTMLInputElement).value);
-	};
-
-	const handleLastNameChange = (e: React.FormEvent<HTMLInputElement>) => {
-		setLastName((e.target as HTMLInputElement).value);
-	};
-
 	const handleUsernameChange = (e: React.FormEvent<HTMLInputElement>) => {
 		setUsername((e.target as HTMLInputElement).value);
-	};
-
-	const handleEmailChange = (e: React.FormEvent<HTMLElement>) => {
-		setEmail((e.target as HTMLInputElement).value);
 	};
 
 	const handlePasswordChange = (e: React.FormEvent<HTMLElement>) => {
@@ -50,7 +35,7 @@ const Register = () => {
 		try {
 			setError(null);
 			setLoading(true);
-			await authApi.register(username, firstName, lastName, email, password);
+			await authApi.register(username, password);
 			setLoading(false);
 			setModal(true);
 		} catch (err: any) {
@@ -74,61 +59,36 @@ const Register = () => {
 
 	return (
 		<div className="base-page register-page flex flex-col items-center justify-center">
-			<div className="bg-secondary flex flex-col justify-end items-center w-auto h-auto rounded-[7px] border border-solid border-tertiary overflow-hidden drop-shadow-2xl">
+			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-[400px] rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl">
 				<Link className="m-6 hover:underline font-semibold" to="/login">
 					Already have an account? Log in here.
 				</Link>
 				<form
-					className="flex flex-col justify-between items-center"
+					className="flex flex-col justify-between items-center w-full h-full"
 					onSubmit={handleSubmit}
 				>
-					<div className="flex items-start justify-between mx-8">
-						<div className="m-10 flex flex-col justify-start">
-							<input
-								className="main-input"
-								type="text"
-								placeholder="Username"
-								value={username}
-								onChange={handleUsernameChange}
-							/>
-							<input
-								className="main-input"
-								type="text"
-								placeholder="First Name"
-								value={firstName}
-								onChange={handleFirstNameChange}
-							/>
-							<input
-								className="main-input"
-								type="text"
-								placeholder="Last Name"
-								value={lastName}
-								onChange={handleLastNameChange}
-							/>
-							<input
-								className="main-input"
-								type="text"
-								placeholder="Email"
-								value={email}
-								onChange={handleEmailChange}
-							/>
-						</div>
-						<div className="m-10 flex flex-col">
-							<input
-								className="main-input"
-								type="password"
-								placeholder="Password"
-								value={password}
-								onChange={handlePasswordChange}
-							/>
-							<input
-								className="main-input"
-								type="password"
-								placeholder="Confirm Password"
-								value={confirmPassword}
-								onChange={handleConfirmPasswordChange}
-							/>
-						</div>
+					<div className="mt-8 flex flex-col items-center justify-center">
+						<input
+							className="main-input"
+							type="text"
+							placeholder="Username"
+							value={username}
+							onChange={handleUsernameChange}
+						/>
+						<input
+							className="main-input"
+							type="password"
+							placeholder="Password"
+							value={password}
+							onChange={handlePasswordChange}
+						/>
+						<input
+							className="main-input"
+							type="password"
+							placeholder="Confirm Password"
+							value={confirmPassword}
+							onChange={handleConfirmPasswordChange}
+						/>
 					</div>
 					<button className="main-button" type="submit" disabled={loading}>
 						Sign Up
@@ -168,8 +128,7 @@ const Register = () => {
 							</svg>
 						</button>
 						<p className="font-semibold text-lg px-5 pb-7 pt-4">
-							Thank you for signing up! Please check your email to verify your
-							account.
+							Thank you for signing up! Please log in to continue.
 						</p>
 					</div>
 					<form method="dialog" className="modal-backdrop">
