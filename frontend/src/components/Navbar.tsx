@@ -146,7 +146,7 @@ const Navbar = ({}) => {
 						>
 							<a
 								className="m-2"
-								href="https://github.com/me3zaAKAgoat/dtb"
+								href="https://www.me3za.tech/posts/dtb/"
 								target="_blank"
 							>
 								<svg
