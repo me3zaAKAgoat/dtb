@@ -14,6 +14,21 @@ DTB offers a fresh take on productivity that particularly benefits individuals w
 
 DTB is particularly valuable for students who need to keep track of various aspects of their curriculum.
 
+## How to Run the Project
+
+1. Clone the repository and cd into it
+2. open two terminals:
+	- cd frontend && npm i && npm run dev
+	- cd backend && npm i && npm run dev
+3. in env
+	- PORT = 3003
+	- MONGODB_URI = 
+	- SECRET =
+	- TOKEN_EXPIRATION = 
+	- CLOUDINARY_CLOUD_NAME=
+	- CLOUDINARY_API_KEY=
+	- CLOUDINARY_API_SECRET=
+
 ## How to Contribute
 
 If you'd like to contribute to DTB, here's how you can do it:

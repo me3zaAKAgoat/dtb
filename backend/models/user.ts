@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
 	email: {
 		type: String,
 		// required: true, // might need this later one when the app signup is complex again
-		unique: true,
+		// unique: true,
 	},
 	passwordHash: {
 		type: String,
