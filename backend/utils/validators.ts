@@ -3,9 +3,6 @@ import Validator from 'joi';
 
 const userSchema = Validator.object({
 	username: Validator.string().required(),
-	firstName: Validator.string().required(),
-	lastName: Validator.string().required(),
-	email: Validator.string().email().required(),
 	password: passwordComplexity({
 		min: 8,
 		max: 25,

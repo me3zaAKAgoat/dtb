@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import '../index.css';
 
 function Login({}) {
-	const [email, setEmail] = useState('');
+	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ function Login({}) {
 
 		try {
 			setLoading(true);
-			const res = await authApi.login(email, password);
+			const res = await authApi.login(username, password);
 
 			login({
 				token: res.token,
@@ -32,7 +32,6 @@ function Login({}) {
 					username: res.username,
 					firstName: res.firstName,
 					lastName: res.lastName,
-					email: res.email,
 				},
 				expiryDate: res.expiryDate,
 			});
@@ -62,9 +61,9 @@ function Login({}) {
 						<input
 							className="main-input"
 							type="text"
-							placeholder="Email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							placeholder="Username"
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
 						/>
 						<input
 							className="main-input"

@@ -8,15 +8,15 @@ const userSchema = new mongoose.Schema({
 	},
 	firstName: {
 		type: String,
-		required: true,
+		// required: true, // might need this later one when the app signup is complex again
 	},
 	lastName: {
 		type: String,
-		required: true,
+		// required: true, // might need this later one when the app signup is complex again
 	},
 	email: {
 		type: String,
-		required: true,
+		// required: true, // might need this later one when the app signup is complex again
 		unique: true,
 	},
 	passwordHash: {
@@ -26,11 +26,11 @@ const userSchema = new mongoose.Schema({
 	isVerified: {
 		type: Boolean,
 		default: false,
-		required: true,
+		// required: true, // might need this later one when the app signup is complex again
 	},
 	verificationToken: {
 		type: String,
-		required: true,
+		// required: true, // might need this later one when the app signup is complex again
 	},
 	avatar: {
 		type: String,
