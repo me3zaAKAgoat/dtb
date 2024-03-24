@@ -40,7 +40,7 @@ function HUD({
 	console.log(endDate);
 
 	return (
-		<div className="w-[600px] z-10 bg-secondary h-[70%] border border-tertiary rounded p-2 px-4 flex items-center justify-between">
+		<div className="w-[600px] z-10 bg-secondary h-[70%] border-[0.5px] border-tertiary rounded-xl p-2 px-4 flex items-center justify-between">
 			<div className="flex">
 				<h1 className="flex justify-center items-center font-bold mr-2">
 					Completion:

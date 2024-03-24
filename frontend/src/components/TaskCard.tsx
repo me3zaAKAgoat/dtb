@@ -68,7 +68,7 @@ function TaskCard({
 
 	return (
 		<div
-			className={`transition-all hover:shadow-lg hover:shadow-tertiary bg-secondary mb-6 w-full border border-tertiary rounded overflow-hidden flex flex-col border-l-4 ${
+			className={`transition-all hover:shadow-lg hover:shadow-tertiary bg-secondary mb-6 w-full border-[0.5px] border-tertiary rounded-xl overflow-hidden flex flex-col border-l-4 ${
 				priorityColor[task?.priority!]
 			}`}
 		>
@@ -124,7 +124,7 @@ function TaskCard({
 					<label htmlFor="description" className="text-sm font-normal">
 						Description:
 					</label>
-					<p className="preserve-lines text-xs font-medium my-2 border border-tertiary w-full h-[70%] rounded-[2px] p-2 overflow-auto">
+					<p className="preserve-lines text-xs font-medium my-2 border border-tertiary w-full h-[70%] rounded-lg p-2 overflow-auto">
 						{task?.description}
 					</p>
 					<label htmlFor="completion" className="text-sm font-normal mb-2">
