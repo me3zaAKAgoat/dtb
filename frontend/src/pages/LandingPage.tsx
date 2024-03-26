@@ -21,10 +21,10 @@ function LandingPage() {
 						</li>
 					</ul>
 				</details>
-				<ul className="hidden items-end text-3xl gap-4 font-semibold  md:flex">
+				<ul className="hidden items-end text-3xl gap-4 font-semibold md:flex">
 					<li>
-						<a className="flex items-end gap-2" href="/">
-							<img src="/dtb.svg" alt="logo" className="h-10" />
+						<a className="flex gap-2 " href="/">
+							<img src="/dtb.svg" alt="logo" className="h-8" />
 							Dtboard
 						</a>
 					</li>
@@ -41,7 +41,7 @@ function LandingPage() {
 				</ul>
 				<Link
 					to="/login"
-					className="flex items-center justify-center px-4 text-lg font-bold rounded-[3px] border-stone-500 focus:outline focus:outline-2 focus:outline-primary-content bg-stone-500 text-primary-content hover:bg-primary hover:text-primary-content"
+					className="flex items-center justify-center px-4 text-lg font-bold rounded-[1px] border-stone-500 focus:outline focus:outline-2 focus:outline-primary-content bg-stone-500 text-primary-content hover:bg-primary-content hover:text-primary"
 				>
 					Log In
 				</Link>
@@ -62,7 +62,7 @@ function LandingPage() {
 						unlock the serenity of streamlined task management.
 					</p>
 					<Link
-						className="flex items-center justify-center text-3xl p-4 font-bold rounded-[3px] border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-primary hover:text-primary-content"
+						className="flex items-center justify-center text-3xl py-3 px-5 font-bold rounded-[1px] border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-primary-content hover:text-primary"
 						to="/register"
 					>
 						Sign Up

@@ -2,42 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@font-face {
-	font-family : 'Khula';
-	src : url('/fonts/Khula-Regular.ttf') format('truetype');
-	font-weight : 400;
-	font-style : normal;
-}
-
-@font-face {
-	font-family : 'Khula';
-	src : url('/fonts/Khula-Bold.ttf') format('truetype');
-	font-weight : 700;
-	font-style : normal;
-}
-
-@font-face {
-	font-family : 'Khula';
-	src : url('/fonts/Khula-ExtraBold.ttf') format('truetype');
-	font-weight : 800;
-	font-style : normal;
-}
-
-@font-face {
-	font-family : 'Khula';
-	src : url('/fonts/Khula-SemiBold.ttf') format('truetype');
-	font-weight : 600;
-	font-style : normal;
-}
-
-@font-face {
-	font-family : 'Khula';
-	src : url('/fonts/Khula-Light.ttf') format('truetype');
-	font-weight : 300;
-	font-style : normal;
-}
-
 :root {
 	font-family: ui-sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif; 
 	line-height: 1.5;
@@ -49,10 +13,6 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-.landing-page {
-	font-family: 'Khula';
 }
 
 .login-page > div {
