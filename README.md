@@ -50,21 +50,21 @@ If you'd like to contribute to DTB, here's how you can do it:
 7. **Open a Pull Request:** Navigate to the original repository and click on the "New pull request" button. Compare your branch with the base branch (usually `main` or `master`) and submit the pull request.
 8. **Merge Pull Request:** Once your pull request is approved, it will be merged into the main project.
 
-### How to Run the Project
+### How to Run the Project In Developement Mode
 
 1. clone the repository
 2. cd into the repository
 3. open two terminals:
-	- cd frontend && npm i && npm run dev
-	- cd backend && npm i && npm run dev
+   - cd frontend && npm i && npm run dev
+   - cd backend && npm i && npm run dev
 4. in backend create a a file named `.env`
 5. in `.env` specify:
-	- PORT = 3003
-	- MONGODB_URI = 
-	- SECRET =
-	- TOKEN_EXPIRATION = 
-	- CLOUDINARY_CLOUD_NAME =
-	- CLOUDINARY_API_KEY =
-	- CLOUDINARY_API_SECRET =
+   - PORT = 3003
+   - MONGODB_URI =
+   - SECRET =
+   - TOKEN_EXPIRATION =
+   - CLOUDINARY_CLOUD_NAME =
+   - CLOUDINARY_API_KEY =
+   - CLOUDINARY_API_SECRET =
 
 Thank you for your contribution to DTB!
