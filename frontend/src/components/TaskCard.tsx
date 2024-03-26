@@ -147,6 +147,7 @@ function TaskCard({
 						<input
 							className="w-full task-slider"
 							type="range"
+							step={5}
 							min={0}
 							max={100}
 							value={task?.completion}
