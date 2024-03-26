@@ -68,7 +68,7 @@ function TaskCard({
 
 	return (
 		<div
-			className={`transition-all hover:shadow-lg hover:shadow-tertiary bg-secondary mb-6 w-full border-[0.5px] border-tertiary overflow-hidden flex flex-col border-l-4 ${
+			className={`transition-all hover:shadow-lg bg-secondary mb-6 w-full border-[0.5px] border-tertiary overflow-hidden flex flex-col border-l-4 ${
 				priorityColor[task?.priority!]
 			}`}
 		>
@@ -113,6 +113,19 @@ function TaskCard({
 							</svg>
 						</button>
 					</div>
+				</div>
+				<div className={`flex justify-center items-center -mt-4`}>
+					<svg
+						className={`transition-all ${
+							open ? 'fill-transparent' : 'fill-primary-content'
+						}`}
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 12 12"
+						width="12"
+						height="12"
+					>
+						<path d="M6 8.825c-.2 0-.4-.1-.5-.2l-3.3-3.3c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l2.7 2.7 2.7-2.7c.3-.3.8-.3 1.1 0 .3.3.3.8 0 1.1l-3.2 3.2c-.2.2-.4.3-.6.3Z"></path>
+					</svg>
 				</div>
 			</button>
 			<div className="m-auto w-full px-5">
@@ -171,9 +184,11 @@ function TaskCard({
 					</div>
 				</div>
 			</div>
-			<div className="h-[2px] w-full flex flex-col justify-start items-start">
+			<div className="w-full flex flex-col justify-start items-start">
 				<div
-					className={`h-full bg-primary-content ${open ? 'hidden' : 'visible'}`}
+					className={`h-[3px] transition-all bg-accent ${
+						open ? 'bg-transparent' : ''
+					}`}
 					style={{ width: `${task?.completion}%` }}
 				></div>
 			</div>

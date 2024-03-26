@@ -2,9 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+	font-family : 'Khula';
+	src : url('/fonts/Khula-Regular.ttf') format('truetype');
+	font-weight : 400;
+	font-style : normal;
+}
+
+@font-face {
+	font-family : 'Khula';
+	src : url('/fonts/Khula-Bold.ttf') format('truetype');
+	font-weight : 700;
+	font-style : normal;
+}
+
+@font-face {
+	font-family : 'Khula';
+	src : url('/fonts/Khula-ExtraBold.ttf') format('truetype');
+	font-weight : 800;
+	font-style : normal;
+}
+
+@font-face {
+	font-family : 'Khula';
+	src : url('/fonts/Khula-SemiBold.ttf') format('truetype');
+	font-weight : 600;
+	font-style : normal;
+}
+
+@font-face {
+	font-family : 'Khula';
+	src : url('/fonts/Khula-Light.ttf') format('truetype');
+	font-weight : 300;
+	font-style : normal;
+}
+
 :root {
-	font-family: ui-sans-serif, Inter, system-ui, Avenir, Helvetica, Arial,
-		sans-serif;
+	font-family: 'Khula', ui-sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif; 
 	line-height: 1.5;
 	font-weight: 400;
 
@@ -29,7 +64,7 @@
 }
 
 .main-button {
-	@apply btn text-base font-bold rounded-[5px] focus:outline focus:outline-2 focus:outline-primary-content bg-primary-content text-primary hover:bg-primary hover:text-primary-content;
+	@apply btn text-base font-bold rounded-[5px] border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-primary hover:text-primary-content;
 }
 
 .base-page {
@@ -153,7 +188,7 @@
 	circle {
 		fill: none;
 		stroke-linecap: round;
-		stroke: theme(colors.primary-content);
+		stroke: theme(colors.accent);
 		stroke-width: 12%;
 		transition: stroke-dashoffset 1s 0ms ease-in-out;
 	}

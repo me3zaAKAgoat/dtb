@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
+import LandingPage from './pages/LandingPage';
 import './index.css';
 import Dashboard from './pages/Dashboard';
 import ModalPortal from './components/Modal';
@@ -22,6 +23,7 @@ function App() {
 			<ModalContext.Provider value={{ modal, setModal }}>
 				<ToastContext.Provider value={{ toast, setToast }}>
 					<Routes>
+						{!user && <Route path="/" element={<LandingPage />} />}
 						<Route path="/register" element={<Register />} />
 						<Route path="/login" element={<Login />} />
 						{user && (

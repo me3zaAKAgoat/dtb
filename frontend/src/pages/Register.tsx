@@ -60,7 +60,7 @@ const Register = () => {
 	return (
 		<div className="base-page register-page flex flex-col items-center justify-center">
 			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-[400px] rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl">
-				<Link className="m-6 hover:underline font-semibold" to="/login">
+				<Link className="mt-8 m-6 hover:underline font-semibold" to="/login">
 					Already have an account? Log in here.
 				</Link>
 				<form
