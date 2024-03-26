@@ -25,7 +25,7 @@
 }
 
 .main-input {
-	@apply bg-primary placeholder-tertiary rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-tertiary drop-shadow-2xl;
+	@apply bg-primary placeholder-quaternary rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-tertiary drop-shadow-2xl;
 }
 
 .main-button {
@@ -60,7 +60,7 @@
 	}
 	.avatar {
 		div {
-			border: 1px solid theme('colors.primary-content');
+			border: 1px solid theme('colors.accent');
 			transition-delay: 25ms;
 			transition-duration: 30ms;
 			transition-timing-function: ease-in-out;
@@ -69,7 +69,7 @@
 		div:hover,
 		.active-profile-button {
 			outline-offset: 2px;
-			outline: theme('colors.primary-content') solid 1.5px;
+			outline: theme('colors.accent') solid 1.5px;
 		}
 	}
 }
@@ -87,7 +87,7 @@
 		margin: 2px 0px 10px;
 		background-color: theme('colors.tertiary');
 		border: 1px solid theme('colors.tertiary');
-		border-radius: 8px;
+		/* border-radius: 8px; */
 	}
 }
 
@@ -160,26 +160,16 @@
 }
 
 .task-slider {
+	height: 9px;
 	accent-color: theme(colors.accent);
 	border-radius: 50px;
 	background-color: theme(colors.tertiary);
 }
 
-@-moz-document url-prefix() {
-	.task-slider {
-		overflow: hidden;
-	}
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-	.task-slider::-webkit-progress-bar {
-		overflow: visible;
-	}
-}
 
 .task-slider::-moz-range-thumb {
-	width: 11px;
-	height: 11px;
+	width: 12px;
+	height: 12px;
 	background: theme(colors.primary);
 	cursor: pointer;
 	border-radius: 50%;
@@ -188,6 +178,7 @@
 
 .task-slider::-moz-range-progress {
 	height: 100%;
+	border-radius: 50px;
 	background-color: theme(colors.accent);
 }
 

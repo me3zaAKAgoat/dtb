@@ -68,7 +68,7 @@ function TaskCard({
 
 	return (
 		<div
-			className={`transition-all hover:shadow-lg hover:shadow-tertiary bg-secondary mb-6 w-full border-[0.5px] border-tertiary rounded-xl overflow-hidden flex flex-col border-l-4 ${
+			className={`transition-all hover:shadow-lg hover:shadow-tertiary bg-secondary mb-6 w-full border-[0.5px] border-tertiary overflow-hidden flex flex-col border-l-4 ${
 				priorityColor[task?.priority!]
 			}`}
 		>
@@ -130,7 +130,7 @@ function TaskCard({
 					<label htmlFor="completion" className="text-sm font-normal mb-2">
 						Completion:
 					</label>
-					<div className="flex justify-between w-full mb-2 gap-6">
+					<div className="flex items-center justify-between w-full mb-2 gap-6">
 						<input
 							className="w-full task-slider"
 							type="range"

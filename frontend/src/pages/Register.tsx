@@ -67,7 +67,7 @@ const Register = () => {
 					className="flex flex-col justify-between items-center w-full h-full"
 					onSubmit={handleSubmit}
 				>
-					<div className="mt-8 flex flex-col items-center justify-center">
+					<div className=" mt-8 flex flex-col items-center justify-center">
 						<input
 							className="main-input"
 							type="text"

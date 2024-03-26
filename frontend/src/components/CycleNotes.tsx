@@ -31,7 +31,7 @@ const NotesContainer = ({
 
 	return (
 		<textarea
-			className="placeholder-tertiary  mt-2 w-[80%] h-[85%] bg-secondary border-[0.5px] border-tertiary rounded-xl p-4 text-primary-content font-semibold resize-none focus:outline-none focus:ring-4 focus:ring-tertiary transition-all"
+			className="placeholder-quaternary  mt-2 w-[80%] h-[85%] bg-secondary border-[0.5px] border-tertiary p-4 text-primary-content font-semibold resize-none focus:outline-none focus:ring-4 focus:ring-tertiary transition-all"
 			spellCheck="false"
 			value={notes || ''}
 			placeholder="Anything you write here will be saved automatically. Write things you want to remember for this cycle!"

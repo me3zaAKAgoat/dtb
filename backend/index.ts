@@ -32,5 +32,5 @@ mongoose
 		});
 	})
 	.catch((error: any) => {
-		logger.error('coudlnt connect to db', error);
+		logger.error('server startup failed', error);
 	});

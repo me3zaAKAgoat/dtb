@@ -27,9 +27,13 @@ export default {
 
 				error: '#b82323',
 
-				tertiary: '#404040',
+				tertiary: '#242424',
 
 				'tertiary-content': '#b4b4b4',
+
+				quaternary: '#363636',
+
+				'quaternary-content': '#b4b4b4',
 			},
 			border: {
 				radius: '4px',

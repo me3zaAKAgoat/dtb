@@ -23,16 +23,16 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 // Replace 'YourModel' with the name of your Mongoose model
-User.collection.dropIndex(
-	{ email: 1 },
-	function (err, result) {
-		if (err) {
-			console.error('Error dropping index:', err);
-		} else {
-			console.log('Index successfully dropped');
-		}
-	}
-)
+// User.collection.dropIndex(
+// 	{ email: 1 },
+// 	function (err, result) {
+// 		if (err) {
+// 			console.error('Error dropping index:', err);
+// 		} else {
+// 			console.log('Index successfully dropped');
+// 		}
+// 	}
+// )
 // User.collection.drop(function (err) {
 // 	if (err && err.message !== 'ns not found') {
 // 		console.error('Error dropping collection:', err);
