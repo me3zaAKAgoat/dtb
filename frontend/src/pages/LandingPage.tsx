@@ -29,12 +29,12 @@ function LandingPage() {
 						</a>
 					</li>
 					<li>
-						<a className="text-stone-500" href="">
+						<a className="text-stone-500" href="https://www.github.com/me3zaAKAgoat">
 							Contact
 						</a>
 					</li>
 					<li>
-						<a className="text-stone-500" href="">
+						<a className="text-stone-500" href="https://www.me3za.tech/posts/dtb/">
 							About
 						</a>
 					</li>
