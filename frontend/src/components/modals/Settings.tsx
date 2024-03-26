@@ -95,6 +95,7 @@ function SettingsModal() {
 		}
 		try {
 			await updatePassword(user!.token!, oldPassword, password);
+			setToast({ message: 'Password updated', type: 'success' });
 		} catch (err: any) {
 			setToast({ message: err.response.data.error, type: 'error' });
 		}
