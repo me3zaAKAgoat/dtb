@@ -10,12 +10,12 @@ function LandingPage() {
 					</summary>
 					<ul className="p-2 shadow menu dropdown-content z-[1] bg-primary border border-quaternary w-52">
 						<li>
-							<a className="text-stone-500 hover:text-primary-content" href="">
+							<a className="text-stone-500 hover:text-primary-content" href="https://www.github.com/me3zaAKAgoat">
 								Contact
 							</a>
 						</li>
 						<li>
-							<a className="text-stone-500 hover:text-primary-content" href="">
+							<a className="text-stone-500 hover:text-primary-content" href="https://www.me3za.tech/posts/dtb/">
 								About
 							</a>
 						</li>
