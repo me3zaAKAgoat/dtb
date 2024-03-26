@@ -1,14 +1,16 @@
 import passwordComplexity from 'joi-password-complexity';
 import Validator from 'joi';
 
+const passwordComplexityRules = {
+	min: 8,
+	max: 25,
+	numeric: 1,
+	requirementCount: 4,
+};
+
 const userSchema = Validator.object({
 	username: Validator.string().required(),
-	password: passwordComplexity({
-		min: 8,
-		max: 25,
-		numeric: 1,
-		requirementCount: 4,
-	}),
+	password: passwordComplexity(passwordComplexityRules),
 });
 
 const cycleSchema = Validator.object({
@@ -16,7 +18,9 @@ const cycleSchema = Validator.object({
 	archived: Validator.boolean().optional(),
 	notes: Validator.string().allow(''),
 	endNote: Validator.string().allow(''),
-	emotionalState: Validator.string().valid('happy', 'neutral', 'sad').optional(),
+	emotionalState: Validator.string()
+		.valid('happy', 'neutral', 'sad')
+		.optional(),
 });
 
 const taskSchema = Validator.object({
@@ -27,15 +31,7 @@ const taskSchema = Validator.object({
 });
 
 const passwordSchema = Validator.object({
-	password: passwordComplexity({
-		min: 8,
-		max: 25,
-		lowerCase: 1,
-		upperCase: 1,
-		numeric: 1,
-		symbol: 1,
-		requirementCount: 4,
-	}),
+	password: passwordComplexity(passwordComplexityRules),
 });
 
 export { userSchema, cycleSchema, taskSchema, passwordSchema };
