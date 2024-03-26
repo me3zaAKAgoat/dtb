@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 function LandingPage() {
 	return (
-		<div className="base-page px-10 md:px-48">
+		<div className="landing-page base-page px-10 md:px-48">
 			<header className="pt-10 flex justify-between">
 				<details className="dropdown md:hidden">
 					<summary className="m-1 btn border border-quaternary rounded-none">

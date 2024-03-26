@@ -186,7 +186,7 @@ function TaskCard({
 			</div>
 			<div className="w-full flex flex-col justify-start items-start">
 				<div
-					className={`h-[3px] transition-all bg-accent ${
+					className={`h-[3px] transition-all bg-primary-content ${
 						open ? 'bg-transparent' : ''
 					}`}
 					style={{ width: `${task?.completion}%` }}

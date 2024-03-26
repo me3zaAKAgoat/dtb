@@ -7,11 +7,11 @@ export default {
 			colors: {
 				primary: '#000000',
 
-				'primary-content': '#D8D8D8',
+				'primary-content': '#b4b4b4',
 
 				secondary: '#111111',
 
-				'secondary-content': '#D8D8D8',
+				'secondary-content': '#b4b4b4',
 
 				accent: '#4f46e5',
 
@@ -29,11 +29,11 @@ export default {
 
 				tertiary: '#242424',
 
-				'tertiary-content': '#D8D8D8',
+				'tertiary-content': '#b4b4b4',
 
 				quaternary: '#363636',
 
-				'quaternary-content': '#D8D8D8',
+				'quaternary-content': '#b4b4b4',
 			},
 			border: {
 				radius: '4px',
@@ -46,11 +46,11 @@ export default {
 				mytheme: {
 					primary: '#000000',
 
-					'primary-content': '#D8D8D8',
+					'primary-content': '#b4b4b4',
 
 					secondary: '#111111',
 
-					'secondary-content': '#D8D8D8',
+					'secondary-content': '#b4b4b4',
 
 					accent: '#4f46e5',
 

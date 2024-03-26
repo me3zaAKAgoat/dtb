@@ -39,7 +39,7 @@
 }
 
 :root {
-	font-family: 'Khula', ui-sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif; 
+	font-family: ui-sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif; 
 	line-height: 1.5;
 	font-weight: 400;
 
@@ -49,6 +49,10 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.landing-page {
+	font-family: 'Khula';
 }
 
 .login-page > div {
@@ -188,7 +192,7 @@
 	circle {
 		fill: none;
 		stroke-linecap: round;
-		stroke: theme(colors.accent);
+		stroke: theme(colors.primary-content);
 		stroke-width: 12%;
 		transition: stroke-dashoffset 1s 0ms ease-in-out;
 	}
