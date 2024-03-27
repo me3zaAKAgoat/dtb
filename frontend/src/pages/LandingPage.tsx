@@ -21,7 +21,7 @@ function LandingPage() {
 						</li>
 					</ul>
 				</details>
-				<ul className="hidden items-end text-3xl gap-4 font-semibold md:flex">
+				<ul className="hidden items-end text-2xl gap-4 font-semibold md:flex">
 					<li>
 						<a className="flex gap-2 " href="/">
 							<img src="/dtb.svg" alt="logo" className="h-8" />
@@ -46,13 +46,13 @@ function LandingPage() {
 					Log In
 				</Link>
 			</header>
-			<main className="flex flex-col items-center pt-10">
+			<main className="flex flex-col items-center">
 				<img src="/hud.png" alt="heads up display showcase image" />
-				<div className="flex flex-col items-start gap-8 px-10 md:px-14 lg:px-[20%]">
-					<h1 className="font-bold text-4xl">
+				<div className="flex flex-col items-start gap-8 px-10 md:px-14 lg:px-[5%]">
+					<h1 className="font-bold text-2xl">
 						Your Personal Productivity Partner
 					</h1>
-					<p className="text-lg">
+					<p className="">
 						DTB offers a sanctuary for those seeking a calmer, more organized
 						approach to their daily tasks. Bid farewell to chaos and welcome
 						simplicity with our user-friendly app. Effortlessly manage your
@@ -62,7 +62,7 @@ function LandingPage() {
 						unlock the serenity of streamlined task management.
 					</p>
 					<Link
-						className="flex items-center justify-center text-3xl py-3 px-5 font-bold rounded-[1px] border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-primary-content hover:text-primary"
+						className="flex items-center justify-center text-xl py-3 px-5 font-bold rounded-[1px] border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-primary-content hover:text-primary"
 						to="/register"
 					>
 						Sign Up
