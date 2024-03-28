@@ -11,9 +11,10 @@ export default {
 
 				secondary: '#111111',
 
+                
 				'secondary-content': '#b4b4b4',
 
-				accent: '#4f46e5',
+				accent: '#864AF9',
 
 				'accent-content': '#000000',
 
@@ -34,7 +35,11 @@ export default {
 				quaternary: '#363636',
 
 				'quaternary-content': '#b4b4b4',
-			},
+                
+                quinary: '',
+
+                'quinary-content': '#b4b4b4',
+            },
 			border: {
 				radius: '4px',
 			},
@@ -52,7 +57,7 @@ export default {
 
 					'secondary-content': '#b4b4b4',
 
-					accent: '#4f46e5',
+					accent: '#864AF9',
 
 					'accent-content': '#000000',
 
