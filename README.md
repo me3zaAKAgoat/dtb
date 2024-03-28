@@ -2,6 +2,11 @@
 
 ## Overview
 
+- [How to contribute](https://github.com/me3zaAKAgoat/dtb?tab=readme-ov-file#how-to-contribute)
+- [How to run the project](https://github.com/me3zaAKAgoat/dtb?tab=readme-ov-file#how-to-run-the-project-in-developement-mode)
+
+## Introduction
+
 DTB is a productivity tracking and stress management application designed to alleviate the burdens of planning and remembering tasks during demanding work or study periods. By providing a user-friendly board equipped with numerous features, DTB enables users to organize their responsibilities.
 
 DTB also offers visualized statistics that offer valuable insights into one's mental and emotional well-being. By monitoring performance metrics, users can proactively prevent burnout and optimize their habits.
@@ -66,5 +71,9 @@ If you'd like to contribute to DTB, here's how you can do it:
    - CLOUDINARY_CLOUD_NAME =
    - CLOUDINARY_API_KEY =
    - CLOUDINARY_API_SECRET =
+
+> [!IMPORTANT]  
+> If you can help with providing an easier way to run the server without compromising my certificates and api keys pls let me know
+
 
 Thank you for your contribution to DTB!
