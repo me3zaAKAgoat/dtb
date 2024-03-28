@@ -57,6 +57,9 @@ If you'd like to contribute to DTB, here's how you can do it:
 
 ### How to Run the Project In Developement Mode
 
+> [!IMPORTANT]  
+> If you can help with providing an easier way to run the backend server (provide .env cert.pem key.pem) without compromising my security then please let me know!
+
 1. clone the repository
 2. cd into the repository
 3. open two terminals:
@@ -71,9 +74,5 @@ If you'd like to contribute to DTB, here's how you can do it:
    - CLOUDINARY_CLOUD_NAME =
    - CLOUDINARY_API_KEY =
    - CLOUDINARY_API_SECRET =
-
-> [!IMPORTANT]  
-> If you can help with providing an easier way to run the server without compromising my certificates and api keys pls let me know
-
 
 Thank you for your contribution to DTB!
