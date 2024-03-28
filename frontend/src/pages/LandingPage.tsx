@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom';
 
 function LandingPage() {
 	return (
-		<div className="flex flex-col justify-between landing-page base-page px-10 md:px-48">
+		<div className="flex flex-col justify-between landing-page base-page px-10 md:px-[10%]">
 			<header className="pt-10 flex justify-between">
-				<details className="dropdown md:hidden">
-					<summary className="m-1 btn border border-quaternary rounded-none">
+				<details className=" dropdown md:hidden">
+					<summary className="rounded-md btn focus:outline focus:outline-2 focus:outline-accent bg-transparent border-2 border-accent text-primary-content hover:bg-accent hover:text-primary-content">
 						More Links
 					</summary>
-					<ul className="p-2 shadow menu dropdown-content z-[1] bg-primary border border-quaternary w-52">
+					<ul className="p-2 shadow menu dropdown-content z-[1] rounded-md bg-primary border-2 border-accent w-52">
 						<li>
 							<a
-								className="text-stone-500 hover:text-primary-content"
+								className="hover:text-primary-content"
 								href="https://www.github.com/me3zaAKAgoat"
 							>
 								Contact
@@ -19,7 +19,7 @@ function LandingPage() {
 						</li>
 						<li>
 							<a
-								className="text-stone-500 hover:text-primary-content"
+								className="hover:text-primary-content"
 								href="https://www.me3za.tech/posts/dtb/"
 							>
 								About
@@ -29,7 +29,7 @@ function LandingPage() {
 				</details>
 				<ul className="hidden items-end text-2xl gap-4 font-semibold md:flex">
 					<li>
-						<a className="flex gap-2 text-white mr-5" href="/">
+						<a className="flex gap-2 text-primary-content" href="/">
 							<img src="/dtb.svg" alt="logo" className="h-8" />
 							Dtboard
 						</a>
@@ -53,40 +53,34 @@ function LandingPage() {
 				</ul>
 				<Link
 					to="/login"
-					className="flex items-center justify-center px-4 text-lg font-bold rounded-md w-28 h-10 focus:outline focus:outline-2 focus:outline-accent bg-transparent border-2 border-accent text-white hover:bg-accent hover:text-white"
+					className="flex items-center justify-center px-4 text-lg font-bold rounded-md w-24 h-10 focus:outline focus:outline-2 focus:outline-accent bg-transparent border-2 border-accent text-primary-content hover:bg-accent hover:text-primary-content"
 				>
 					Log In
 				</Link>
 			</header>
-			<main className="h-full flex mt-36 justify-between">
+			<main className="h-full items-start flex flex-col md:flex-row mt-12 md:mt-36 gap-12 md:gap-0 md:justify-between">
 				<div className="flex flex-col items-start gap-8">
-					<h1 className="font-bold text-5xl text-white">
-						Your Personal Productivity Partner
+					<h1 className="font-bold text-5xl text-primary-content">
+						Your Personal Productivity Partner.
 					</h1>
-					<p className="">
-						DTB offers a sanctuary for those seeking a calmer, more organized
-						approach to their daily tasks. Bid farewell to chaos and welcome
-						simplicity with our user-friendly app. Effortlessly manage your
-						to-dos, track progress visually, and revel in the satisfaction of
-						completing each task, no matter how small. Embrace a more relaxed
-						yet effective way of boosting productivity with DTB. Try it now and
-						unlock the serenity of streamlined task management.
+					<p className="text-stone-400">
+					The productivity app designed for <span className='underline font-bold'>stress-free</span> task management. Organize tasks effortlessly, monitor well-being insights, and track <span className='underline font-bold'>progress</span> seamlessly. Stay focused and <span className='underline font-bold'>motivated</span> with priority tasks and percentage completion tracking. Simplify productivity and find peace of mind, whether at work or school.
 					</p>
 					<Link
-						className="flex items-center justify-center text-xl h-10 w-28 font-bold rounded-md border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-white hover:bg-transparent hover:bg-white hover:text-accent"
+						className="flex items-center justify-center text-xl h-12 w-28 font-bold rounded-md border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-transparent hover:bg-primary-content hover:text-accent"
 						to="/register"
 					>
 						Sign Up
 					</Link>
 				</div>
 				<img
-					className="h-80 -mr-24"
+					className="w-[700px] object-contain"
 					src="/hud.png"
 					alt="heads up display showcase image"
 				/>
 			</main>
-			<footer className="pb-10 flex justify-center text-xl font-semibold">
-				Digital Tasks Board © 2024
+			<footer className="pb-10 flex justify-center text-stone-400 text-sm font-semibold">
+				© 2024 Me3za. All rights reserved
 			</footer>
 		</div>
 	);

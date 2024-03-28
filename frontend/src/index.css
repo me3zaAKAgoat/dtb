@@ -184,3 +184,8 @@
 .preserve-lines {
 	white-space: pre-line;
 }
+
+.landing-page * {
+	text-decoration-color: theme(colors.accent);
+	text-decoration-thickness: 2.5px;
+}
