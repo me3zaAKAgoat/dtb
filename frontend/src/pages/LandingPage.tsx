@@ -40,6 +40,7 @@ function LandingPage() {
 						<a
 							className="text-stone-500"
 							href="https://www.github.com/me3zaAKAgoat"
+							target="_blank"
 						>
 							Contact
 						</a>
@@ -48,6 +49,7 @@ function LandingPage() {
 						<a
 							className="text-stone-500"
 							href="https://www.me3za.tech/posts/dtb/"
+							target="_blank"
 						>
 							About
 						</a>
