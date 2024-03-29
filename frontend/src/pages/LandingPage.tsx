@@ -13,6 +13,7 @@ function LandingPage() {
 							<a
 								className="hover:text-primary-content"
 								href="https://www.github.com/me3zaAKAgoat"
+								target="_blank"
 							>
 								Contact
 							</a>
@@ -21,6 +22,7 @@ function LandingPage() {
 							<a
 								className="hover:text-primary-content"
 								href="https://www.me3za.tech/posts/dtb/"
+								target="_blank"
 							>
 								About
 							</a>
@@ -64,10 +66,18 @@ function LandingPage() {
 						Your Personal Productivity Partner.
 					</h1>
 					<p className="text-stone-400">
-					The productivity app designed for <span className='underline font-bold'>stress-free</span> task management. Organize tasks effortlessly, monitor well-being insights, and track <span className='underline font-bold'>progress</span> seamlessly. Stay focused and <span className='underline font-bold'>motivated</span> with priority tasks and percentage completion tracking. Simplify productivity and find peace of mind, whether at work or school.
+						The productivity app designed for{' '}
+						<span className="underline font-bold">stress-free</span> task
+						management. Organize tasks effortlessly, monitor well-being
+						insights, and track{' '}
+						<span className="underline font-bold">progress</span> seamlessly.
+						Stay focused and{' '}
+						<span className="underline font-bold">motivated</span> with priority
+						tasks and percentage completion tracking. Simplify productivity and
+						find peace of mind, whether at work or school.
 					</p>
 					<Link
-						className="flex items-center justify-center text-xl h-12 w-28 font-bold rounded-md border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-transparent hover:bg-primary-content hover:text-accent"
+						className="flex items-center justify-center text-xl h-12 w-28 font-bold rounded-md border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-primary-content hover:text-accent"
 						to="/register"
 					>
 						Sign Up
