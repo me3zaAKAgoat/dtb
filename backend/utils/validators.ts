@@ -9,7 +9,7 @@ const passwordComplexityRules = {
 };
 
 const userSchema = Validator.object({
-	username: Validator.string().alphanum().min(3).max(30),
+	username: Validator.string().alphanum().min(3).max(30).required(),
 	password: passwordComplexity(passwordComplexityRules),
 });
 
@@ -24,7 +24,7 @@ const cycleSchema = Validator.object({
 });
 
 const taskSchema = Validator.object({
-	title: Validator.string(),
+	title: Validator.string().min(1).max(30).required(),
 	description: Validator.string().allow(''),
 	priority: Validator.valid('very low', 'low', 'medium', 'high', 'very high'),
 	completion: Validator.number().min(0).max(100).optional(),

@@ -81,7 +81,10 @@ cluegi
 - make wesbite inaccesisble from phone
 - unify the css for buttons
 - figure out why nan in prod time left
-- handle uncaught execptions that would block the app such failed mail sending 
+- handle uncaught execptions that would block the app such failed mail sending
+- validate big dates
+- validate uploaded pictures mroe
+
 ## UX
 
 - implement github/google OAUTH to make it easier for users to opt in to the app

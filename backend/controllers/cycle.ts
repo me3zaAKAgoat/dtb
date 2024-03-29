@@ -24,6 +24,15 @@ cycleRouter.post('/new', async (req: Request, res: Response) => {
 		if (!user) {
 			return res.status(404).json({ error: 'User not found' });
 		}
+		if (user.cycles.length > 0) {
+			const currentCycle = await Cycle.findOne({
+				user: user._id,
+				archived: false,
+			});
+			if (currentCycle) {
+				return res.status(400).json({ error: 'Current cycle already exists' });
+			}
+		}
 		const cycle = new Cycle({
 			startDate: new Date(),
 			endDate: new Date(req.body.endDate),
@@ -31,6 +40,12 @@ cycleRouter.post('/new', async (req: Request, res: Response) => {
 		});
 		if (cycle.endDate <= cycle.startDate) {
 			return res.status(400).json({ error: 'End date is before start date' });
+		}
+		if (cycle.endDate <= new Date()) {
+			return res.status(400).json({ error: 'End date is in the past' });
+		}
+		if (cycle.endDate > new Date(new Date().setFullYear(new Date().getFullYear() + 1))) {
+			return res.status(400).json({ error: 'End date is more than a year from now' });
 		}
 		await cycle.save();
 		user.cycles = user.cycles.concat(cycle._id);
