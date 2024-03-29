@@ -43,7 +43,7 @@ function TaskCreationForm({
 			setModal({ type: 'off' });
 		} catch (err) {
 			setToast({
-				message: 'Failed to create task',
+				message: err.response.data.error,
 				type: 'error',
 			});
 			console.error(err);
