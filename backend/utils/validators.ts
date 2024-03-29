@@ -24,7 +24,7 @@ const cycleSchema = Validator.object({
 });
 
 const taskSchema = Validator.object({
-	title: Validator.string().alphanum().min(1).max(30).required(),
+	title: Validator.string().min(1).max(30).required(),
 	description: Validator.string().allow(''),
 	priority: Validator.valid('very low', 'low', 'medium', 'high', 'very high'),
 	completion: Validator.number().min(0).max(100).optional(),
