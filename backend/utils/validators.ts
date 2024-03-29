@@ -9,7 +9,7 @@ const passwordComplexityRules = {
 };
 
 const userSchema = Validator.object({
-	username: Validator.string().required(),
+	username: Validator.string().alphanum().min(3).max(30),
 	password: passwordComplexity(passwordComplexityRules),
 });
 
