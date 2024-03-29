@@ -13,6 +13,8 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-color: theme('colors.primary');
+	color: theme('colors.primary-content');
 }
 
 .login-page > div {
