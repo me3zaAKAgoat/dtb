@@ -30,6 +30,9 @@ authRouter.post('/signup', async (req: Request, res: Response) => {
 			.json({ message: 'account has been created' });
 	} catch (error: any) {
 		console.error(error);
+		if (error.code === 11000) {
+			return res.status(400).json({ error: 'username already exists' });
+		}
 		return res.status(400).json({ error: error.message });
 	}
 });
