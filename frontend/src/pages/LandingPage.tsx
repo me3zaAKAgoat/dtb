@@ -58,8 +58,8 @@ function LandingPage() {
 					Log In
 				</Link>
 			</header>
-			<main className="h-full items-start flex flex-col md:flex-row mt-12 md:mt-36 gap-12 md:gap-0 md:justify-between">
-				<div className="flex flex-col items-start gap-8">
+			<main className="h-full items-start flex flex-col md:flex-row mt-12 md:mt-[10%] gap-12 md:gap-0 md:justify-between">
+				<div className="md:w-1/2 flex flex-col items-start gap-8">
 					<h1 className="font-bold text-5xl text-primary-content">
 						Your Personal Productivity Partner.
 					</h1>
@@ -74,7 +74,7 @@ function LandingPage() {
 					</Link>
 				</div>
 				<img
-					className="w-[700px] object-contain"
+					className="md:w-1/2 object-contain"
 					src="/hud.png"
 					alt="heads up display showcase image"
 				/>
