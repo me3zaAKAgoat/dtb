@@ -30,7 +30,7 @@ function Avatar() {
 					JSON.stringify({ ...user!.userInfo, avatar: res.avatar }),
 				);
 			} catch (err: any) {
-				console.log(err);
+				console.error(err);
 				setToast({ message: err.response.data.error, type: 'error' });
 			}
 		} else setToast({ message: 'No image selected', type: 'error' });

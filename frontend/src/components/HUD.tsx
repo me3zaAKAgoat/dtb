@@ -33,11 +33,9 @@ function HUD({
 				type: 'success',
 			});
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 	};
-
-	console.log(endDate);
 
 	return (
 		<div className="w-[600px] z-10 bg-secondary h-[70%] border-[0.5px] border-tertiary p-2 px-4 flex items-center justify-between">
