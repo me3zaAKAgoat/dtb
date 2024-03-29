@@ -41,7 +41,7 @@ function TaskCreationForm({
 				type: 'success',
 			});
 			setModal({ type: 'off' });
-		} catch (err) {
+		} catch (err: any) {
 			setToast({
 				message: err.response.data.error,
 				type: 'error',
