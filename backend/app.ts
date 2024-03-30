@@ -10,7 +10,18 @@ import path from 'path';
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = ["https://dtboard.tech", "https://www.dtboard.tech"]
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
 app.use(express.json());
 app.use(middleware.requestLogger);
 
@@ -35,8 +46,6 @@ app.use(
 	middleware.userExtractor,
 	taskRouter,
 );
-
-console.log('dirname', __dirname);
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'build/index.html'));
