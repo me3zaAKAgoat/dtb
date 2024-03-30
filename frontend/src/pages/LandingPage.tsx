@@ -4,10 +4,6 @@ import Icon from '../assets/dtb';
 function LandingPage() {
 	return (
 		<div className="flex flex-col justify-between landing-page h-screen w-screen px-10 md:px-[10%]">
-			<meta
-				name="description"
-				content="Dtboard is a productivity app designed for stress-free task management. Organize tasks effortlessly, monitor well-being insights, and track progress seamlessly. Stay focused and motivated with priority tasks and percentage completion tracking. Simplify productivity so you can focus on what matters."
-			/>
 			<header className="pt-10 flex justify-between">
 				<details className=" dropdown md:hidden">
 					<summary className="rounded-md btn bg-transparent border-2 border-accent text-primary-content hover:border-accent hover:bg-accent hover:text-primary-content">
