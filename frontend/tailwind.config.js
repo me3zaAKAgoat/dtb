@@ -7,11 +7,11 @@ export default {
 			colors: {
 				primary: '#0f0f0f',
 
-				'primary-content': '#b4b4b4',
+				'primary-content': '#c9c9c9',
 
 				secondary: '#181818',
 
-				'secondary-content': '#b4b4b4',
+				'secondary-content': '#c9c9c9',
 
 				accent: '#8957e5',
 
@@ -29,15 +29,15 @@ export default {
 
 				tertiary: '#242424',
 
-				'tertiary-content': '#b4b4b4',
+				'tertiary-content': '#c9c9c9',
 
-				quaternary: '#363636',
+				quaternary: '#4a4a4a',
 
-				'quaternary-content': '#b4b4b4',
+				'quaternary-content': '#c9c9c9',
 
 				quinary: '',
 
-				'quinary-content': '#b4b4b4',
+				'quinary-content': '#c9c9c9',
 			},
 			border: {
 				radius: '4px',
@@ -50,11 +50,11 @@ export default {
 				mytheme: {
 					primary: '#0f0f0f',
 
-					'primary-content': '#b4b4b4',
+					'primary-content': '#c9c9c9',
 
 					secondary: '#181818',
 
-					'secondary-content': '#b4b4b4',
+					'secondary-content': '#c9c9c9',
 
 					accent: '#8957e5',
 
