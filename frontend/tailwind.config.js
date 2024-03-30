@@ -13,7 +13,7 @@ export default {
 
 				'secondary-content': '#b4b4b4',
 
-				accent: '#864AF9',
+				accent: '#8957e5',
 
 				'accent-content': '#0f0f0f',
 
@@ -56,7 +56,7 @@ export default {
 
 					'secondary-content': '#b4b4b4',
 
-					accent: '#864AF9',
+					accent: '#8957e5',
 
 					'accent-content': '#0f0f0f',
 

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../utils/useAuth';
 import { ModalContext } from '../providers/Modal';
+import Icon from '../assets/dtb';
 
 const ProfileButton = ({
 	user,
@@ -94,10 +95,10 @@ const Navbar = ({}) => {
 	const { user, logout } = useContext(AuthContext)!;
 
 	return (
-		<nav className="flex-grow-0 flex-shrink-0 custom-navbar h-screen w-16 self-start flex flex-col justify-between items-center border-r-2 border-r-tertiary">
+		<nav className="flex-grow-0 flex-shrink-0 custom-navbar h-screen w-16 self-start flex flex-col justify-between items-center border-r-[3px] border-r-tertiary">
 			<div className="flex flex-col items-center">
-				<Link to="." className="">
-					<img src="/dtb.svg" alt="logo" className="p-[10px]" />
+				<Link to="." className="h-11 mx-auto my-3">
+					<Icon className="fill-primary-content h-full" />
 				</Link>
 				<div className="w-[70%] mx-0.5 mt-1.5 mb-1.5 h-[2px] bg-tertiary flex-grow"></div>
 			</div>

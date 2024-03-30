@@ -191,3 +191,7 @@
 	text-decoration-color: theme(colors.accent);
 	text-decoration-thickness: 2.5px;
 }
+
+.svg-icon:hover > svg {
+	fill: theme(colors.accent);
+}
