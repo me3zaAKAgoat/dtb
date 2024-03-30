@@ -86,9 +86,9 @@
 		font-size: 1.1rem;
 		text-align: center;
 		margin: 2px 0px 10px;
-		background-color: theme('colors.tertiary');
+		background-color: theme('colors.quaternary');
 		border: 1px solid theme('colors.tertiary');
-		/* border-radius: 8px; */
+		border-radius: 4px;
 	}
 }
 

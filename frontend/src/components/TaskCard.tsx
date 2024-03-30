@@ -83,7 +83,7 @@ function TaskCard({
 								e.stopPropagation();
 								handleEdit();
 							}}
-							className="hover:brightness-125 border border-primary-content rounded bg-tertiary h-6 w-6 flex items-center justify-center"
+							className="transition-all hover:brightness-125 border border-primary-content rounded bg-tertiary h-6 w-6 flex items-center justify-center"
 						>
 							<svg
 								className="fill-primary-content"
@@ -100,7 +100,7 @@ function TaskCard({
 								e.stopPropagation();
 								handleDelete();
 							}}
-							className="hover:brightness-125 border border-primary-content rounded ml-2 bg-tertiary h-6 w-6 flex items-center justify-center"
+							className="transition-all hover:brightness-125 border border-primary-content rounded ml-2 bg-error h-6 w-6 flex items-center justify-center"
 						>
 							<svg
 								className="fill-primary-content"

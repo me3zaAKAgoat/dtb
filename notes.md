@@ -85,6 +85,8 @@ cluegi
 - validate big dates
 - validate uploaded pictures mroe
 - trim inputs
+- write jest tests
+- write husky pre commit hooks
 
 ## UX
 

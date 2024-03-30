@@ -5,7 +5,7 @@ function Dashboard() {
 		<div className="base-page flex justify-start">
 			<Navbar />
 			<div className='h-full w-full flex justify-center items-center font-bold'>
-				Coming soon...
+				This Page Is Still Under Development...
 			</div>
 		</div>
 	);

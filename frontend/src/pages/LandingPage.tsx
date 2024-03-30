@@ -33,10 +33,10 @@ function LandingPage() {
 				<ul className="hidden items-end text-xl gap-4 font-semibold md:flex">
 					<li>
 						<a
-							className="svg-icon mr-2 text-2xl flex items-end gap-2 text-primary-content hover:text-accent transition-all"
+							className="svg-icon mr-1 text-2xl flex items-center gap-2 text-primary-content hover:text-accent transition-all"
 							href="/"
 						>
-							<Icon className="fill-primary-content h-7" />
+							<Icon className="fill-primary-content h-[24px] mt-0.5 -mr-1" />
 							Dtboard
 						</a>
 					</li>

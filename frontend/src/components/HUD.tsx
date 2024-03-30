@@ -87,7 +87,7 @@ function HUD({
 							},
 						});
 					}}
-					className="transition-all hover:brightness-125 border border-primary-content rounded ml-2 bg-accent h-8 w-8 flex items-center justify-center"
+					className="transition-all hover:brightness-125 border border-primary-content rounded-md ml-2 bg-accent h-8 w-8 flex items-center justify-center"
 				>
 					<svg
 						className="fill-primary-content"
@@ -101,7 +101,7 @@ function HUD({
 				</button>
 				<button
 					onClick={handleDelete}
-					className="transition-all hover:brightness-125 border border-primary-content rounded ml-2 bg-error h-8 w-8 flex items-center justify-center"
+					className="transition-all hover:brightness-125 border border-primary-content rounded-md ml-2 bg-error h-8 w-8 flex items-center justify-center"
 				>
 					<svg
 						className="fill-primary-content"

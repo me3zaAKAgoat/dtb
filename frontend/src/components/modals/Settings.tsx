@@ -45,7 +45,7 @@ function Avatar() {
 				width={200}
 				height={200}
 				border={50}
-				color={[255, 255, 255, 0.5]}
+				color={[137, 87, 229, 0.5]}
 				borderRadius={200}
 				scale={zoom}
 				rotate={0}
