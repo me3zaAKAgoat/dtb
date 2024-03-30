@@ -94,7 +94,7 @@ const Navbar = ({}) => {
 	const { user, logout } = useContext(AuthContext)!;
 
 	return (
-		<nav className="flex-grow-0 flex-shrink-0 custom-navbar h-screen w-16 self-start flex flex-col justify-between items-center border-r-[1px] border-r-tertiary">
+		<nav className="flex-grow-0 flex-shrink-0 custom-navbar h-screen w-16 self-start flex flex-col justify-between items-center border-r-2 border-r-tertiary">
 			<div className="flex flex-col items-center">
 				<Link to="." className="">
 					<img src="/dtb.svg" alt="logo" className="p-[10px]" />

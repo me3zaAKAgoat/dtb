@@ -9,7 +9,14 @@ const passwordComplexityRules = {
 };
 
 const userSchema = Validator.object({
-	username: Validator.string().alphanum().min(3).max(30).required(),
+	username: Validator.string()
+		.min(3)
+		.max(30)
+		.regex(/^[a-zA-Z0-9_.-]+$/)
+		.message(
+			'Username must contain only letters, numbers, underscores, periods, or hyphens',
+		)
+		.required(),
 	password: passwordComplexity(passwordComplexityRules),
 });
 

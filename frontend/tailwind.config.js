@@ -5,18 +5,17 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#000000',
+				primary: '#0f0f0f',
 
 				'primary-content': '#b4b4b4',
 
-				secondary: '#111111',
+				secondary: '#181818',
 
-                
 				'secondary-content': '#b4b4b4',
 
 				accent: '#864AF9',
 
-				'accent-content': '#000000',
+				'accent-content': '#0f0f0f',
 
 				neutral: '#3b3b3b',
 
@@ -35,11 +34,11 @@ export default {
 				quaternary: '#363636',
 
 				'quaternary-content': '#b4b4b4',
-                
-                quinary: '',
 
-                'quinary-content': '#b4b4b4',
-            },
+				quinary: '',
+
+				'quinary-content': '#b4b4b4',
+			},
 			border: {
 				radius: '4px',
 			},
@@ -49,17 +48,17 @@ export default {
 		themes: [
 			{
 				mytheme: {
-					primary: '#000000',
+					primary: '#0f0f0f',
 
 					'primary-content': '#b4b4b4',
 
-					secondary: '#111111',
+					secondary: '#181818',
 
 					'secondary-content': '#b4b4b4',
 
 					accent: '#864AF9',
 
-					'accent-content': '#000000',
+					'accent-content': '#0f0f0f',
 
 					neutral: '#3b3b3b',
 

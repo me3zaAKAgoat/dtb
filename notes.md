@@ -84,6 +84,7 @@ cluegi
 - handle uncaught execptions that would block the app such failed mail sending
 - validate big dates
 - validate uploaded pictures mroe
+- trim inputs
 
 ## UX
 

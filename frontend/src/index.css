@@ -26,7 +26,7 @@
 }
 
 .main-input {
-	@apply bg-primary placeholder-quaternary rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-tertiary drop-shadow-2xl;
+	@apply bg-primary placeholder-quaternary rounded-[2px] mb-2 mt-2 px-4 py-2 border border-solid border-quaternary drop-shadow-2xl;
 }
 
 .main-button {
