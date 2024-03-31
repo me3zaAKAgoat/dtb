@@ -68,7 +68,7 @@ function TaskCard({
 
 	return (
 		<div
-			className={`transition-all hover:shadow-lg bg-secondary mb-6 w-full border-[0.5px] border-quaternary overflow-hidden flex flex-col border-l-4 ${
+			className={`rounded transition-all hover:shadow-lg bg-secondary mb-6 w-full border-[0.5px] border-quaternary overflow-hidden flex flex-col border-l-4 ${
 				priorityColor[task?.priority!]
 			}`}
 		>
