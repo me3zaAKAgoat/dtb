@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-	font-family: ui-sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif; 
+	font-family: ui-sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
@@ -19,10 +19,15 @@
 
 .login-page > div {
 	box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.12);
+	transition: all 1s ease-in-out;
+	animation: zoom-in 0.2s ease-out;
+	
 }
 
 .register-page > div {
 	box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.12);
+	transition: all 1s ease-in-out;
+	animation: zoom-in 0.2s ease-out;
 }
 
 .main-input {
@@ -167,7 +172,6 @@
 	background-color: theme(colors.tertiary);
 }
 
-
 .task-slider::-moz-range-thumb {
 	width: 12px;
 	height: 12px;
@@ -187,9 +191,60 @@
 	white-space: pre-line;
 }
 
+@keyframes slide-up {
+	0% {
+		opacity: 0;
+		transform: translateY(1%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slide-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-1%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes zoom-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.99);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
 .landing-page * {
 	text-decoration-color: theme(colors.accent);
 	text-decoration-thickness: 2.5px;
+}
+
+.landing-page {
+	header {
+		transition: all 1s ease-in-out;
+		animation: slide-down 0.4s ease-out;
+	}
+
+	main {
+		transition: all 1s ease-in-out;
+		animation: zoom-in 0.2s ease-out;
+	}
+
+	footer {
+		transition: all 1s ease-in-out;
+		animation: slide-up 0.4s ease-out;
+		padding-bottom: 40px;
+	}
 }
 
 .svg-icon:hover > svg {
