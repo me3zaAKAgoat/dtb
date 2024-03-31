@@ -38,7 +38,7 @@ function HUD({
 	};
 
 	return (
-		<div className="w-[600px] z-10 bg-secondary h-[70%] border-[0.5px] border-quaternary p-2 px-4 flex items-center justify-between">
+		<div className="rounded w-[600px] z-10 bg-secondary h-[70%] border-[0.5px] border-quaternary p-2 px-4 flex items-center justify-between">
 			<div className="flex">
 				<h1 className="flex justify-center items-center font-bold mr-2">
 					Completion:
