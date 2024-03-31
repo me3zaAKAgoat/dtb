@@ -194,7 +194,7 @@
 @keyframes slide-up {
 	0% {
 		opacity: 0;
-		transform: translateY(1%);
+		transform: translateY(5%);
 	}
 	100% {
 		opacity: 1;
@@ -205,7 +205,7 @@
 @keyframes slide-down {
 	0% {
 		opacity: 0;
-		transform: translateY(-1%);
+		transform: translateY(-5%);
 	}
 	100% {
 		opacity: 1;
@@ -237,7 +237,7 @@
 
 	main {
 		transition: all 1s ease-in-out;
-		animation: zoom-in 0.2s ease-out;
+		animation: zoom-in 0.4s ease-out;
 	}
 
 	footer {
