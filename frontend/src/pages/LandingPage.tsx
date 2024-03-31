@@ -61,7 +61,7 @@ function LandingPage() {
 				</ul>
 				<Link
 					to="/login"
-					className="bg-quaternary transition-all flex items-center justify-center px-4 text-lg font-bold rounded-md w-24 h-10 border-2 border-accent text-primary-content hover:bg-accent hover:text-primary-content"
+					className="bg-quaternary transition-all flex items-center justify-center px-4 text-lg font-bold rounded-md w-24 h-10 border-2 focus:outline focus:outline-2 focus:outline-primary-content border-accent text-primary-content hover:bg-accent hover:text-primary-content"
 				>
 					Log In
 				</Link>
