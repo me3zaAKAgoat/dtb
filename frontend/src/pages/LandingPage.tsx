@@ -5,14 +5,18 @@ function LandingPage() {
 	return (
 		<div className="flex flex-col justify-between landing-page h-screen w-screen px-10 md:px-[10%]">
 			<header className="pt-10 flex justify-between">
-				<details className=" dropdown md:hidden">
-					<summary className="rounded-md btn bg-transparent border-2 border-accent text-primary-content hover:border-accent hover:bg-accent hover:text-primary-content">
-						More Links
-					</summary>
-					<ul className="p-2 shadow menu dropdown-content z-[1] rounded-md bg-primary border-2 border-accent w-52">
+				<div className="flex gap-4 align-center">
+					<a
+						className="svg-icon mr-1 text-2xl flex items-center gap-2 text-primary-content hover:text-accent transition-all font-semibold"
+						href="/"
+					>
+						<Icon className="fill-primary-content h-[24px] mt-0.5 -mr-1" />
+						Dtboard
+					</a>
+					<ul className="hidden items-center text-xl gap-4 font-semibold md:flex">
 						<li>
 							<a
-								className="hover:text-primary-content"
+								className="font-normal text-stone-500 hover:text-accent transition-all"
 								href="https://www.github.com/me3zaAKAgoat"
 								target="_blank"
 							>
@@ -21,7 +25,7 @@ function LandingPage() {
 						</li>
 						<li>
 							<a
-								className="hover:text-primary-content"
+								className="font-normal text-stone-500 hover:text-accent transition-all"
 								href="https://www.me3za.tech/posts/dtb/"
 								target="_blank"
 							>
@@ -29,39 +33,48 @@ function LandingPage() {
 							</a>
 						</li>
 					</ul>
-				</details>
-				<ul className="hidden items-end text-xl gap-4 font-semibold md:flex">
-					<li>
-						<a
-							className="svg-icon mr-1 text-2xl flex items-center gap-2 text-primary-content hover:text-accent transition-all"
-							href="/"
-						>
-							<Icon className="fill-primary-content h-[24px] mt-0.5 -mr-1" />
-							Dtboard
-						</a>
-					</li>
-					<li>
-						<a
-							className="font-normal text-stone-500 hover:text-accent transition-all"
-							href="https://www.github.com/me3zaAKAgoat"
-							target="_blank"
-						>
-							Contact
-						</a>
-					</li>
-					<li>
-						<a
-							className="font-normal text-stone-500 hover:text-accent transition-all"
-							href="https://www.me3za.tech/posts/dtb/"
-							target="_blank"
-						>
-							About
-						</a>
-					</li>
-				</ul>
+				</div>
+				<div className="md:hidden flex">
+					<details className=" dropdown md:hidden">
+						<summary className="rounded-md btn bg-transparent px-2 py-0 min-h-10 h-10 border-2 border-accent text-primary-content hover:border-accent hover:bg-accent hover:text-primary-content">
+							<img
+								src="./../../public/menu.png"
+								alt="menu"
+								className="w-5 px-1"
+							/>
+							{/* More Links */}
+						</summary>
+						<ul className="p-2 shadow menu dropdown-content z-[1] rounded-md bg-primary border-2 border-accent w-36 mt-2 divide-y-[1px] divide-white-600 ">
+							<li>
+								<a
+									className="hover:text-primary-content"
+									href="https://www.github.com/me3zaAKAgoat"
+									target="_blank"
+								>
+									Contact
+								</a>
+							</li>
+							<li>
+								<a
+									className="hover:text-primary-content"
+									href="https://www.me3za.tech/posts/dtb/"
+									target="_blank"
+								>
+									About
+								</a>
+							</li>
+						</ul>
+					</details>
+					<Link
+						to="/login"
+						className=" bg-transparent transition-all flex ml-2 items-center justify-center px-4 text-lg font-bold w-24 h-10 border-2 focus:outline focus:outline-2 focus:outline-primary-content border-accent text-white hover:bg-accent hover:text-white rounded-md"
+					>
+						Log In
+					</Link>
+				</div>
 				<Link
 					to="/login"
-					className="bg-quaternary transition-all flex items-center justify-center px-4 text-lg font-bold rounded-md w-24 h-10 border-2 focus:outline focus:outline-2 focus:outline-primary-content border-accent text-primary-content hover:bg-accent hover:text-primary-content"
+					className="bg-transparent transition-all md:flex hidden items-center justify-center px-4 text-lg font-bold w-24 h-10 border-2 focus:outline focus:outline-2 focus:outline-primary-content border-accent text-white hover:bg-accent hover:text-white rounded-md"
 				>
 					Log In
 				</Link>
@@ -83,7 +96,7 @@ function LandingPage() {
 						you can focus on what matters.
 					</p>
 					<Link
-						className="transition-all flex items-center justify-center text-xl h-12 w-28 font-bold rounded-md border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-primary-content hover:bg-primary-content hover:text-accent"
+						className="transition-all flex items-center justify-center text-xl h-12 w-28 font-bold rounded-md border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-white hover:bg-white hover:text-accent"
 						to="/register"
 					>
 						Sign Up
