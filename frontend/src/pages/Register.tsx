@@ -3,6 +3,8 @@ import authApi from '../services/auth';
 import { AuthContext } from '../utils/useAuth';
 import { useNavigate, Link } from 'react-router-dom';
 
+import Icon from '../assets/dtb';
+
 const Register = () => {
 	const { user } = useContext(AuthContext)!;
 	const [username, setUsername] = useState('');
@@ -59,12 +61,16 @@ const Register = () => {
 
 	return (
 		<div className="base-page register-page flex flex-col items-center justify-center">
-			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-[400px] rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl">
-				<Link className="mt-8 m-6 hover:underline font-semibold" to="/login">
-					Already have an account? Log in here.
-				</Link>
+			<a
+				className="svg-icon mr-1 text-4xl flex items-center gap-2 text-primary-content hover:text-accent transition-all font-semibold"
+				href="/"
+			>
+				<Icon className="fill-primary-content h-[35px] mt-0.5 -mr-1" />
+				Dtboard
+			</a>
+			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-[350px] rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl mt-20">
 				<form
-					className="flex flex-col justify-between items-center w-full h-full"
+					className="flex flex-col items-center w-full h-full"
 					onSubmit={handleSubmit}
 				>
 					<div className=" mt-8 flex flex-col items-center justify-center">
@@ -90,10 +96,13 @@ const Register = () => {
 							onChange={handleConfirmPasswordChange}
 						/>
 					</div>
-					<button className="main-button" type="submit" disabled={loading}>
+					<button className="main-button mt-3" type="submit" disabled={loading}>
 						Sign Up
 					</button>
 				</form>
+				<Link className="mt-7 hover:underline font-semibold" to="/login">
+					Already have an account? Log in here.
+				</Link>
 				<div
 					className={`mt-6 flex flex-col items-center justify-center h-6 text-textColor bg-error w-full font-bold text-sm ${
 						error === null ? 'invisible' : ''

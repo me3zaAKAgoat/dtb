@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../index.css';
 
+import Icon from '../assets/dtb';
+
 function Login({}) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
@@ -46,15 +48,16 @@ function Login({}) {
 
 	return (
 		<div className="login-page base-page flex flex-col items-center justify-center">
-			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-96 rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl">
-				<Link
-					className="m-8 mt-10 hover:underline  font-semibold"
-					to="/register"
-				>
-					Don't have an account? Sign Up here.
-				</Link>
+			<a
+				className="svg-icon mr-1 text-4xl flex items-center gap-2 text-primary-content hover:text-accent transition-all font-semibold"
+				href="/"
+			>
+				<Icon className="fill-primary-content h-[35px] mt-0.5 -mr-1" />
+				Dtboard
+			</a>
+			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-80 rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl mt-20">
 				<form
-					className="flex flex-col justify-between items-center h-4/5"
+					className="flex flex-col items-center h-4/5"
 					onSubmit={handleLogin}
 				>
 					<div className="mt-8 flex flex-col items-center justify-center">
@@ -73,10 +76,16 @@ function Login({}) {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</div>
-					<button className="main-button mb-4" type="submit" disabled={loading}>
+					<button className="main-button mt-4" type="submit" disabled={loading}>
 						{loading ? 'Loading...' : 'Log In'}
 					</button>
 				</form>
+				<Link
+					className="m-2 hover:underline  font-semibold"
+					to="/register"
+				>
+					Don't have an account? Sign Up here.
+				</Link>
 				<div
 					className={`flex flex-col items-center justify-center h-6 text-primary-content bg-error w-full font-bold text-sm ${
 						error === null ? 'invisible' : ''
