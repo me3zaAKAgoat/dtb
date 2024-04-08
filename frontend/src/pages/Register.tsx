@@ -61,14 +61,14 @@ const Register = () => {
 
 	return (
 		<div className="base-page register-page flex flex-col items-center justify-center">
+			<div className="bg-secondary flex flex-col justify-end items-center w-96 rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl">
 			<a
-				className="svg-icon mr-1 text-4xl flex items-center gap-2 text-primary-content hover:text-accent transition-all font-semibold"
+				className="mt-10 svg-icon mr-1 text-4xl flex items-center gap-2 text-primary-content hover:text-accent transition-all font-semibold"
 				href="/"
 			>
 				<Icon className="fill-primary-content h-[35px] mt-0.5 -mr-1" />
 				Dtboard
 			</a>
-			<div className="bg-secondary flex flex-col justify-end items-center w-96 h-[350px] rounded-[7px] border border-solid border-gray-600 overflow-hidden drop-shadow-2xl mt-20">
 				<form
 					className="flex flex-col items-center w-full h-full"
 					onSubmit={handleSubmit}
@@ -100,12 +100,12 @@ const Register = () => {
 						Sign Up
 					</button>
 				</form>
-				<Link className="mt-7 hover:underline font-semibold" to="/login">
+				<Link className="m-2 hover:underline text-stone-500  font-semibold" to="/login">
 					Already have an account? Log in here.
 				</Link>
 				<div
-					className={`mt-6 flex flex-col items-center justify-center h-6 text-textColor bg-error w-full font-bold text-sm ${
-						error === null ? 'invisible' : ''
+					className={`flex flex-col items-center justify-center h-8 text-primary-content bg-error w-full font-bold text-sm ${
+						error === null ? 'bg-transparent' : ''
 					}`}
 				>
 					{error}
