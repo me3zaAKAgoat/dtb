@@ -38,7 +38,7 @@ function LandingPage() {
 					<details className=" dropdown md:hidden">
 						<summary className="rounded-md btn bg-transparent px-2 py-0 min-h-10 h-10 border-2 border-accent text-primary-content hover:border-accent hover:bg-accent hover:text-primary-content">
 							<img
-								src="./../../public/menu.png"
+								src="/menu.png"
 								alt="menu"
 								className="w-5 px-1"
 							/>
