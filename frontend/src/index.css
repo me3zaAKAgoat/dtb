@@ -129,11 +129,13 @@
 		display: grid;
 		place-items: center;
 		grid-template-areas: 'inner-div';
+		box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.07);
 	}
-
+	
 	.inner {
-		height: 71%;
-		width: 71%;
+		/* box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.12); */
+		height: 84%;
+		width: 84%;
 		border-radius: 50%;
 		border: none;
 		background: theme(colors.secondary);
@@ -142,7 +144,7 @@
 		justify-content: center;
 		align-items: center;
 		font-weight: bold;
-		font-size: 70%;
+		font-size: 90%;
 		word-wrap: break-word;
 		/* important part */
 		grid-area: inner-div;
@@ -150,17 +152,17 @@
 	}
 
 	svg {
-		width: 100%;
-		height: 100%;
+		width: 108%;
+		height: 108%;
 		/* important part */
 		grid-area: inner-div;
 	}
 
 	circle {
 		fill: none;
-		stroke-linecap: round;
+		stroke-linecap: square;
 		stroke: theme(colors.primary-content);
-		stroke-width: 12%;
+		stroke-width: 6%;
 		transition: stroke-dashoffset 1s 0ms ease-in-out;
 	}
 }
