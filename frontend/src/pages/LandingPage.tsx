@@ -37,11 +37,7 @@ function LandingPage() {
 				<div className="md:hidden flex">
 					<details className=" dropdown md:hidden">
 						<summary className="rounded-md btn bg-transparent px-2 py-0 min-h-10 h-10 border-2 border-accent text-primary-content hover:border-accent hover:bg-accent hover:text-primary-content">
-							<img
-								src="/menu.png"
-								alt="menu"
-								className="w-5 px-1"
-							/>
+							<img src="/menu.png" alt="menu" className="w-5 px-1" />
 							{/* More Links */}
 						</summary>
 						<ul className="p-2 shadow menu dropdown-content z-[1] rounded-md bg-primary border-2 border-accent w-36 mt-2 divide-y-[1px] divide-white-600 ">
@@ -80,23 +76,22 @@ function LandingPage() {
 				</Link>
 			</header>
 			<main className="h-full items-start flex flex-col md:flex-row mt-12 md:mt-[10%] gap-12 md:gap-0 md:justify-between">
-				<section className="md:w-1/2 flex flex-col items-start gap-6">
-					<h1 className="font-bold text-4xl text-primary-content">
-						Offload Stress And Focus On The Essentials.
-					</h1>
-					<p className="text-stone-400">
-						The productivity app designed for{' '}
-						<span className="underline font-bold">stress-free</span> task
-						management. Organize tasks effortlessly, monitor well-being
-						insights, and track{' '}
-						<span className="underline font-bold">progress</span> seamlessly.
-						Stay focused and{' '}
-						<span className="underline font-bold">motivated</span> with priority
-						tasks and percentage completion tracking. Simplify productivity so
-						you can focus on what matters.
+				<section className="md:w-1/2 flex flex-col items-start gap-5">
+					<div>
+						<h1 className="font-bold text-4xl">No More Stress!</h1>
+						<h2 className="text-xl text-stone-300">Focus On What Matters.</h2>
+					</div>
+					<p className='text-stone-300'>
+						The productivity app designed for stress free task management using
+						priority hierarchy and percentage completions.
 					</p>
+					<ul className="ml-4 list-disc text-stone-300">
+						<li>Organize tasks effortlessly.</li>
+						<li>Track progress seamlessly.</li>
+						<li>Monitor well-being insights.</li>
+					</ul>
 					<Link
-						className="transition-all flex items-center justify-center text-xl h-12 w-28 font-bold rounded-md border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-white hover:bg-white hover:text-accent"
+						className="mt-5 transition-all flex items-center justify-center text-xl h-9 w-28 font-bold rounded-md border-accent focus:outline focus:outline-2 focus:outline-primary-content bg-accent text-white hover:bg-white hover:text-accent"
 						to="/register"
 					>
 						Sign Up
