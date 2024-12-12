@@ -6,8 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: backend
-    environment:
-      - NODE_ENV=production
+    env_file:
+      - .env
+
     expose:
       - "3000" # Exposing port for Express
     working_dir: /app/backend
