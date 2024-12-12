@@ -16,12 +16,7 @@ mongoose
 	.then(() => {
 		logger.info('Connected to db');
 
-		const options = {
-			key: fs.readFileSync('key.pem'),
-			cert: fs.readFileSync('cert.pem'),
-		};
-
-		const server = https.createServer(options, app);
+		const server = https.createServer(app);
 
 		if (!config.PORT) {
 			logger.error('PORT is not defined');
