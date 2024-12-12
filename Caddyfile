@@ -1,0 +1,21 @@
+# HTTP to HTTPS redirection
+http://dtboard.tech {
+    redir https://dtboard.tech{uri} permanent
+}
+
+# HTTPS Configuration (automatic SSL via Let's Encrypt)
+https://dtboard.tech {
+    reverse_proxy localhost:3000
+
+    # Enable automatic HTTPS (handled by Caddy)
+    encode gzip
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+
+    # Optional: Set custom headers (like HSTS)
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    }
+}

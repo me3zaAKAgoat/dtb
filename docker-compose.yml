@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend
+    environment:
+      - NODE_ENV=production
+    expose:
+      - "3000" # Exposing port for Express
+    working_dir: /app/backend
+    command: npm run start # Start Express server
+    restart: always
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./certs:/etc/caddy/certs
+      - ./data:/etc/caddy/data
+      - ./logs:/var/log/caddy
+    ports:
+      - "80:80" # HTTP
+      - "443:443" # HTTPS
+    depends_on:
+      - backend
+    restart: always
