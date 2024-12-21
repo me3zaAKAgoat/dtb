@@ -11,6 +11,8 @@ services:
 
     expose:
       - "3000" # Exposing port for Express
+    ports:
+      - "3000:3000" # Port mapping
     working_dir: /app/backend
     command: npm run start # Start Express server
     restart: always
