@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-const PORT: string | undefined = process.env.PORT;
+const PORT: number | undefined = process.env.PORT as unknown as number;
 const MONGODB_URI: string | undefined = process.env.MONGODB_URI;
 const SECRET: string | undefined = process.env.SECRET;
 const TOKEN_EXPIRATION: string | undefined = process.env.TOKEN_EXPIRATION;

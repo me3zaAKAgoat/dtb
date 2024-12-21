@@ -37,6 +37,11 @@ app.use(
 	taskRouter,
 );
 
+app.get('/api/health', (req, res) => {
+	console.log('Health endpoint hit'); // Log to check if the route is triggered
+	res.status(200).json({ status: 'healthy' });
+});
+
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'build/index.html'));
 });

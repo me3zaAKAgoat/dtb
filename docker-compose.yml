@@ -14,7 +14,6 @@ services:
     ports:
       - "3000:3000" # Port mapping
     working_dir: /app/backend
-    command: npm run start # Start Express server
     restart: always
 
   caddy:

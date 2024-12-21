@@ -21,7 +21,9 @@ RUN cd backend && npm run build
 RUN cd frontend && npm run build
 
 # Copy the built frontend into the backend's build directory (Express will serve it)
-RUN cp -r frontend/dist /app/backend/build
+RUN cp -r frontend/dist /app/backend/dist
+
+RUN mv /app/backend/dist/dist /app/backend/dist/build
 
 # Expose the port that Express will listen on
 EXPOSE 3000

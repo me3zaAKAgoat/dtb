@@ -1,5 +1,5 @@
 import app from './app';
-import https from 'https';
+import http from 'http';
 import config from './utils/config';
 import logger from './utils/logger';
 import mongoose from 'mongoose';
@@ -16,13 +16,15 @@ mongoose
 	.then(() => {
 		logger.info('Connected to db');
 
-		const server = https.createServer(app);
+		const server = http.createServer(app);
 
 		if (!config.PORT) {
 			logger.error('PORT is not defined');
 			throw new Error('PORT is not defined');
 		}
-		server.listen(config.PORT, () => {
+		// listen on config.PORT and bind to 0.0.0.0
+
+		server.listen(config.PORT, '0.0.0.0', () => {
 			logger.info(`Server running on port ${config.PORT}`);
 		});
 	})
