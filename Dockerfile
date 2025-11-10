@@ -1,35 +1,48 @@
-# Use Node.js base image
-FROM node:18-alpine
-
-# Set working directory for backend
+FROM node:20-alpine AS builder
 WORKDIR /app
+ENV NODE_ENV=development
 
-# Copy backend package files and install dependencies
-COPY backend/package.json backend/package-lock.json /app/backend/
-RUN cd backend && npm install
+# Install backend dependencies
+COPY backend/package.json backend/package-lock.json ./backend/
+RUN cd backend && npm ci
 
-# Copy frontend package files and install dependencies
-COPY frontend/package.json frontend/package-lock.json /app/frontend/
-RUN cd frontend && npm install
+# Install frontend dependencies
+COPY frontend/package.json frontend/package-lock.json ./frontend/
+RUN cd frontend && npm ci
 
-# Copy the rest of the code to the container
-COPY . /app
+# Copy source
+COPY backend ./backend
+COPY frontend ./frontend
 
+# Build backend (TypeScript -> dist)
 RUN cd backend && npm run build
 
-# Build frontend (SPA)
+# Build frontend (Vite -> dist)
 RUN cd frontend && npm run build
 
-# Copy the built frontend into the backend's build directory (Express will serve it)
-RUN cp -r frontend/dist /app/backend/dist
+FROM node:20-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
 
-RUN mv /app/backend/dist/dist /app/backend/dist/build
+# Install only production dependencies for backend
+COPY backend/package.json backend/package-lock.json ./backend/
+RUN cd backend && npm ci --omit=dev
 
-# Expose the port that Express will listen on
+# Copy compiled backend
+COPY --from=builder /app/backend/dist ./backend/dist
+
+# Copy built frontend into backend served path
+COPY --from=builder /app/frontend/dist ./backend/dist/build
+
+# Default port (overridable via env)
+ENV PORT=3000
 EXPOSE 3000
 
-# Set the working directory to the backend
-WORKDIR /app/backend
+# Healthcheck against backend health endpoint
+# Install wget for healthcheck (lightweight in alpine)
+RUN apk add --no-cache wget
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget -qO- http://localhost:3000/api/health || exit 1
 
-# Command to run Express server
-CMD ["npm", "run", "start"]
+WORKDIR /app/backend
+CMD ["node", "dist/index.js"]

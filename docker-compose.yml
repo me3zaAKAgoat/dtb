@@ -5,28 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: backend
+    container_name: dtb-backend
     env_file:
       - .env
-
-    expose:
-      - "3000" # Exposing port for Express
     ports:
-      - "3000:3000" # Port mapping
-    working_dir: /app/backend
-    restart: always
-
-  caddy:
-    image: caddy:latest
-    container_name: caddy
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./certs:/etc/caddy/certs
-      - ./data:/etc/caddy/data
-      - ./logs:/var/log/caddy
-    ports:
-      - "80:80" # HTTP
-      - "443:443" # HTTPS
-    depends_on:
-      - backend
+      - "3000:3000"
     restart: always
